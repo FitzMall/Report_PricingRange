@@ -282,8 +282,7 @@
 
                         <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index -href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
                         <td class="text-center"><a href="@bd1URL" class="lead-detail-link" target="_blank">@BreakDown1InStockStatus1</a></td>
-                        <td class="text-center">@BreakDown1InStockStatus1</td>
-
+                      
                         <td class="text-center">@BreakDown1InStockStatus2</td>
 
                         <td class="text-center">@BreakDown1InStockStatus3</td>
@@ -291,6 +290,17 @@
                         <td class="text-center">@BreakDown1InStockStatus4</td>
 
                         <td class="text-center">@BreakDown1InStockStatus5</td>
+
+                        <td class="text-center">@BreakDown1OnOrderStatus1</td>
+
+                        <td class="text-center">@BreakDown1OnOrderStatus2</td>
+
+                        <td class="text-center">@BreakDown1OnOrderStatus3</td>
+
+                        <td class="text-center">@BreakDown1OnOrderStatus4</td>
+
+                        <td class="text-center">@BreakDown1OnOrderStatus5</td>
+
 
                     </tr>
 
@@ -407,28 +417,48 @@
                         //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel2 + "," + BreakDown2 + "&bd2=" + "&bd3=" + "&bd4=";
 
 
-                        <tr class="location-bd1-collapse-@BreakDown1Index collapse out location-bd2-data-row-@Breakdown2Index @label2.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd2-collapse-@Breakdown2Index">
+        <tr class="location-bd1-collapse-@BreakDown1Index collapse out location-bd2-data-row-@Breakdown2Index @label2.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd2-collapse-@Breakdown2Index">
 
-                            <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@Breakdown2Index" style="cursor: pointer;" class="location-bd2-collapse-@Breakdown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@Breakdown2Index">@label2 </a></td>
-                            <td class="text-center"><a href="@bd2URL" class="lead-detail-link" target="_blank">@BreakDown2InStockStatus1</a></td>
-                         </tr>
+            <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@Breakdown2Index" style="cursor: pointer;" class="location-bd2-collapse-@Breakdown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@Breakdown2Index">@label2 </a></td>
+            <td class="text-center"><a href="@bd2URL" class="lead-detail-link" target="_blank">@BreakDown2InStockStatus1</a></td>
+
+            <td class="text-center">@BreakDown2InStockStatus2</td>
+
+            <td class="text-center">@BreakDown2InStockStatus3</td>
+
+            <td class="text-center">@BreakDown2InStockStatus4</td>
+
+            <td class="text-center">@BreakDown2InStockStatus5</td>
+
+            <td class="text-center">@BreakDown2OnOrderStatus1</td>
+
+            <td class="text-center">@BreakDown2OnOrderStatus2</td>
+
+            <td class="text-center">@BreakDown2OnOrderStatus3</td>
+
+            <td class="text-center">@BreakDown2OnOrderStatus4</td>
+
+            <td class="text-center">@BreakDown2OnOrderStatus5</td>
+        </tr>
 
                         <script type="text/javascript">
 
                                 $(document).ready(function () {
-                                    $(".location-bd2-collapse-@Breakdown2Index  -href").click(function () {
+                                    $(".location-bd2-collapse-@Breakdown2Index-href").click(function () {
                                         $('.location-bd2-data-row-@Breakdown2Index ').toggleClass('selected-row');
-                                        $(".location-bd2-collapse-@Breakdown2Index -href").toggleClass('changed');
+                                        $(".location-bd2-collapse-@Breakdown2Index-href").toggleClass('changed');
                                     });
                                 });
                         </script>
 
+                        Breakdown2Index += 1;
+
                     }
 
-                    Breakdown2Index += 1;
+                    BreakDown1Index += 1;
                 }
 
-                BreakDown1Index += 1;
+
 
             }
 
