@@ -174,7 +174,6 @@
         <tbody>
             @if (Model.Prices != null)
             {
-
                 var breakdownLevel1Values = new List<string>();
 
                 switch (Model.BreakDownLevel1)
@@ -205,8 +204,8 @@
                         break;
                 }
 
-                var breakdown1Index = 0;
-                var breakdown2Index = 0;
+                var BreakDown1Index = 0;
+                var Breakdown2Index = 0;
                 var BreakDown3Index = 0;
                 var BreakDown4Index = 0;
 
@@ -275,45 +274,165 @@
                     BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                     BreakDown1InStockStatus5 = BreakDown1.Count;
 
-            
-                    var bd1URL = applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel1 + "," + breakdown1 + "&bd2=" + "&bd3=" + "&bd4=";
 
-            <tr class="location-bd1-data-row-@breakdown1Index @label1.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd1-collapse-@breakdown1Index">
+                    var bd1URL = "";
+                    //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel1 + "," + breakdown1 + "&bd2=" + "&bd3=" + "&bd4=";
 
-                <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@breakdown1Index" style="cursor: pointer;" class="location-bd1-collapse-@breakdown1Index-href collapsed" data-target=".location-bd1-collapse-@breakdown1Index">@label1 </a></td>
-                <td class="text-center"><a href="@bd1URL" class="lead-detail-link" target="_blank">@BreakDown1InStockStatus1</a></td>
-                <td class="text-center">@BreakDown1InStockStatus1</td>
+                    <tr class="location-bd1-data-row-@BreakDown1Index  @label1.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd1-collapse-@BreakDown1Index ">
 
-                <td class="text-center">@BreakDown1InStockStatus2</td>
+                        <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index -href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
+                        <td class="text-center"><a href="@bd1URL" class="lead-detail-link" target="_blank">@BreakDown1InStockStatus1</a></td>
+                        <td class="text-center">@BreakDown1InStockStatus1</td>
 
-                <td class="text-center">@BreakDown1InStockStatus3</td>
+                        <td class="text-center">@BreakDown1InStockStatus2</td>
 
-                <td class="text-center">@BreakDown1InStockStatus4</td>
+                        <td class="text-center">@BreakDown1InStockStatus3</td>
 
-                <td class="text-center">@BreakDown1InStockStatus5</td>
+                        <td class="text-center">@BreakDown1InStockStatus4</td>
 
-            </tr>
+                        <td class="text-center">@BreakDown1InStockStatus5</td>
 
-                            <script type="text/javascript">
+                    </tr>
+
+                    <script type="text/javascript">
 
                                 $(document).ready(function () {
-                                    $(".location-bd1-collapse-@breakdown1Index-href").click(function () {
-                                        $('.location-bd1-data-row-@breakdown1Index').toggleClass('selected-row');
-                                        $(".location-bd1-collapse-@breakdown1Index-href").toggleClass('changed');
+                                    $(".location-bd1-collapse-@BreakDown1Index  -href").click(function () {
+                                        $('.location-bd1-data-row-@BreakDown1Index ').toggleClass('selected-row');
+                                        $(".location-bd1-collapse-@BreakDown1Index -href").toggleClass('changed');
                                     });
                                 });
-                            </script>
+                    </script>
 
-        
-                   BreakDown4Index += 1;
 
+
+                    var BreakdownLevel2Values = new List<string>();
+
+                    switch (Model.BreakDownLevel2)
+                    {
+                        case "ModelName":
+                            BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
+                            break;
+
+
+                        case "StockNumber":
+                            BreakdownLevel2Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
+                            break;
+
+                        case "MakeName":
+                            BreakdownLevel2Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
+                            break;
+
+                        case "MatrixPricing":
+                            BreakdownLevel2Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
+                            break;
+
+                        case "LocationCode":
+                            BreakdownLevel2Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
+                            break;
+
+                        default:
+                            // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
+                            break;
+                    }
+
+                    foreach (var BreakDown2 in BreakdownLevel2Values)
+                    {
+                        var label2 = BreakDown2;
+
+                        var BreakDown2filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
+
+                        switch (Model.BreakDownLevel2)
+                        {
+                            case "ModelName":
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName == BreakDown2);
+                                break;
+
+                            case "StockNumber":
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StockNumber == BreakDown2);
+                                break;
+
+                            case "MakeName":
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MakeName == BreakDown2);
+                                break;
+
+                            case "MatrixPricing":
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
+                                break;
+
+                            case "LocationCode":
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
+
+                                break;
+
+                            default:
+                                BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
+                                break;
+                        }
+
+
+
+                        // START ALL THE MAGIC HERE
+
+                        decimal BreakDown2InStockStatus1 = 0;
+                        decimal BreakDown2InStockStatus2 = 0;
+
+                        decimal BreakDown2InStockStatus3 = 0;
+                        decimal BreakDown2InStockStatus4 = 0;
+                        decimal BreakDown2InStockStatus5 = 0;
+                        decimal BreakDown2InStockStatusTotal = 0;
+
+                        decimal BreakDown2OnOrderStatus1 = 0;
+                        decimal BreakDown2OnOrderStatus2 = 0;
+
+                        decimal BreakDown2OnOrderStatus3 = 0;
+                        decimal BreakDown2OnOrderStatus4 = 0;
+                        decimal BreakDown2OnOrderStatus5 = 0;
+                        decimal BreakDown2OnOrderStatusTotal = 0;
+
+
+                        var BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus != "InStock1");
+                        BreakDown2InStockStatus1 = BreakDown2data.Count;
+                        BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
+                        BreakDown2InStockStatus2 = BreakDown2data.Count;
+                        BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
+                        BreakDown2InStockStatus3 = BreakDown2data.Count;
+                        BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
+                        BreakDown2InStockStatus4 = BreakDown2data.Count;
+                        BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
+                        BreakDown2InStockStatus5 = BreakDown2data.Count;
+
+
+                        var bd2URL = "";
+                        //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel2 + "," + BreakDown2 + "&bd2=" + "&bd3=" + "&bd4=";
+
+
+                        <tr class="location-bd1-collapse-@BreakDown1Index collapse out location-bd2-data-row-@Breakdown2Index @label2.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd2-collapse-@Breakdown2Index">
+
+                            <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@Breakdown2Index" style="cursor: pointer;" class="location-bd2-collapse-@Breakdown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@Breakdown2Index">@label2 </a></td>
+                            <td class="text-center"><a href="@bd2URL" class="lead-detail-link" target="_blank">@BreakDown2InStockStatus1</a></td>
+                         </tr>
+
+                        <script type="text/javascript">
+
+                                $(document).ready(function () {
+                                    $(".location-bd2-collapse-@Breakdown2Index  -href").click(function () {
+                                        $('.location-bd2-data-row-@Breakdown2Index ').toggleClass('selected-row');
+                                        $(".location-bd2-collapse-@Breakdown2Index -href").toggleClass('changed');
+                                    });
+                                });
+                        </script>
+
+                    }
+
+                    Breakdown2Index += 1;
                 }
 
-                BreakDown3Index += 1;
+                BreakDown1Index += 1;
 
-             }
+            }
 
-                
+
 
 
 
@@ -355,22 +474,7 @@
                 var index = 0;
             }
 
-            @*@foreach (var storeInformation in Model.StoreLeadInformation)
-                {
 
-
-
-                    <script type="text/javascript">
-
-                        $(document).ready(function () {
-                            $(".location-associate-collapse-@index-href").click(function () {
-                                $('.location-associate-data-row-@index').toggleClass('selected-row');
-                                $(".location-associate-collapse-@index-href").toggleClass('changed');
-                            });
-                        });
-                    </script>
-
-                }*@
 
             @{
                 if (TotalPhoneLeadCount > 0)
