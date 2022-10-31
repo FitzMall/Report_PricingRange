@@ -26,7 +26,7 @@
     breakDowns.Add("Location");
     breakDownValues.Add("LocationCode");
 
-    breakDowns.Add("Lead Group");
+    breakDowns.Add("Stock #");
     breakDownValues.Add("StockNumber");
 
 
@@ -137,27 +137,9 @@
 
 <div class="row" style="margin-top:25px;">
     <div class="col-sm-2 report-parameters">
-        <h4>Template Report Parameters</h4>
+        <h4>Price Range Report</h4>
         @using (Html.BeginForm())
         {
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Start Date:</strong>
-                </div>
-                <div class="col-sm-6">
-                    <strong>End Date:</strong>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <input type="text" id="datepickerStart" name="datepickerStart" class="form-control form-inline" style="padding:4px;height:30px;" value="@Model.ReportStartDate.ToShortDateString()">
-                </div>
-                <div class="col-sm-6">
-                    <input type="text" id="datepickerEnd" name="datepickerEnd" class="form-control form-inline" style="padding:4px;height:30px;" value="@Model.ReportEndDate.ToShortDateString()">
-                </div>
-            </div>
-
-
             <div class="row">
                 <div class="col-sm-12">
                     <hr class="hr-divider" />
