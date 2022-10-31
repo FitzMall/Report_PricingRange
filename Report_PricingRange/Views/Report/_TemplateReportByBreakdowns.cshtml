@@ -85,28 +85,31 @@
         }
 
 
-        <tr style="background-color:#f5f5f5;">
-            <td class="text-center"> </td>
-            <td class="text-center">InStock 1</td>
+    <tr style="background-color:#f5f5f5;">
+        <td class="text-center"> </td>
+        <td class="text-center">InStock 1</td>
 
-            <td class="text-center">InStock 2</td>
+        <td class="text-center">InStock 2</td>
 
-            <td class="text-center">InStock 3</td>
+        <td class="text-center">InStock 3</td>
 
-            <td class="text-center">InStock 4</td>
+        <td class="text-center">InStock 4</td>
 
-            <td class="text-center">InStock 5</td>
+        <td class="text-center">InStock 5</td>
+        <td class="text-center">InStock TOTAL</td>
 
-            <td class="text-center">OnOrder 1</td>
+        <td class="text-center">OnOrder 1</td>
 
-            <td class="text-center">OnOrder 2</td>
+        <td class="text-center">OnOrder 2</td>
 
-            <td class="text-center">OnOrder 3</td>
+        <td class="text-center">OnOrder 3</td>
 
-            <td class="text-center">OnOrder 4</td>
+        <td class="text-center">OnOrder 4</td>
 
-            <td class="text-center">OnOrder 5</td>
-        </tr>
+        <td class="text-center">OnOrder 5</td>
+        <td class="text-center">OnOrder TOTAL</td>
+        <td class="text-center">TOTAL</td>
+    </tr>
 
         <table class="table table-bordered sticky-header" style="font-size:12px; border-left: none;">
             <tbody>
@@ -200,6 +203,8 @@
                         decimal BreakDown1OnOrderStatus4 = 0;
                         decimal BreakDown1OnOrderStatus5 = 0;
                         decimal BreakDown1OnOrderStatusTotal = 0;
+                        decimal BreakDown1Total = 0;
+
 
                         var BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus != "InStock1");
                         BreakDown1InStockStatus1 = BreakDown1.Count;
@@ -211,36 +216,52 @@
                         BreakDown1InStockStatus4 = BreakDown1.Count;
                         BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                         BreakDown1InStockStatus5 = BreakDown1.Count;
+                        BreakDown1InStockStatusTotal = BreakDown1InStockStatus1 + BreakDown1InStockStatus2 + BreakDown1InStockStatus3 + BreakDown1InStockStatus4 + BreakDown1InStockStatus5;
 
+                        BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus != "OnOrder1");
+                        BreakDown1OnOrderStatus1 = BreakDown1.Count;
+                        BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                        BreakDown1OnOrderStatus2 = BreakDown1.Count;
+                        BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                        BreakDown1OnOrderStatus3 = BreakDown1.Count;
+                        BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
+                        BreakDown1OnOrderStatus4 = BreakDown1.Count;
+                        BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                        BreakDown1OnOrderStatus5 = BreakDown1.Count;
+                        BreakDown1OnOrderStatusTotal = BreakDown1OnOrderStatus1 + BreakDown1OnOrderStatus2 + BreakDown1OnOrderStatus3 + BreakDown1OnOrderStatus4 + BreakDown1OnOrderStatus5;
+                        BreakDown1Total = BreakDown1OnOrderStatusTotal + BreakDown1InStockStatusTotal;
 
                         var bd1URL = "";
                         //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel1 + "," + breakdown1 + "&bd2=" + "&bd3=" + "&bd4=";
 
-                        <tr class="location-bd1-data-row-@BreakDown1Index  @label1.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd1-collapse-@BreakDown1Index ">
+                <tr class="location-bd1-data-row-@BreakDown1Index  @label1.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd1-collapse-@BreakDown1Index ">
 
-                            <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index -href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
-                            <td class="text-center"><a href="@bd1URL" class="lead-detail-link" target="_blank">@BreakDown1InStockStatus1</a></td>
+                    <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index -href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
+                    <td class="text-center"><a href="@bd1URL" class="lead-detail-link" target="_blank">@BreakDown1InStockStatus1</a></td>
 
-                            <td class="text-center">@BreakDown1InStockStatus2</td>
+                    <td class="text-center">@BreakDown1InStockStatus2</td>
 
-                            <td class="text-center">@BreakDown1InStockStatus3</td>
+                    <td class="text-center">@BreakDown1InStockStatus3</td>
 
-                            <td class="text-center">@BreakDown1InStockStatus4</td>
+                    <td class="text-center">@BreakDown1InStockStatus4</td>
 
-                            <td class="text-center">@BreakDown1InStockStatus5</td>
+                    <td class="text-center">@BreakDown1InStockStatus5</td>
+                    <td class="text-center">@BreakDown1InStockStatusTotal</td>
 
-                            <td class="text-center">@BreakDown1OnOrderStatus1</td>
+                    <td class="text-center">@BreakDown1OnOrderStatus1</td>
 
-                            <td class="text-center">@BreakDown1OnOrderStatus2</td>
+                    <td class="text-center">@BreakDown1OnOrderStatus2</td>
 
-                            <td class="text-center">@BreakDown1OnOrderStatus3</td>
+                    <td class="text-center">@BreakDown1OnOrderStatus3</td>
 
-                            <td class="text-center">@BreakDown1OnOrderStatus4</td>
+                    <td class="text-center">@BreakDown1OnOrderStatus4</td>
 
-                            <td class="text-center">@BreakDown1OnOrderStatus5</td>
+                    <td class="text-center">@BreakDown1OnOrderStatus5</td>
+                    <td class="text-center">@BreakDown1OnOrderStatusTotal</td>
+                    <td class="text-center">@BreakDown1Total</td>
 
 
-                        </tr>
+                </tr>
 
                         <script type="text/javascript">
 
@@ -337,6 +358,7 @@
                             decimal BreakDown2OnOrderStatus4 = 0;
                             decimal BreakDown2OnOrderStatus5 = 0;
                             decimal BreakDown2OnOrderStatusTotal = 0;
+                            decimal BreakDown2Total = 0;
 
 
                             var BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus != "InStock1");
@@ -349,35 +371,52 @@
                             BreakDown2InStockStatus4 = BreakDown2data.Count;
                             BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                             BreakDown2InStockStatus5 = BreakDown2data.Count;
+                            BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
 
+
+                            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus != "OnOrder1");
+                            BreakDown2OnOrderStatus1 = BreakDown2data.Count;
+                            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                            BreakDown2OnOrderStatus2 = BreakDown2data.Count;
+                            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                            BreakDown2OnOrderStatus3 = BreakDown2data.Count;
+                            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
+                            BreakDown2OnOrderStatus4 = BreakDown2data.Count;
+                            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                            BreakDown2OnOrderStatus5 = BreakDown2data.Count;
+                            BreakDown2InStockStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
+                            BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
 
                             var bd2URL = "";
                             //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel2 + "," + BreakDown2 + "&bd2=" + "&bd3=" + "&bd4=";
 
 
-                            <tr class="location-bd1-collapse-@BreakDown1Index collapse out location-bd2-data-row-@BreakDown2Index @label2.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown2Index">
+            <tr class="location-bd1-collapse-@BreakDown1Index collapse out location-bd2-data-row-@BreakDown2Index @label2.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown2Index">
 
-                                <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
-                                <td class="text-center"><a href="@bd2URL" class="lead-detail-link" target="_blank">@BreakDown2InStockStatus1</a></td>
+                <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
+                <td class="text-center"><a href="@bd2URL" class="lead-detail-link" target="_blank">@BreakDown2InStockStatus1</a></td>
 
-                                <td class="text-center">@BreakDown2InStockStatus2</td>
+                <td class="text-center">@BreakDown2InStockStatus2</td>
 
-                                <td class="text-center">@BreakDown2InStockStatus3</td>
+                <td class="text-center">@BreakDown2InStockStatus3</td>
 
-                                <td class="text-center">@BreakDown2InStockStatus4</td>
+                <td class="text-center">@BreakDown2InStockStatus4</td>
 
-                                <td class="text-center">@BreakDown2InStockStatus5</td>
+                <td class="text-center">@BreakDown2InStockStatus5</td>
+                <td class="text-center">@BreakDown2InStockStatusTotal</td>
 
-                                <td class="text-center">@BreakDown2OnOrderStatus1</td>
+                <td class="text-center">@BreakDown2OnOrderStatus1</td>
 
-                                <td class="text-center">@BreakDown2OnOrderStatus2</td>
+                <td class="text-center">@BreakDown2OnOrderStatus2</td>
 
-                                <td class="text-center">@BreakDown2OnOrderStatus3</td>
+                <td class="text-center">@BreakDown2OnOrderStatus3</td>
 
-                                <td class="text-center">@BreakDown2OnOrderStatus4</td>
+                <td class="text-center">@BreakDown2OnOrderStatus4</td>
 
-                                <td class="text-center">@BreakDown2OnOrderStatus5</td>
-                            </tr>
+                <td class="text-center">@BreakDown2OnOrderStatus5</td>
+                <td class="text-center">@BreakDown2OnOrderStatusTotal</td>
+                <td class="text-center">@BreakDown2Total</td>
+            </tr>
 
                             <script type="text/javascript">
 
@@ -484,6 +523,7 @@
                                 decimal BreakDown3OnOrderStatus4 = 0;
                                 decimal BreakDown3OnOrderStatus5 = 0;
                                 decimal BreakDown3OnOrderStatusTotal = 0;
+                                decimal BreakDown3Total = 0;
 
 
                                 var BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus != "InStock1");
@@ -496,35 +536,52 @@
                                 BreakDown3InStockStatus4 = BreakDown3data.Count;
                                 BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                                 BreakDown3InStockStatus5 = BreakDown3data.Count;
+                                BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
 
+                                BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus != "OnOrder1");
+                                BreakDown3OnOrderStatus1 = BreakDown3data.Count;
+                                BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                                BreakDown3OnOrderStatus2 = BreakDown3data.Count;
+                                BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                                BreakDown3OnOrderStatus3 = BreakDown3data.Count;
+                                BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
+                                BreakDown3OnOrderStatus4 = BreakDown3data.Count;
+                                BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                                BreakDown3OnOrderStatus5 = BreakDown3data.Count;
+                                BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
+                                BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
 
                                 var bd3URL = "";
                                 //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel2 + "," + BreakDown3 + "&bd2=" + "&bd3=" + "&bd4=";
 
 
-                                <tr class="location-bd1-collapse-@BreakDown2Index collapse out location-bd2-data-row-@BreakDown3Index @label3.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown3Index">
+            <tr class="location-bd1-collapse-@BreakDown2Index collapse out location-bd2-data-row-@BreakDown3Index @label3.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown3Index">
 
-                                    <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown3Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown3Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown3Index">@label2 </a></td>
-                                    <td class="text-center"><a href="@bd3URL" class="lead-detail-link" target="_blank">@BreakDown3InStockStatus1</a></td>
+                <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown3Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown3Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown3Index">@label2 </a></td>
+                <td class="text-center"><a href="@bd3URL" class="lead-detail-link" target="_blank">@BreakDown3InStockStatus1</a></td>
 
-                                    <td class="text-center">@BreakDown3InStockStatus2</td>
+                <td class="text-center">@BreakDown3InStockStatus2</td>
 
-                                    <td class="text-center">@BreakDown3InStockStatus3</td>
+                <td class="text-center">@BreakDown3InStockStatus3</td>
 
-                                    <td class="text-center">@BreakDown3InStockStatus4</td>
+                <td class="text-center">@BreakDown3InStockStatus4</td>
 
-                                    <td class="text-center">@BreakDown3InStockStatus5</td>
+                <td class="text-center">@BreakDown3InStockStatus5</td>
+                <td class="text-center">@BreakDown3InStockStatusTotal</td>
 
-                                    <td class="text-center">@BreakDown3OnOrderStatus1</td>
+                <td class="text-center">@BreakDown3OnOrderStatus1</td>
 
-                                    <td class="text-center">@BreakDown3OnOrderStatus2</td>
+                <td class="text-center">@BreakDown3OnOrderStatus2</td>
 
-                                    <td class="text-center">@BreakDown3OnOrderStatus3</td>
+                <td class="text-center">@BreakDown3OnOrderStatus3</td>
 
-                                    <td class="text-center">@BreakDown3OnOrderStatus4</td>
+                <td class="text-center">@BreakDown3OnOrderStatus4</td>
 
-                                    <td class="text-center">@BreakDown3OnOrderStatus5</td>
-                                </tr>
+                <td class="text-center">@BreakDown3OnOrderStatus5</td>
+
+                <td class="text-center">@BreakDown3OnOrderStatusTotal</td>
+                <td class="text-center">@BreakDown3Total</td>
+            </tr>
 
                                 <script type="text/javascript">
 
@@ -619,6 +676,7 @@
                                     decimal BreakDown4OnOrderStatus4 = 0;
                                     decimal BreakDown4OnOrderStatus5 = 0;
                                     decimal BreakDown4OnOrderStatusTotal = 0;
+                                    decimal BreakDown4Total = 0;
 
 
                                     var BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus != "InStock1");
@@ -631,35 +689,54 @@
                                     BreakDown4InStockStatus4 = BreakDown4data.Count;
                                     BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                                     BreakDown4InStockStatus5 = BreakDown4data.Count;
+                                    BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
 
+
+                                    BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus != "OnOrder1");
+                                    BreakDown4OnOrderStatus1 = BreakDown4data.Count;
+                                    BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                                    BreakDown4OnOrderStatus2 = BreakDown4data.Count;
+                                    BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                                    BreakDown4OnOrderStatus3 = BreakDown4data.Count;
+                                    BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
+                                    BreakDown4OnOrderStatus4 = BreakDown4data.Count;
+                                    BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                                    BreakDown4OnOrderStatus5 = BreakDown4data.Count;
+                                    BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
+                                    BreakDown4Total = BreakDown4OnOrderStatusTotal + BreakDown4InStockStatusTotal;
 
                                     var bd4URL = "";
                                     //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel3 + "," + BreakDown4 + "&bd2=" + "&bd3=" + "&bd4=";
 
 
-                                    <tr class="location-bd1-collapse-@BreakDown3Index collapse out location-bd2-data-row-@BreakDown4Index @label4.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown4Index">
+            <tr class="location-bd1-collapse-@BreakDown3Index collapse out location-bd2-data-row-@BreakDown4Index @label4.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd2-collapse-@BreakDown4Index">
 
-                                        <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown4Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown4Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown4Index">@label2 </a></td>
-                                        <td class="text-center"><a href="@bd4URL" class="lead-detail-link" target="_blank">@BreakDown4InStockStatus1</a></td>
+                <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown4Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown4Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown4Index">@label2 </a></td>
+                <td class="text-center"><a href="@bd4URL" class="lead-detail-link" target="_blank">@BreakDown4InStockStatus1</a></td>
 
-                                        <td class="text-center">@BreakDown4InStockStatus2</td>
+                <td class="text-center">@BreakDown4InStockStatus2</td>
 
-                                        <td class="text-center">@BreakDown4InStockStatus3</td>
+                <td class="text-center">@BreakDown4InStockStatus3</td>
 
-                                        <td class="text-center">@BreakDown4InStockStatus4</td>
+                <td class="text-center">@BreakDown4InStockStatus4</td>
 
-                                        <td class="text-center">@BreakDown4InStockStatus5</td>
+                <td class="text-center">@BreakDown4InStockStatus5</td>
+                <td class="text-center">@BreakDown4InStockStatusTotal</td>
 
-                                        <td class="text-center">@BreakDown4OnOrderStatus1</td>
+                <td class="text-center">@BreakDown4OnOrderStatus1</td>
 
-                                        <td class="text-center">@BreakDown4OnOrderStatus2</td>
+                <td class="text-center">@BreakDown4OnOrderStatus2</td>
 
-                                        <td class="text-center">@BreakDown4OnOrderStatus3</td>
+                <td class="text-center">@BreakDown4OnOrderStatus3</td>
 
-                                        <td class="text-center">@BreakDown4OnOrderStatus4</td>
+                <td class="text-center">@BreakDown4OnOrderStatus4</td>
 
-                                        <td class="text-center">@BreakDown4OnOrderStatus5</td>
-                                    </tr>
+                <td class="text-center">@BreakDown4OnOrderStatus5</td>
+
+                <td class="text-center">@BreakDown4OnOrderStatusTotal</td>
+                <td class="text-center">@BreakDown4Total</td>
+
+            </tr>
 
                                     <script type="text/javascript">
 
