@@ -79,6 +79,7 @@
             decimal OnOrder4Count = 0;
             decimal OnOrder5Count = 0;
             decimal OnOrderCountTotal = 0;
+            decimal BOTHCountTotal = 0;
 
             decimal LineTotal = 0;
 
@@ -185,9 +186,6 @@
                         }
 
 
-
-
-
                         decimal BreakDown1InStockStatus1 = 0;
                         decimal BreakDown1InStockStatus2 = 0;
 
@@ -225,6 +223,7 @@
                         BreakDown1InStockStatus5 = BreakDown1.Count;
                         InStock5Count += BreakDown1InStockStatus5;
                         BreakDown1InStockStatusTotal = BreakDown1InStockStatus1 + BreakDown1InStockStatus2 + BreakDown1InStockStatus3 + BreakDown1InStockStatus4 + BreakDown1InStockStatus5;
+                        InStockCountTotal += BreakDown1InStockStatusTotal;
 
                         BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus != "OnOrder1");
                         BreakDown1OnOrderStatus1 = BreakDown1.Count;
@@ -250,6 +249,7 @@
                         BreakDown1OnOrderStatusTotal = BreakDown1OnOrderStatus1 + BreakDown1OnOrderStatus2 + BreakDown1OnOrderStatus3 + BreakDown1OnOrderStatus4 + BreakDown1OnOrderStatus5;
                         BreakDown1Total = BreakDown1OnOrderStatusTotal + BreakDown1InStockStatusTotal;
                         OnOrderCountTotal += BreakDown1Total;
+                        BOTHCountTotal = OnOrderCountTotal + InStockCountTotal;
 
                         var bd1URL = "";
                         //applicationPath + "/Reports/LeadReportDetails/" + "?startdate=" + Model.ReportStartDate.ToShortDateString() + "&enddate=" + Model.ReportEndDate.ToShortDateString() + "&bd1=" + Model.BreakDownLevel1 + "," + breakdown1 + "&bd2=" + "&bd3=" + "&bd4=";
@@ -812,8 +812,8 @@
                     <td class="text-center">@OnOrder5Count</td>
 
                     <td class="text-center">@OnOrderCountTotal</td>
-                    <td class="text-center"></td>
 
+                    <td class="text-center">@BOTHCountTotal</td>
 
                 </tr>
             </tfoot>
