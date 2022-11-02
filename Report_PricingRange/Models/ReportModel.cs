@@ -39,6 +39,8 @@ namespace Report_PricingRange.Models
 
         public string PricingStatus { get; set; }
 
+        public string S_LOCCODE { get; set; }
+
 
     }
 }
