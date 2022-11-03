@@ -1,6 +1,7 @@
 ﻿using Report_PricingRange.Business;
 using Report_PricingRange.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -73,6 +74,14 @@ namespace Report_PricingRange.Controllers
             return View(leadReportModel);
         }
 
+        public ActionResult DrillDown(string PricingStatus, string BreakdownType, string BreakdownValue)
+        {
+            var DrillDownfilteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
 
+            var DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.LocationCode == BreakdownValue);
+
+            return Redirect("TemplateReport");
+
+        }
     }
 }
