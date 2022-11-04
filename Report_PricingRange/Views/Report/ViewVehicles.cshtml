@@ -112,56 +112,52 @@
 <table class="table" style="left: 0">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Vin)
+            VIN
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StockNumber)
+            Stock#
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VehicleStatus)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleCondition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MakeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModelName)
+            Vehicle Status
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.InternetPrice)
+            Condition
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeliveredPrice)
+            Location
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InvoicePrice)
+            Make
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MSRPPrice)
+            Make
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KBBPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MatrixPricing)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MAPPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LowestMAAPPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PricingStatus)
 
-        <th></th>
+        <th>
+            Internet $
+        </th>
+        <th>
+            Delivered $
+        </th>
+        <th>
+            Invoice
+        </th>
+        <th>
+            MSRP
+        </th>
+        <th>
+            KBB
+        </th>
+        <th>
+            Matrix?
+        </th>
+        <th>
+            MAAP
+        </th>
+        <th>
+            Lowest MAAP
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -213,9 +209,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PricingStatus)
             </td>
 
         </tr>
