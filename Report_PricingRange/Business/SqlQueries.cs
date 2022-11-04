@@ -33,6 +33,29 @@ namespace Report_PricingRange.Business
             return leadReportModel;
         }
 
+        public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "", 
+                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
+        {
+
+            var procedureName = "PricingRangeVehicles";
+
+            var prices = SqlMapperUtil.StoredProcWithParams <PricedVehicle>(procedureName, new {
+                parPricingStatus = PriceStatus, parLoc = LocCode, StockNumber = StockNum, 
+                        MakeName = Make, ModelName = Model, MatrixStatus = MatrixYN }, "Rackspace");
+
+            //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
+
+
+            foreach (var price in prices)
+            {
+                if (price.LocationCode == null)
+                {
+                    price.LocationCode = "";
+                }
+            }
+
+            return prices;
+        }
     }
 
 }

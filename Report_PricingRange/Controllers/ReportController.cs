@@ -17,7 +17,27 @@ namespace Report_PricingRange.Controllers
             return View();
         }
 
+
+        public ActionResult ViewVehicles(string PricingStatus = "",
+                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
+        {
+            var ViewVehiclesModel = new List<PricedVehicle>();
+            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, PricingStatus, LocCode ,  StockNum ,  Make ,  Model , MatrixYN );
+
+            return View(ViewVehiclesModel);
+        }
         public ActionResult TemplateReport()
+        {
+            var leadReportModel = new ReportTemplateModel();
+
+            leadReportModel.ReportStartDate = DateTime.Now.AddMonths(-1);
+            leadReportModel.ReportEndDate = DateTime.Now;
+
+
+            return View(leadReportModel);
+        }
+
+        public ActionResult TemplateReport2()
         {
             var leadReportModel = new ReportTemplateModel();
 
@@ -74,11 +94,13 @@ namespace Report_PricingRange.Controllers
             return View(leadReportModel);
         }
 
-        public ActionResult DrillDown(string PricingStatus, string BreakdownType, string BreakdownValue)
+        public ActionResult DrillDown(string PricingStatus = "",
+                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
         {
 
             
-            return Redirect("VehicleDrillDown");
+
+            return Redirect("ViewVehicles");
 
         }
     }
