@@ -200,10 +200,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Report\TemplateReport.cshtml" />
     <Content Include="Views\Report\_TemplateReportByBreakdowns.cshtml" />
-    <Content Include="Views\Report\VehicleDrillDown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Vehicle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
