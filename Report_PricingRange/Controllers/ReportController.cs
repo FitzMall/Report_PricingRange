@@ -78,7 +78,7 @@ namespace Report_PricingRange.Controllers
         {
 
             
-            return Redirect("TemplateReport");
+            return Redirect("VehicleDrillDown.cshtml");
 
         }
     }
