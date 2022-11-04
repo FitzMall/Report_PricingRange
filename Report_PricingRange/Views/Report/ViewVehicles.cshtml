@@ -3,11 +3,113 @@
 @{
     ViewBag.Title = "ViewVehicles";
 }
+@section CSS
+{
+    <link rel="stylesheet" href="~/Scripts/Chosen/chosen.css">
+    <link rel="stylesheet" href="~/Scripts/jquery-ui.css">
+
+    <script type="text/javascript">
+        var dialogWidth = 0;
+
+        dialogWidth = ($(window).width() * .75);
+
+        if ($(window).width() > 1199) {
+            dialogWidth = 800;
+        }
+    </script>
+}
+
+<style type="text/css">
+
+    .container {
+        max-width: 100%;
+    }
+
+    th.text-center.sorting_asc {
+        background-color: #FFFF7C;
+    }
+
+    th.text-center.sorting_desc {
+        background-color: #FFFF7C;
+    }
+
+    td.text-center.sorting_1 {
+        background-color: #FFFF7C !important;
+    }
+
+    .ui-widget-content a {
+        color: #428bca;
+    }
+
+    @@media print {
+
+        a[href]:after {
+            content: "";
+        }
+
+        .btn-primary {
+            display: none;
+        }
+
+        .report-parameters {
+            display: none;
+        }
+
+        @@page {
+            size: landscape;
+        }
+    }
+
+    .report-parameters {
+        background-color: #eee;
+    }
+
+    .hr-divider {
+        border-color: #999;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .hr-separator {
+        border-color: #999;
+        border-style: dashed;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .table-bordered > thead > tr > th.divider-column, .table-bordered > tbody > tr > td.divider-column, .table-bordered > tfoot > tr > th.divider-column {
+        border-right: 4px double #808080;
+    }
+
+    td > a:after {
+        content: '\002B';
+    }
+
+    .changed:after {
+        content: '\2212';
+    }
+
+    .changed {
+        font-weight: bold;
+    }
+
+    .selected-row {
+        background-color: #f7f4e0; /*#f5f5f5;*/
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    td > a.lead-detail-link:after {
+        content: '\2023';
+    }
+</style>
 
 <h2>View Vehicles</h2>
 
 
-<table class="table">
+<table class="table" style="left: 0">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Vin)
@@ -25,10 +127,10 @@
         <th>
             @Html.DisplayNameFor(model => model.LocationCode)
         </th>
-          <th>
+        <th>
             @Html.DisplayNameFor(model => model.MakeName)
         </th>
-          <th>
+        <th>
             @Html.DisplayNameFor(model => model.ModelName)
         </th>
 
@@ -62,60 +164,61 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vin)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.StockNumber)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VehicleStatus)
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleStatus)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.VehicleCondition)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LocationCode)
-    </td>
-     <td>
-        @Html.DisplayFor(modelItem => item.MakeName)
-    </td>
-       <td>
-        @Html.DisplayFor(modelItem => item.ModelName)
-    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelName)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.InternetPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DeliveredPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.InvoicePrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MSRPPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.KBBPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MatrixPricing)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MAPPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PricingStatus)
-    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternetPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveredPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoicePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MSRPPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KBBPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatrixPricing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAPPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricingStatus)
+            </td>
 
-</tr>
-}
+        </tr>
+    }
 
 </table>
