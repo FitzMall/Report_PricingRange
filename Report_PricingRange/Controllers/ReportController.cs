@@ -77,37 +77,7 @@ namespace Report_PricingRange.Controllers
         public ActionResult DrillDown(string PricingStatus, string BreakdownType, string BreakdownValue)
         {
 
-            List<PricedVehicle> DrillDownfilteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
-            List<PricedVehicle> DrillDownResults;
-
-            switch (BreakdownType)
-            {
-                case "ModelName":
-                    DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.ModelName == BreakdownValue);
-                    break;
-
-                case "StockNumber":
-                    DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.StockNumber == BreakdownValue);
-                    break;
-
-                case "MakeName":
-                    DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.MakeName == BreakdownValue);
-                    break;
-
-                case "MatrixPricing":
-                    DrillDownfilteredPrices = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.MatrixPricing == BreakdownValue);
-                    break;
-
-                case "LocationCode":
-                    DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.LocationCode == BreakdownValue);
-
-                    break;
-
-                default:
-                    DrillDownResults = DrillDownfilteredPrices.FindAll(x => x.PricingStatus == PricingStatus && x.LocationCode == BreakdownValue);
-                    break;
-            }
-
+            
             return Redirect("TemplateReport");
 
         }
