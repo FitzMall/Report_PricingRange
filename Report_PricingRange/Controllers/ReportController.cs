@@ -22,9 +22,6 @@ namespace Report_PricingRange.Controllers
 
             return Redirect("https://responsive.fitzmall.com/Inventory/SearchResults?UseCriteria=true&Page=1&Regions=ALL&Conditions=ALL&Makes=&KeyWordSearch=" + keywordSearch) ;
                 
-                //+ "&Sort=&inventoryGrid_length=10&UseCriteria=true");
-
-            //https://responsive.fitzmall.com/Inventory/SearchResults?UseCriteria=true&Page=1&Regions=ALL&Conditions=ALL&Makes=&KeyWordSearch=PU46D866*O
         }
 
 
