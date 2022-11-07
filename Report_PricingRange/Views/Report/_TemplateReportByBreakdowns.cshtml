@@ -97,29 +97,29 @@
                 <th class="text-center divider-column" colspan="1">Total</th>
             </tr>
             <tr style="background-color:#f5f5f5;">
-                <td class="text-center"> </td>
-                <td class="text-center">MSRP+</td>
+                <th class="text-centerr divider-column"> </th>
+                <th class="text-center">MSRP+</th>
 
-                <td class="text-center">MSRP</td>
+                <th class="text-center">MSRP</th>
 
-                <td class="text-center">Invoice+200</td>
+                <th class="text-center">Invoice+200</th>
 
-                <td class="text-center">Invoice Less 200</td>
+                <th class="text-center">Invoice Less 200</th>
 
-                <td class="text-center">Less Than Invoice</td>
-                <td class="text-center">TOTAL</td>
+                <th class="text-center">Less Than Invoice</th>
+                <th class="text-centerr divider-column">TOTAL</th>
 
-                <td class="text-center">MSRP+</td>
+                <th class="text-center">MSRP+</th>
 
-                <td class="text-center">MSRP</td>
+                <th class="text-center">MSRP</th>
 
-                <td class="text-center">Invoice+200</td>
+                <th class="text-center">Invoice+200</th>
 
-                <td class="text-center">Invoice Less 200</td>
+                <th class="text-center">Invoice Less 200</th>
 
-                <td class="text-center">Less Than Invoice</td>
-                <td class="text-center">TOTAL</td>
-                <td class="text-center"></td>
+                <th class="text-center">Less Than Invoice</th>
+                <th class="text-centerr divider-column">TOTAL</th>
+                <th class="text-center"></th>
             </tr>
             @if (Model.Prices != null)
             {
@@ -272,287 +272,287 @@
 
                     var bd1URL = ""; // + applicationPath + "/Reports/LeadReportDetails/&bd1=" + Model.BreakDownLevel1 + "," + breakdown1 + "&bd2=" + "&bd3=" + "&bd4=";
 
-        <tr class="location-bd1-data-row-@BreakDown1Index  @label1.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd1-collapse-@BreakDown1Index ">
+                    <tr class="location-bd1-data-row-@BreakDown1Index  @label1.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd1-collapse-@BreakDown1Index ">
 
-            <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index-href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatus1 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatus1
-                    }
-                    else
-                    {
+                        <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@BreakDown1Index " style="cursor: pointer;" class="location-bd1-collapse-@BreakDown1Index-href collapsed" data-target=".location-bd1-collapse-@BreakDown1Index ">@label1 </a></td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatus1 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatus1
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatus1, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock1",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatus1, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock1",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatus2 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatus2
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatus2 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatus2
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatus2, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock2",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatus2, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock2",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
+                        </td>
 
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatus3 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatus3
-                    }
-                    else
-                    {
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatus3 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatus3
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatus3, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock3",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatus3, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock3",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatus4 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatus4
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatus4 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatus4
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatus4, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock4",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatus4, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock4",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatus5 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatus5
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatus5 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatus5
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatus5, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock5",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatus5, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock5",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1InStockStatusTotal == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1InStockStatusTotal
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1InStockStatusTotal == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1InStockStatusTotal
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1InStockStatusTotal, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1InStockStatusTotal, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "InStock",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
+                        </td>
 
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatus1 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatus1
-                    }
-                    else
-                    {
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatus1 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatus1
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatus1, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder1",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatus1, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder1",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatus2 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatus2
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatus2 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatus2
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatus2, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder2",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatus2, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder2",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
+                        </td>
 
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatus3 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatus3
-                    }
-                    else
-                    {
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatus3 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatus3
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatus3, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder3",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatus3, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder3",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatus4 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatus4
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatus4 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatus4
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatus4, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder4",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatus4, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder4",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatus5 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatus5
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatus5 == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatus5
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatus5, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder5",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatus5, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder5",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1OnOrderStatusTotal == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1OnOrderStatusTotal
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1OnOrderStatusTotal == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1OnOrderStatusTotal
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1OnOrderStatusTotal, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1OnOrderStatusTotal, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "OnOrder",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown1Total == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown1Total
-                    }
-                    else
-                    {
+                        </td>
+                        <td class="text-center">
+                            @{ if ((BreakDown1Total == 0) | (bPrintFormat != false))
+                                {
+                                    @BreakDown1Total
+                                }
+                                else
+                                {
 
-                        @Html.ActionLink("" + BreakDown1Total, "ViewVehicles", new
-                        {
-                            PricingStatus = "",
-                            LocCode = BreakDownLevel1Location,
-                            StockNum = "",
-                                Make = BreakDownLevel1Make,
-                            Model = BreakDownLevel1Model,
-                            MatrixYN = BreakDownLevel1Matrix
-                        })
-                    }
-                }
+                                    @Html.ActionLink("" + BreakDown1Total, "ViewVehicles", new
+                                    {
+                                        PricingStatus = "",
+                                        LocCode = BreakDownLevel1Location,
+                                        StockNum = "",
+                                            Make = BreakDownLevel1Make,
+                                        Model = BreakDownLevel1Model,
+                                        MatrixYN = BreakDownLevel1Matrix
+                                    })
+                                }
+                            }
 
-            </td>
+                        </td>
 
-        </tr>
+                    </tr>
 
                     <script type="text/javascript">
 
@@ -689,291 +689,291 @@
 
                         if (BreakDown2Total > 0)
                         {
-        <tr class="location-bd1-data-row-@BreakDown1Index @label1.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd1-collapse-@BreakDown1Index">
+                            <tr class="location-bd1-data-row-@BreakDown1Index @label1.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd1-collapse-@BreakDown1Index">
 
-            <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
-
-
+                                <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
 
 
 
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatus1 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatus1
-                    }
-                    else
-                    {
 
-                        @Html.ActionLink("" + BreakDown2InStockStatus1, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock1",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatus2 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatus2
-                    }
-                    else
-                    {
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatus1 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatus1
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2InStockStatus2, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock2",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2InStockStatus1, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock1",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatus2 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatus2
+                                        }
+                                        else
+                                        {
 
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatus3 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatus3
-                    }
-                    else
-                    {
+                                            @Html.ActionLink("" + BreakDown2InStockStatus2, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock2",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-                        @Html.ActionLink("" + BreakDown2InStockStatus3, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock3",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                </td>
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatus4 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatus4
-                    }
-                    else
-                    {
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatus3 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatus3
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2InStockStatus4, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock4",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2InStockStatus3, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock3",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatus5 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatus5
-                    }
-                    else
-                    {
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatus4 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatus4
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2InStockStatus5, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock5",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2InStockStatus4, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock4",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2InStockStatusTotal == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2InStockStatusTotal
-                    }
-                    else
-                    {
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatus5 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatus5
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2InStockStatusTotal, "ViewVehicles", new
-                        {
-                            PricingStatus = "InStock",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2InStockStatus5, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock5",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2InStockStatusTotal == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2InStockStatusTotal
+                                        }
+                                        else
+                                        {
 
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatus1 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatus1
-                    }
-                    else
-                    {
+                                            @Html.ActionLink("" + BreakDown2InStockStatusTotal, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "InStock",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatus1, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder1",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                </td>
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatus2 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatus2
-                    }
-                    else
-                    {
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatus1 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatus1
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatus2, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder2",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatus1, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder1",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatus2 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatus2
+                                        }
+                                        else
+                                        {
 
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatus3 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatus3
-                    }
-                    else
-                    {
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatus2, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder2",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatus3, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder3",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                </td>
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatus4 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatus4
-                    }
-                    else
-                    {
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatus3 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatus3
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatus4, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder4",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatus3, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder3",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatus5 == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatus5
-                    }
-                    else
-                    {
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatus4 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatus4
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatus5, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder5",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatus4, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder4",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2OnOrderStatusTotal == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2OnOrderStatusTotal
-                    }
-                    else
-                    {
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatus5 == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatus5
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2OnOrderStatusTotal, "ViewVehicles", new
-                        {
-                            PricingStatus = "OnOrder",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatus5, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder5",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-            <td class="text-center">
-                @{ if ((BreakDown2Total == 0) | (bPrintFormat != false))
-                    {
-                        @BreakDown2Total
-                    }
-                    else
-                    {
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2OnOrderStatusTotal == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2OnOrderStatusTotal
+                                        }
+                                        else
+                                        {
 
-                        @Html.ActionLink("" + BreakDown2Total, "ViewVehicles", new
-                        {
-                            PricingStatus = "",
-                            LocCode = BreakDownLevel2Location,
-                            StockNum = "",
-                                Make = BreakDownLevel2Make,
-                            Model = BreakDownLevel2Model,
-                            MatrixYN = BreakDownLevel2Matrix
-                        })
-                    }
-                }
+                                            @Html.ActionLink("" + BreakDown2OnOrderStatusTotal, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "OnOrder",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
 
-            </td>
-        </tr>
+                                </td>
+                                <td class="text-center">
+                                    @{ if ((BreakDown2Total == 0) | (bPrintFormat != false))
+                                        {
+                                            @BreakDown2Total
+                                        }
+                                        else
+                                        {
+
+                                            @Html.ActionLink("" + BreakDown2Total, "ViewVehicles", new
+                                            {
+                                                PricingStatus = "",
+                                                LocCode = BreakDownLevel2Location,
+                                                StockNum = "",
+                                                    Make = BreakDownLevel2Make,
+                                                Model = BreakDownLevel2Model,
+                                                MatrixYN = BreakDownLevel2Matrix
+                                            })
+                                        }
+                                    }
+
+                                </td>
+                            </tr>
                         }
 
 
@@ -1723,42 +1723,40 @@
                     BreakDown1Index += 1;
                 }
             }
-            </tbody>
         <tfoot>
 
             <tr>
             <tr style="background-color:#d9edf7;">
-                <th class="text-center divider-column breakdown-column">Totals</th>
-                <td class="text-center">@InStock1Count</td>
+                <th class="text-center divider-column ">Totals</th>
+                <th class="text-center">@InStock1Count</th>
 
-                <td class="text-center">@InStock2Count</td>
+                <th class="text-center">@InStock2Count</th>
 
-                <td class="text-center">@InStock3Count</td>
+                <th class="text-center">@InStock3Count</th>
 
-                <td class="text-center">@InStock4Count</td>
+                <th class="text-center">@InStock4Count</th>
 
-                <td class="text-center">@InStock5Count</td>
-                <td class="text-center">@InStockCountTotal</td>
+                <th class="text-center">@InStock5Count</th>
+                <th class="text-center divider-column ">@InStockCountTotal</th>
 
-                <td class="text-center">@OnOrder1Count</td>
+                <th class="text-center">@OnOrder1Count</th>
 
-                <td class="text-center">@OnOrder2Count</td>
+                <th class="text-center">@OnOrder2Count</th>
 
-                <td class="text-center">@OnOrder3Count</td>
+                <th class="text-center">@OnOrder3Count</th>
 
-                <td class="text-center">@OnOrder4Count</td>
+                <th class="text-center">@OnOrder4Count</th>
 
-                <td class="text-center">@OnOrder5Count</td>
+                <th class="text-center">@OnOrder5Count</th>
 
-                <td class="text-center">@OnOrderCountTotal</td>
+                <th class="text-center divider-column ">@OnOrderCountTotal</th>
 
-                <td class="text-center">@BOTHCountTotal</td>
+                <th class="text-center">@BOTHCountTotal</th>
 
             </tr>
         </tfoot>
     </table>
-
-    </table>
+    </tbody>
 
 
 </div>

@@ -109,7 +109,7 @@
 <h2>View Vehicles</h2>
 
 
-<table class="table" style="left: 0">
+<table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
     <tr>
         <th>
             VIN
@@ -167,7 +167,7 @@
                 @Html.DisplayFor(modelItem => item.Vin)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StockNumber)
+                @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.StockNumber }, new { target = "_blank" })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VehicleStatus)
