@@ -200,7 +200,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Report\TemplateReport.cshtml" />
     <Content Include="Views\Report\_TemplateReportByBreakdowns.cshtml" />
-    <Content Include="Views\Report\TemplateReport2.cshtml" />
     <Content Include="Views\Report\ViewVehicles.cshtml" />
   </ItemGroup>
   <ItemGroup>
