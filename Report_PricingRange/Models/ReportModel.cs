@@ -41,6 +41,8 @@ namespace Report_PricingRange.Models
 
         public string S_LOCCODE { get; set; }
 
+        public string Xrefid { get; set; }
+
 
     }
 }

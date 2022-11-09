@@ -164,7 +164,7 @@
                 @Html.DisplayFor(modelItem => item.Vin)
             </td>
             <td>
-                @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.StockNumber }, new { target = "_blank" })
+                @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VehicleStatus)

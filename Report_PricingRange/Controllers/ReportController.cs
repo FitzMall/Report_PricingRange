@@ -20,8 +20,12 @@ namespace Report_PricingRange.Controllers
         public ActionResult GoToFitzMall(string keywordSearch)
         {
 
-            return Redirect("https://responsive.fitzmall.com/Inventory/SearchResults?UseCriteria=true&Page=1&Regions=ALL&Conditions=ALL&Makes=&KeyWordSearch=" + keywordSearch) ;
-                
+            // add the Xrefid field to this for direct link
+            string FitzMallURLVehicle = "https://responsive.fitzmall.com/Inventory/Detail/";
+
+
+            return Redirect(FitzMallURLVehicle + keywordSearch) ;
+
         }
 
 
