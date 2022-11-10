@@ -182,7 +182,7 @@
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
-    <tr>
+    <tr style="background-color:#d9edf7;">
         <th>
             VIN
         </th>
@@ -236,7 +236,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Vin)
+                @Html.ActionLink("" + item.Vin, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
             </td>
             <td>
                 @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
