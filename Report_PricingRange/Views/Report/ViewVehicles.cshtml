@@ -2,7 +2,70 @@
 
 @{
     ViewBag.Title = "ViewVehicles";
+    string PricingStatus = ViewBag.PricingStatus;
+    string LocCode = ViewBag.LocCode;
+    string StockNum = ViewBag.StockNum;
+    string Make = ViewBag.Make;
+    string ModelCar = ViewBag.ModelCar;
+    string MatrixYN = ViewBag.MatrixYN;
+    string PricingTitle = "";
+
+
+    switch (PricingStatus)
+    {
+
+        case "InStock":
+            PricingTitle = "In-Stock";
+            break;
+
+        case "OnOrder":
+            PricingTitle = "On-Order";
+            break;
+
+        case "InStock1":
+            PricingTitle = "In-Stock MSRP+";
+            break;
+
+        case "InStock2":
+            PricingTitle = "In-Stock MSRP";
+            break;
+
+        case "InStock3":
+            PricingTitle = "In-Stock Invoice+200";
+            break;
+
+        case "InStock4":
+            PricingTitle = "In-Stock Invoice Less 200";
+            break;
+
+        case "InStock5":
+            PricingTitle = "In-Stock Less Than Invoice";
+            break;
+
+        case "OnOrder1":
+            PricingTitle = "On-Order MSRP+";
+            break;
+
+        case "OnOrder2":
+            PricingTitle = "On-Order MSRP";
+            break;
+
+        case "OnOrder3":
+            PricingTitle = "On-Order Invoice+200";
+            break;
+
+        case "OnOrder4":
+            PricingTitle = "On-Order Invoice Less 200";
+            break;
+
+        case "OnOrder5":
+            PricingTitle = "On-Order Less Than Invoice";
+            break;
+
+    }
+
 }
+
 @section CSS
 {
     <link rel="stylesheet" href="~/Scripts/Chosen/chosen.css">
@@ -103,7 +166,7 @@
     }
 </style>
 
-<h2>View Vehicles</h2>
+<h2>View Vehicles @PricingTitle @LocCode @Make @ModelCar @MatrixYN</h2>
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">

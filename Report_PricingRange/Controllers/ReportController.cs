@@ -35,6 +35,13 @@ namespace Report_PricingRange.Controllers
             var ViewVehiclesModel = new List<PricedVehicle>();
             ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, PricingStatus, LocCode ,  StockNum ,  Make ,  Model , MatrixYN );
 
+            ViewBag.PricingStatus = PricingStatus;
+            ViewBag.LocCode = LocCode;
+            ViewBag.StockNum = StockNum;
+            ViewBag.Make = Make;
+            ViewBag.ModelCar = Model;
+            ViewBag.MatrixYN = MatrixYN;
+
             return View(ViewVehiclesModel);
         }
         public ActionResult TemplateReport()
