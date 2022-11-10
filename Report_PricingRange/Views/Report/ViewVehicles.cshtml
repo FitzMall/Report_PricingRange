@@ -9,7 +9,19 @@
     string ModelCar = ViewBag.ModelCar;
     string MatrixYN = ViewBag.MatrixYN;
     string PricingTitle = "";
+    string MatrixTitle = "";
 
+    switch (MatrixYN)
+    {
+
+        case "Y":
+            MatrixTitle = "(Matrix Pricing)";
+            break;
+
+        case "N":
+            MatrixTitle = "(Not Matrix Pricing)";
+            break;
+    }
 
     switch (PricingStatus)
     {
@@ -166,7 +178,7 @@
     }
 </style>
 
-<h2>View Vehicles @PricingTitle @LocCode @Make @ModelCar @MatrixYN</h2>
+<h2>View Vehicles @PricingTitle @LocCode @Make @ModelCar @MatrixTitle</h2>
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
