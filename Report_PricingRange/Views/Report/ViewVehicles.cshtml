@@ -12,7 +12,7 @@
     string MatrixTitle = "";
 
     // if there's no make but model is there, get the make
-    if (Make == "") { 
+    if (Make.Trim() == "" && ModelCar.Trim() != "") { 
         foreach (var item in Model)
         {
 
@@ -36,7 +36,7 @@
             break;
     }
 
-    if (LocCode != "")
+    if (LocCode != "" && (Make + ModelCar) != "")
     {
         LocCode = "at " + LocCode;
     }
