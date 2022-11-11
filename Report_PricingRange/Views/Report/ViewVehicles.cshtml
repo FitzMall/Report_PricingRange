@@ -11,14 +11,17 @@
     string PricingTitle = "";
     string MatrixTitle = "";
 
-    foreach (var item in Model)
-    {
-
-        if ((item.ModelCode != "") & (Make == ""))
+    // if there's no make but model is there, get the make
+    if (Make == "") { 
+        foreach (var item in Model)
         {
-            Make = item.MakeName;
+
+            if (item.ModelCode != "") 
+            {
+                Make = item.MakeName;
+            }
+            break;
         }
-        break;
     }
 
     switch (MatrixYN)
