@@ -10,7 +10,16 @@
     string MatrixYN = ViewBag.MatrixYN;
     string PricingTitle = "";
     string MatrixTitle = "";
-    int CountCars = 0;
+
+    foreach (var item in Model)
+    {
+
+        if ((item.ModelCode != "") & (Make == ""))
+        {
+            Make = item.MakeName;
+        }
+        break;
+    }
 
     switch (MatrixYN)
     {
@@ -184,7 +193,7 @@
     }
 </style>
 
-<h2>Vehicles @Make @ModelCar @LocCode @PricingTitle @MatrixTitle </h2>
+<h2>@Make @ModelCar @LocCode @PricingTitle @MatrixTitle </h2>
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
@@ -290,7 +299,7 @@
             </td>
 
         </tr>
- }
+    }
 
     <tr>
         <td>
