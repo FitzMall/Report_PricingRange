@@ -10,6 +10,7 @@
     string MatrixYN = ViewBag.MatrixYN;
     string PricingTitle = "";
     string MatrixTitle = "";
+    int CountCars = 0;
 
     switch (MatrixYN)
     {
@@ -284,6 +285,12 @@
             </td>
 
         </tr>
-    }
+ }
+
+    <tr>
+        <td>
+            @Model.Count() Vehicles
+        </td>
+    </tr>
 
 </table>
