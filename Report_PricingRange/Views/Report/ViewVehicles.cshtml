@@ -24,6 +24,11 @@
             break;
     }
 
+    if (LocCode != "")
+    {
+        LocCode = "at " + LocCode;
+    }
+
     switch (PricingStatus)
     {
 
@@ -179,7 +184,7 @@
     }
 </style>
 
-<h2>Vehicles @PricingTitle @LocCode @Make @ModelCar @MatrixTitle</h2>
+<h2>Vehicles @Make @ModelCar @LocCode @PricingTitle @MatrixTitle </h2>
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
@@ -289,7 +294,7 @@
 
     <tr>
         <td>
-            @Model.Count() Vehicles
+            @Model.Count() vehicles
         </td>
     </tr>
 
