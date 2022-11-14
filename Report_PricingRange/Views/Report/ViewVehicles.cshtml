@@ -224,84 +224,84 @@
             Make
         </th>
 
-        <th>
+        <th align="right">
             Internet $
         </th>
-        <th>
+        <th align="right">
             Delivered $
         </th>
-        <th>
+        <th align="right">
             Invoice
         </th>
-        <th>
+        <th align="right">
             MSRP
         </th>
-        <th>
+        <th align="right">
             KBB
         </th>
         <th>
             Matrix?
         </th>
-        <th>
+        <th align="right">
             MAAP
         </th>
-        <th>
+        <th align="right">
             Lowest MAAP
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.ActionLink("" + item.Vin, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
-            </td>
-            <td>
-                @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleStatus)
-            </td>
+<tr>
+    <td>
+        @Html.ActionLink("" + item.Vin, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
+    </td>
+    <td>
+        @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VehicleStatus)
+    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleCondition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MakeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModelName)
-            </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VehicleCondition)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LocationCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MakeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ModelName)
+    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.InternetPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeliveredPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InvoicePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MSRPPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KBBPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatrixPricing)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MAPPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
-            </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.InternetPrice)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.DeliveredPrice)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.InvoicePrice)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.MSRPPrice)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.KBBPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MatrixPricing)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.MAPPrice)
+    </td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
+    </td>
 
-        </tr>
+</tr>
     }
 
     <tr>
