@@ -30,10 +30,12 @@ namespace Report_PricingRange.Controllers
 
 
         public ActionResult ViewVehicles(string PricingStatus = "",
-                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
+                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "", string CRExpired = "",
+                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "")
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
-            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, PricingStatus, LocCode ,  StockNum ,  Make ,  Model , MatrixYN );
+            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, PricingStatus, LocCode ,  StockNum ,  Make ,  Model , MatrixYN, CRExpired, 
+                    StyleName, TrimName, BucketDaysInInventory);
 
             ViewBag.PricingStatus = PricingStatus;
             ViewBag.LocCode = LocCode;
@@ -41,7 +43,10 @@ namespace Report_PricingRange.Controllers
             ViewBag.Make = Make;
             ViewBag.ModelCar = Model;
             ViewBag.MatrixYN = MatrixYN;
-
+            ViewBag.CRExpired = CRExpired;
+            ViewBag.StyleName = StyleName;
+            ViewBag.TrimName= TrimName;
+            ViewBag.BucketDaysInInventory = BucketDaysInInventory;
             return View(ViewVehiclesModel);
                         
         }

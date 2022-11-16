@@ -160,6 +160,10 @@
             string BreakDownLevel1Make = "";
             string BreakDownLevel1Matrix = "";
             string BreakDownLevel1Stock = "";
+            string BreakDownLevel1CRExpired = "";
+            string BreakDownLevel1BucketDaysInInventory = "";
+            string BreakDownLevel1Style = "";
+            string BreakDownLevel1Trim = "";
 
 
             foreach (var breakdown1 in breakdownLevel1Values)
@@ -593,6 +597,11 @@
                             string BreakDownLevel2Make = "" + BreakDownLevel1Make;
                             string BreakDownLevel2Matrix = "" + BreakDownLevel1Matrix;
                             string BreakDownLevel2Stock = "" + BreakDownLevel1Stock;
+                            string BreakDownLevel2CRExpired = ""+ BreakDownLevel1CRExpired;
+                            string BreakDownLevel2BucketDaysInInventory = "" + BreakDownLevel1BucketDaysInInventory;
+                            string BreakDownLevel2Style = ""+ BreakDownLevel1Style;
+                            string BreakDownLevel2Trim = ""+ BreakDownLevel1Trim;
+
 
                             var BreakdownLevel2Values = new List<string>();
 
@@ -1060,10 +1069,14 @@
                                     string BreakDownLevel3Make = "" + BreakDownLevel2Make;
                                     string BreakDownLevel3Matrix = "" + BreakDownLevel2Matrix;
                                     string BreakDownLevel3Stock = "" + BreakDownLevel2Stock;
+                                    string BreakDownLevel3CRExpired = ""+ BreakDownLevel2CRExpired;
+                                    string BreakDownLevel3BucketDaysInInventory = "" + BreakDownLevel2BucketDaysInInventory;
+                                    string BreakDownLevel3Style = "" + BreakDownLevel2Style;
+                                    string BreakDownLevel3Trim = "" + BreakDownLevel2Trim;
 
                                     var BreakdownLevel3Values = new List
-                                    <string>
-                                        ();
+                                                <string>
+                                                    ();
 
                                     switch (Model.BreakDownLevel3)
                                     {
@@ -1524,9 +1537,14 @@
                                         string BreakDownLevel4Make = "" + BreakDownLevel3Make;
                                         string BreakDownLevel4Matrix = "" + BreakDownLevel3Matrix;
                                         string BreakDownLevel4Stock = "" + BreakDownLevel3Stock;
+                                        string BreakDownLevel4CRExpired = "" + BreakDownLevel3CRExpired;
+                                        string BreakDownLevel4BucketDaysInInventory = "" + BreakDownLevel3BucketDaysInInventory;
+                                        string BreakDownLevel4Style = "" + BreakDownLevel3Style;
+                                        string BreakDownLevel4Trim = "" + BreakDownLevel3Trim;
+
 
                                         var BreakDownLevel4Values = new List<string>
-                                            ();
+                                                        ();
 
                                         switch (Model.BreakDownLevel4)
                                         {

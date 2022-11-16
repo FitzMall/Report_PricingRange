@@ -10,13 +10,17 @@
     string MatrixYN = ViewBag.MatrixYN;
     string PricingTitle = "";
     string MatrixTitle = "";
+    string CRExpired = ViewBag.CRExpired;
+    string StyleName = ViewBag.StyleName;
+    string TrimName = ViewBag.TrimName;
+    string BucketDaysInInventory = ViewBag.BucketDaysInInventory;
 
     // if there's no make but model is there, get the make
-    if (Make.Trim() == "" && ModelCar.Trim() != "") { 
+            if (Make.Trim() == "" && ModelCar.Trim() != "") {
         foreach (var item in Model)
         {
 
-            if (item.ModelCode != "") 
+            if (item.ModelCode != "")
             {
                 Make = item.MakeName;
             }

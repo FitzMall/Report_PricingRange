@@ -34,7 +34,8 @@ namespace Report_PricingRange.Business
         }
 
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "", 
-                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
+                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "", string CRExpired = "",
+                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "")
         {
 
             var procedureName = "PricingRangeVehicles";
