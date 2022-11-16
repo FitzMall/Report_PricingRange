@@ -42,7 +42,8 @@ namespace Report_PricingRange.Business
 
             var prices = SqlMapperUtil.StoredProcWithParams <PricedVehicle>(procedureName, new {
                 parPricingStatus = PriceStatus, parLoc = LocCode, StockNumber = StockNum, 
-                        MakeName = Make, ModelName = Model, MatrixStatus = MatrixYN }, "Rackspace");
+                        MakeName = Make, ModelName = Model, MatrixStatus = MatrixYN, CRExpired = CRExpired, StyleName = StyleName, 
+                    TrimName = TrimName, BucketDaysInInventory = BucketDaysInInventory }, "Rackspace");
 
             //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
 

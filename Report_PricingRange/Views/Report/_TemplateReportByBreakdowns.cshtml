@@ -203,25 +203,25 @@
 
                     case "CRExpired":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.CRExpired == breakdown1);
-                        BreakDownLevel1Location = breakdown1;
+                        BreakDownLevel1CRExpired = breakdown1;
 
                         break;
 
                     case "BucketDaysInInventory":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.BucketDaysInInventory == breakdown1);
-                        BreakDownLevel1Location = breakdown1;
+                        BreakDownLevel1BucketDaysInInventory = breakdown1;
 
                         break;
 
                     case "StyleName":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StyleName == breakdown1);
-                        BreakDownLevel1Location = breakdown1;
+                        BreakDownLevel1Style = breakdown1;
 
                         break;
 
                     case "Trim":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.Trim == breakdown1);
-                        BreakDownLevel1Location = breakdown1;
+                        BreakDownLevel1Trim = breakdown1;
 
                         break;
 
@@ -318,7 +318,11 @@
                                StockNum = BreakDownLevel1Stock,
                                Make = BreakDownLevel1Make,
                                Model = BreakDownLevel1Model,
-                               MatrixYN = BreakDownLevel1Matrix
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -333,13 +337,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus2, "ViewVehicles", new
-                                {
-                                    PricingStatus = "InStock2",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "InStock2",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -355,13 +363,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus3, "ViewVehicles", new
-                                {
-                                    PricingStatus = "InStock3",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "InStock3",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -376,13 +388,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus4, "ViewVehicles", new
-                                {
-                                    PricingStatus = "InStock4",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "InStock4",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -397,13 +413,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus5, "ViewVehicles", new
-                                {
-                                    PricingStatus = "InStock5",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "InStock5",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -418,13 +438,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatusTotal, "ViewVehicles", new
-                                {
-                                    PricingStatus = "InStock",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "InStock",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -440,13 +464,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus1, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder1",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder1",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -461,13 +489,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus2, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder2",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder2",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -483,13 +515,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus3, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder3",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder3",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -504,13 +540,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus4, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder4",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder4",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -525,13 +565,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus5, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder5",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder5",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -546,13 +590,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatusTotal, "ViewVehicles", new
-                                {
-                                    PricingStatus = "OnOrder",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "OnOrder",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -567,13 +615,17 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1Total, "ViewVehicles", new
-                                {
-                                    PricingStatus = "",
-                                    LocCode = BreakDownLevel1Location,
-                                    StockNum = BreakDownLevel1Stock,
-                                        Make = BreakDownLevel1Make,
-                                    Model = BreakDownLevel1Model,
-                                    MatrixYN = BreakDownLevel1Matrix
+                           {
+                               PricingStatus = "",
+                               LocCode = BreakDownLevel1Location,
+                               StockNum = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               Model = BreakDownLevel1Model,
+                               MatrixYN = BreakDownLevel1Matrix,
+                               CRExpired = BreakDownLevel1CRExpired,
+                               StyleName = BreakDownLevel1Style,
+                               TrimName = BreakDownLevel1Trim,
+                               BucketDaysInInventory = BreakDownLevel1BucketDaysInInventory
                            }, new { target = "_blank" })
                             }
                         }
@@ -690,25 +742,25 @@
 
                                     case "CRExpired":
                                         BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
-                                        BreakDownLevel1Location = BreakDown2;
+                                        BreakDownLevel2CRExpired = BreakDown2;
 
                                         break;
 
                                     case "BucketDaysInInventory":
                                         BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
-                                        BreakDownLevel1Location = BreakDown2;
+                                        BreakDownLevel2BucketDaysInInventory = BreakDown2;
 
                                         break;
 
                                     case "StyleName":
                                         BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName == BreakDown2);
-                                        BreakDownLevel1Location = BreakDown2;
+                                        BreakDownLevel2Style = BreakDown2;
 
                                         break;
 
                                     case "Trim":
                                         BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.Trim == BreakDown2);
-                                        BreakDownLevel1Location = BreakDown2;
+                                        BreakDownLevel2Trim = BreakDown2;
 
                                         break;
 
@@ -783,13 +835,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatus1, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock1",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock1",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -804,13 +860,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatus2, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock2",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock2",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -826,13 +886,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatus3, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock3",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock3",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -847,13 +911,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatus4, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock4",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock4",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -868,13 +936,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatus5, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock5",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock5",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -889,13 +961,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2InStockStatusTotal, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "InStock",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "InStock",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -911,13 +987,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus1, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder1",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder1",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -932,13 +1012,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus2, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder2",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder2",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -954,13 +1038,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus3, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder3",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder3",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -975,13 +1063,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus4, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder4",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder4",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -996,13 +1088,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus5, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder5",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder5",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -1017,13 +1113,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2OnOrderStatusTotal, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "OnOrder",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "OnOrder",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -1038,13 +1138,17 @@
                                     {
 
                                         @Html.ActionLink("" + BreakDown2Total, "ViewVehicles", new
-                                        {
-                                            PricingStatus = "",
-                                            LocCode = BreakDownLevel2Location,
-                                            StockNum = BreakDownLevel2Stock,
-                                                Make = BreakDownLevel2Make,
-                                            Model = BreakDownLevel2Model,
-                                            MatrixYN = BreakDownLevel2Matrix
+                                   {
+                                       PricingStatus = "",
+                                       LocCode = BreakDownLevel2Location,
+                                       StockNum = BreakDownLevel2Stock,
+                                       Make = BreakDownLevel2Make,
+                                       Model = BreakDownLevel2Model,
+                                       MatrixYN = BreakDownLevel2Matrix,
+                                       CRExpired = BreakDownLevel2CRExpired,
+                                       StyleName = BreakDownLevel2Style,
+                                       TrimName = BreakDownLevel2Trim,
+                                       BucketDaysInInventory = BreakDownLevel2BucketDaysInInventory
                                    }, new { target = "_blank" })
                                     }
                                 }
@@ -1161,25 +1265,25 @@
 
                                             case "CRExpired":
                                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.CRExpired == BreakDown3);
-                                                BreakDownLevel1Location = BreakDown3;
+                                                BreakDownLevel3CRExpired = BreakDown3;
 
                                                 break;
 
                                             case "BucketDaysInInventory":
                                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown3);
-                                                BreakDownLevel1Location = BreakDown3;
+                                                BreakDownLevel3BucketDaysInInventory = BreakDown3;
 
                                                 break;
 
                                             case "StyleName":
                                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StyleName == BreakDown3);
-                                                BreakDownLevel1Location = BreakDown3;
+                                                BreakDownLevel3Style = BreakDown3;
 
                                                 break;
 
                                             case "Trim":
                                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.Trim == BreakDown3);
-                                                BreakDownLevel1Location = BreakDown3;
+                                                BreakDownLevel3Trim = BreakDown3;
 
                                                 break;
 
@@ -1253,13 +1357,17 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3InStockStatus1, "ViewVehicles", new
-                                            {
-                                                PricingStatus = "InStock1",
-                                                LocCode = BreakDownLevel3Location,
-                                                StockNum = BreakDownLevel3Stock,
-                                                    Make = BreakDownLevel3Make,
-                                                Model = BreakDownLevel3Model,
-                                                MatrixYN = BreakDownLevel3Matrix
+                                       {
+                                           PricingStatus = "InStock1",
+                                           LocCode = BreakDownLevel3Location,
+                                           StockNum = BreakDownLevel3Stock,
+                                           Make = BreakDownLevel3Make,
+                                           Model = BreakDownLevel3Model,
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1280,7 +1388,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1302,7 +1414,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1323,7 +1439,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1344,7 +1464,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1365,7 +1489,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1386,7 +1514,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1407,7 +1539,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1429,7 +1565,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1450,7 +1590,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1471,7 +1615,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1493,7 +1641,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1514,7 +1666,11 @@
                                            StockNum = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
                                            Model = BreakDownLevel3Model,
-                                           MatrixYN = BreakDownLevel3Matrix
+                                           MatrixYN = BreakDownLevel3Matrix,
+                                           CRExpired = BreakDownLevel3CRExpired,
+                                           StyleName = BreakDownLevel3Style,
+                                           TrimName = BreakDownLevel3Trim,
+                                           BucketDaysInInventory = BreakDownLevel3BucketDaysInInventory
                                        }, new { target = "_blank" })
                                         }
                                     }
@@ -1629,25 +1785,25 @@
 
                                                 case "CRExpired":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.CRExpired == BreakDown4);
-                                                    BreakDownLevel1Location = BreakDown4;
+                                                    BreakDownLevel4CRExpired = BreakDown4;
 
                                                     break;
 
                                                 case "BucketDaysInInventory":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown4);
-                                                    BreakDownLevel1Location = BreakDown4;
+                                                    BreakDownLevel4BucketDaysInInventory = BreakDown4;
 
                                                     break;
 
                                                 case "StyleName":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.StyleName == BreakDown4);
-                                                    BreakDownLevel1Location = BreakDown4;
+                                                    BreakDownLevel4Style = BreakDown4;
 
                                                     break;
 
                                                 case "Trim":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.Trim == BreakDown4);
-                                                    BreakDownLevel1Location = BreakDown4;
+                                                    BreakDownLevel4Trim = BreakDown4;
 
                                                     break;
 
@@ -1729,7 +1885,11 @@
                                                     StockNum = BreakDownLevel4Stock,
                                                         Make = BreakDownLevel4Make,
                                                     Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
+                                               BucketDaysInInventory = BreakDownLevel4BucketDaysInInventory
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1750,7 +1910,11 @@
                                                     StockNum = BreakDownLevel4Stock,
                                                         Make = BreakDownLevel4Make,
                                                     Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
+                                               BucketDaysInInventory = BreakDownLevel4BucketDaysInInventory
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1772,7 +1936,11 @@
                                                     StockNum = BreakDownLevel4Stock,
                                                         Make = BreakDownLevel4Make,
                                                     Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
+                                               BucketDaysInInventory = BreakDownLevel4BucketDaysInInventory
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1787,13 +1955,17 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4InStockStatus4, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "InStock4",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "InStock4",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
+                                               BucketDaysInInventory = BreakDownLevel4BucketDaysInInventory
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1814,7 +1986,11 @@
                                                     StockNum = BreakDownLevel4Stock,
                                                         Make = BreakDownLevel4Make,
                                                     Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
+                                               BucketDaysInInventory = BreakDownLevel4BucketDaysInInventory
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1830,13 +2006,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatus1, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder1",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder1",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1851,13 +2030,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatus2, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder2",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder2",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1873,13 +2055,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatus3, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder3",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder3",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1894,13 +2079,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatus4, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder4",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder4",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1915,13 +2103,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatus5, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder5",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder5",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1937,13 +2128,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4OnOrderStatusTotal, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "OnOrder",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "OnOrder",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -1958,13 +2152,16 @@
                                             {
 
                                                 @Html.ActionLink("" + BreakDown4Total, "ViewVehicles", new
-                                                {
-                                                    PricingStatus = "",
-                                                    LocCode = BreakDownLevel4Location,
-                                                    StockNum = BreakDownLevel4Stock,
-                                                        Make = BreakDownLevel4Make,
-                                                    Model = BreakDownLevel4Model,
-                                                    MatrixYN = BreakDownLevel4Matrix
+                                           {
+                                               PricingStatus = "",
+                                               LocCode = BreakDownLevel4Location,
+                                               StockNum = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               Model = BreakDownLevel4Model,
+                                               MatrixYN = BreakDownLevel4Matrix,
+                                               CRExpired = BreakDownLevel4CRExpired,
+                                               StyleName = BreakDownLevel4Style,
+                                               TrimName = BreakDownLevel4Trim,
                                            }, new { target = "_blank" })
                                             }
                                         }
