@@ -42,6 +42,11 @@ namespace Report_PricingRange.Models
         public string S_LOCCODE { get; set; }
 
         public string Xrefid { get; set; }
+        public string CRExpired { get; set; }
+
+        public string BucketDaysInInventory { get; set; }
+        public string StyleName { get; set; }
+        public string Trim { get; set; }
 
 
     }

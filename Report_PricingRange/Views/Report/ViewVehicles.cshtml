@@ -236,19 +236,13 @@
         <th align="right">
             MSRP
         </th>
-        <th align="right">
-            KBB
-        </th>
-        <th>
+         <th>
             Matrix?
         </th>
         <th align="right">
             MAAP
         </th>
-        <th align="right">
-            Lowest MAAP
-        </th>
-    </tr>
+   </tr>
 
     @foreach (var item in Model)
     {
@@ -288,17 +282,11 @@
     <td align="right">
         @Html.DisplayFor(modelItem => item.MSRPPrice)
     </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.KBBPrice)
-    </td>
-    <td>
+  <td>
         @Html.DisplayFor(modelItem => item.MatrixPricing)
     </td>
     <td align="right">
         @Html.DisplayFor(modelItem => item.MAPPrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.LowestMAAPPrice)
     </td>
 
 </tr>
