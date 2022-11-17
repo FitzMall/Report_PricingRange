@@ -14,9 +14,17 @@
     string StyleName = ViewBag.StyleName;
     string TrimName = ViewBag.TrimName;
     string BucketDaysInInventory = ViewBag.BucketDaysInInventory;
+    string DaysBucketTitle = "";
+    string ExpiredTitle = "";
+
+    if (CRExpired != "")
+    {
+        ExpiredTitle = "CR " + CRExpired;
+    }
+
 
     // if there's no make but model is there, get the make
-            if (Make.Trim() == "" && ModelCar.Trim() != "") {
+    if (Make.Trim() == "" && ModelCar.Trim() != "") {
         foreach (var item in Model)
         {
 
@@ -26,6 +34,16 @@
             }
             break;
         }
+    }
+
+    switch (BucketDaysInInventory)
+    {
+        case "30":
+            DaysBucketTitle = "30 Days Inventory";
+            break;
+        case "60":
+            DaysBucketTitle = "60 Days Inventory";
+            break;
     }
 
     switch (MatrixYN)
@@ -200,7 +218,7 @@
     }
 </style>
 
-<h2>@Make @ModelCar @LocCode @PricingTitle @MatrixTitle @CRExpired @BucketDaysInInventory @StyleName @TrimName</h2>
+<h2>@Make @ModelCar @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName</h2>
 
 
 <table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
