@@ -18,7 +18,7 @@ namespace Report_PricingRange.Models
 
     public class PricedVehicle
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string VehicleStatus { get; set; }
         public string StockNumber { get; set; }
         public string VehicleCondition { get; set; }

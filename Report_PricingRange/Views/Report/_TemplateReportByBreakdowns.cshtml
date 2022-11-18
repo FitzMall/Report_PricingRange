@@ -250,44 +250,44 @@
 
 
                 var BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                BreakDown1InStockStatus1 = BreakDown1.Count;
+                BreakDown1InStockStatus1 = BreakDown1.Sum(x => x.Id);
                 InStock1Count += BreakDown1InStockStatus1;
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                BreakDown1InStockStatus2 = BreakDown1.Count;
+                BreakDown1InStockStatus2 = BreakDown1.Sum(x => x.Id);
                 InStock2Count += BreakDown1InStockStatus2;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                BreakDown1InStockStatus3 = BreakDown1.Count;
+                BreakDown1InStockStatus3 = BreakDown1.Sum(x => x.Id);
                 InStock3Count += BreakDown1InStockStatus3;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                BreakDown1InStockStatus4 = BreakDown1.Count;
+                BreakDown1InStockStatus4 = BreakDown1.Sum(x => x.Id);
                 InStock4Count += BreakDown1InStockStatus4;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                BreakDown1InStockStatus5 = BreakDown1.Count;
+                BreakDown1InStockStatus5 = BreakDown1.Sum(x => x.Id);
                 InStock5Count += BreakDown1InStockStatus5;
                 BreakDown1InStockStatusTotal = BreakDown1InStockStatus1 + BreakDown1InStockStatus2 + BreakDown1InStockStatus3 + BreakDown1InStockStatus4 + BreakDown1InStockStatus5;
                 InStockCountTotal += BreakDown1InStockStatusTotal;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                BreakDown1OnOrderStatus1 = BreakDown1.Count;
+                BreakDown1OnOrderStatus1 = BreakDown1.Sum(x => x.Id)  ;
                 OnOrder1Count += BreakDown1OnOrderStatus1;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                BreakDown1OnOrderStatus2 = BreakDown1.Count;
+                BreakDown1OnOrderStatus2 = BreakDown1.Sum(x => x.Id);
                 OnOrder2Count += BreakDown1OnOrderStatus2;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                BreakDown1OnOrderStatus3 = BreakDown1.Count;
+                BreakDown1OnOrderStatus3 = BreakDown1.Sum(x => x.Id);
                 OnOrder3Count += BreakDown1OnOrderStatus3;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                BreakDown1OnOrderStatus4 = BreakDown1.Count;
+                BreakDown1OnOrderStatus4 = BreakDown1.Sum(x => x.Id);
                 OnOrder4Count += BreakDown1OnOrderStatus4;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                BreakDown1OnOrderStatus5 = BreakDown1.Count;
+                BreakDown1OnOrderStatus5 = BreakDown1.Sum(x => x.Id);
                 OnOrder5Count += BreakDown1OnOrderStatus5;
 
 
@@ -789,28 +789,28 @@
 
 
                                 var BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                                BreakDown2InStockStatus1 = BreakDown2data.Count;
+                                BreakDown2InStockStatus1 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                                BreakDown2InStockStatus2 = BreakDown2data.Count;
+                                BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                                BreakDown2InStockStatus3 = BreakDown2data.Count;
+                                BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                                BreakDown2InStockStatus4 = BreakDown2data.Count;
+                                BreakDown2InStockStatus4 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                                BreakDown2InStockStatus5 = BreakDown2data.Count;
+                                BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
 
 
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                                BreakDown2OnOrderStatus1 = BreakDown2data.Count;
+                                BreakDown2OnOrderStatus1 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                                BreakDown2OnOrderStatus2 = BreakDown2data.Count;
+                                BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                                BreakDown2OnOrderStatus3 = BreakDown2data.Count;
+                                BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                                BreakDown2OnOrderStatus4 = BreakDown2data.Count;
+                                BreakDown2OnOrderStatus4 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                                BreakDown2OnOrderStatus5 = BreakDown2data.Count;
+                                BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
                                 BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
                                 BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
 
@@ -1314,27 +1314,27 @@
 
 
                                         var BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                                        BreakDown3InStockStatus1 = BreakDown3data.Count;
+                                        BreakDown3InStockStatus1 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                                        BreakDown3InStockStatus2 = BreakDown3data.Count;
+                                        BreakDown3InStockStatus2 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                                        BreakDown3InStockStatus3 = BreakDown3data.Count;
+                                        BreakDown3InStockStatus3 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                                        BreakDown3InStockStatus4 = BreakDown3data.Count;
+                                        BreakDown3InStockStatus4 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                                        BreakDown3InStockStatus5 = BreakDown3data.Count;
+                                        BreakDown3InStockStatus5 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
 
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                                        BreakDown3OnOrderStatus1 = BreakDown3data.Count;
+                                        BreakDown3OnOrderStatus1 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                                        BreakDown3OnOrderStatus2 = BreakDown3data.Count;
+                                        BreakDown3OnOrderStatus2 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                                        BreakDown3OnOrderStatus3 = BreakDown3data.Count;
+                                        BreakDown3OnOrderStatus3 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                                        BreakDown3OnOrderStatus4 = BreakDown3data.Count;
+                                        BreakDown3OnOrderStatus4 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                                        BreakDown3OnOrderStatus5 = BreakDown3data.Count;
+                                        BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
                                         BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
                                         BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
 
@@ -1834,28 +1834,28 @@
 
 
                                             var BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                                            BreakDown4InStockStatus1 = BreakDown4data.Count;
+                                            BreakDown4InStockStatus1 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                                            BreakDown4InStockStatus2 = BreakDown4data.Count;
+                                            BreakDown4InStockStatus2 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                                            BreakDown4InStockStatus3 = BreakDown4data.Count;
+                                            BreakDown4InStockStatus3 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                                            BreakDown4InStockStatus4 = BreakDown4data.Count;
+                                            BreakDown4InStockStatus4 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                                            BreakDown4InStockStatus5 = BreakDown4data.Count;
+                                            BreakDown4InStockStatus5 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
 
 
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                                            BreakDown4OnOrderStatus1 = BreakDown4data.Count;
+                                            BreakDown4OnOrderStatus1 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                                            BreakDown4OnOrderStatus2 = BreakDown4data.Count;
+                                            BreakDown4OnOrderStatus2 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                                            BreakDown4OnOrderStatus3 = BreakDown4data.Count;
+                                            BreakDown4OnOrderStatus3 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                                            BreakDown4OnOrderStatus4 = BreakDown4data.Count;
+                                            BreakDown4OnOrderStatus4 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                                            BreakDown4OnOrderStatus5 = BreakDown4data.Count;
+                                            BreakDown4OnOrderStatus5 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4OnOrderStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
                                             BreakDown4Total = BreakDown4OnOrderStatusTotal + BreakDown4InStockStatusTotal;
 
