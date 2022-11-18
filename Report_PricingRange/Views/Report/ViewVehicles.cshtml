@@ -36,16 +36,6 @@
         }
     }
 
-    switch (BucketDaysInInventory)
-    {
-        case "30":
-            DaysBucketTitle = "30 Days Inventory";
-            break;
-        case "60":
-            DaysBucketTitle = "60 Days Inventory";
-            break;
-    }
-
     switch (MatrixYN)
     {
 
@@ -230,11 +220,11 @@
             Stock#
         </th>
         <th>
-            Vehicle Status
+            Status
         </th>
 
         <th>
-            Condition
+            Days In Stock
         </th>
         <th>
             Location
@@ -243,7 +233,7 @@
             Make
         </th>
         <th>
-            Make
+            Model
         </th>
 
         <th align="right">
@@ -258,13 +248,22 @@
         <th align="right">
             MSRP
         </th>
-         <th>
+        <th align="right">
+            MSRP%
+        </th>
+        <th align="center">
             Matrix?
         </th>
         <th align="right">
             MAAP
         </th>
-   </tr>
+        <th align="right">
+            CRebate $
+        </th>
+        <th align="right">
+            CR Expire
+        </th>
+    </tr>
 
     @foreach (var item in Model)
     {
@@ -280,7 +279,7 @@
     </td>
 
     <td>
-        @Html.DisplayFor(modelItem => item.VehicleCondition)
+        @Html.DisplayFor(modelItem => item.DAYSININVENTORY)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.LocationCode)
@@ -304,13 +303,21 @@
     <td align="right">
         @Html.DisplayFor(modelItem => item.MSRPPrice)
     </td>
-  <td>
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.PercentageMSRP)%
+    </td>
+    <td align="center">
         @Html.DisplayFor(modelItem => item.MatrixPricing)
     </td>
     <td align="right">
         @Html.DisplayFor(modelItem => item.MAPPrice)
     </td>
-
+    <td align="right">
+        @Html.DisplayFor(modelItem => item.CRAmount)
+    </td>
+    <td align="right">
+        @item.CREndDate.ToShortDateString()
+    </td>
 </tr>
     }
 

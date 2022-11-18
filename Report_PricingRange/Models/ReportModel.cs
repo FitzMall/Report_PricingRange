@@ -36,6 +36,7 @@ namespace Report_PricingRange.Models
         public string MatrixPricing { get; set; }
         public int MAPPrice { get; set; }
         public int LowestMAAPPrice { get; set; }
+        public int CRAmount { get; set; }
 
         public string PricingStatus { get; set; }
 
@@ -47,7 +48,8 @@ namespace Report_PricingRange.Models
         public string BucketDaysInInventory { get; set; }
         public string StyleName { get; set; }
         public string Trim { get; set; }
-
-
+        public int DAYSININVENTORY { get; set; }
+        public int PercentageMSRP { get; set; }
+        public DateTime CREndDate { get; set; }
     }
 }
