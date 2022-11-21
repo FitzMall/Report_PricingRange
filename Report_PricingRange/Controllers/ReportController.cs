@@ -29,24 +29,24 @@ namespace Report_PricingRange.Controllers
         }
 
 
-        public ActionResult ViewVehicles(string PricingStatus = "",
-                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "", string CRExpired = "",
-                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "")
+        public ActionResult ViewVehicles(string pstat = "",
+                    string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crexp = "",
+                    string styln = "", string trmnm = "", string bDay = "")
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
-            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, PricingStatus, LocCode ,  StockNum ,  Make ,  Model , MatrixYN, CRExpired, 
-                    StyleName, TrimName, BucketDaysInInventory);
+            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crexp,
+                    styln, trmnm, bDay);
 
-            ViewBag.PricingStatus = PricingStatus;
-            ViewBag.LocCode = LocCode;
-            ViewBag.StockNum = StockNum;
+            ViewBag.pstat = pstat;
+            ViewBag.locd = locd;
+            ViewBag.stckn = stckn;
             ViewBag.Make = Make;
-            ViewBag.ModelCar = Model;
-            ViewBag.MatrixYN = MatrixYN;
-            ViewBag.CRExpired = CRExpired;
-            ViewBag.StyleName = StyleName;
-            ViewBag.TrimName= TrimName;
-            ViewBag.BucketDaysInInventory = BucketDaysInInventory;
+            ViewBag.mdlv = mdlv;
+            ViewBag.mxyn = mxyn;
+            ViewBag.crexp = crexp;
+            ViewBag.styln = styln;
+            ViewBag.trmnm= trmnm;
+            ViewBag.bDay = bDay;
             return View(ViewVehiclesModel);
                         
         }
