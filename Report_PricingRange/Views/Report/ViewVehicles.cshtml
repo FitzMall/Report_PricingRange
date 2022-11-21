@@ -321,7 +321,10 @@
         @Html.DisplayFor(modelItem => item.CRAmount)
     </td>
     <td align="right">
-        @item.CREndDate.ToShortDateString()
+        @if (item.CREndDate.Year > 1980)
+        {
+            @item.CREndDate.ToShortDateString()
+         }
     </td>
 </tr>
     }
