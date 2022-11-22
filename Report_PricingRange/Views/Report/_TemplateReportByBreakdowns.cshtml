@@ -146,6 +146,27 @@
                     breakdownLevel1Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
                     break;
 
+                case "CRExpired":
+                    breakdownLevel1Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
+
+                    break;
+
+                case "BucketDaysInInventory":
+                    breakdownLevel1Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
+
+                    break;
+
+                case "StyleName":
+                    breakdownLevel1Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
+
+                    break;
+
+                case "Trim":
+                    breakdownLevel1Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
+
+                    break;
+
+
                 default:
                     // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
                     break;
