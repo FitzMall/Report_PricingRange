@@ -242,16 +242,13 @@
         </th>
 
         <th align="right">
-            Internet $
-        </th>
-        <th align="right">
-            Delivered $
+            MSRP
         </th>
         <th align="right">
             Invoice
         </th>
         <th align="right">
-            MSRP
+            Fitzway Low Price
         </th>
         <th align="right">
             MSRP%
@@ -297,16 +294,13 @@
     </td>
 
     <td align="right">
-        @Html.DisplayFor(modelItem => item.InternetPrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.DeliveredPrice)
+        @Html.DisplayFor(modelItem => item.MSRPPrice)
     </td>
     <td align="right">
         @Html.DisplayFor(modelItem => item.InvoicePrice)
     </td>
     <td align="right">
-        @Html.DisplayFor(modelItem => item.MSRPPrice)
+        @Html.DisplayFor(modelItem => item.InternetPrice)
     </td>
     <td align="right">
         @Html.DisplayFor(modelItem => item.PercentageMSRP)%
@@ -324,7 +318,7 @@
         @if (item.CRAmount > 0)
         {
             @item.CREndDate.ToShortDateString()
-         }
+        }
     </td>
 </tr>
     }
