@@ -51,5 +51,6 @@ namespace Report_PricingRange.Models
         public int DAYSININVENTORY { get; set; }
         public float PercentageMSRP { get; set; }
         public DateTime CREndDate { get; set; }
+        public int ModelYear { get; set; }
     }
 }

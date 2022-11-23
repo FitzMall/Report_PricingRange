@@ -35,15 +35,19 @@ namespace Report_PricingRange.Business
 
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "", 
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
-                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "")
+                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0")
         {
 
             var procedureName = "PricingRangeVehicles";
+            if (ModelYear == "")
+            {
+                ModelYear = "0";
+            }
 
             var prices = SqlMapperUtil.StoredProcWithParams <PricedVehicle>(procedureName, new {
                 parPricingStatus = PriceStatus, parLoc = LocCode, StockNumber = StockNum, 
                         MakeName = Make, ModelName = Modeln, MatrixStatus = MatrixYN, CRExpired = CRExpired, StyleName = StyleName, 
-                    TrimName = TrimName, BucketDaysInInventory = BucketDaysInInventory }, "Rackspace");
+                    TrimName = TrimName, BucketDaysInInventory = BucketDaysInInventory, parModelYear = Int32.Parse(ModelYear) }, "Rackspace");
 
             //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
 
