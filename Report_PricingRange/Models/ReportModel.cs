@@ -49,7 +49,7 @@ namespace Report_PricingRange.Models
         public string StyleName { get; set; }
         public string Trim { get; set; }
         public int DAYSININVENTORY { get; set; }
-        public int PercentageMSRP { get; set; }
+        public float PercentageMSRP { get; set; }
         public DateTime CREndDate { get; set; }
     }
 }
