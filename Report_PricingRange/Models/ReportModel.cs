@@ -52,5 +52,6 @@ namespace Report_PricingRange.Models
         public float PercentageMSRP { get; set; }
         public DateTime CREndDate { get; set; }
         public int ModelYear { get; set; }
+        public string ModelYearString { get; set; }
     }
 }
