@@ -47,6 +47,7 @@ namespace Report_PricingRange.Controllers
             ViewBag.styln = styln;
             ViewBag.trmnm= trmnm;
             ViewBag.bDay = bDay;
+            ViewBag.yr = yr;
             return View(ViewVehiclesModel);
                         
         }
