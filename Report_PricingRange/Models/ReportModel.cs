@@ -53,5 +53,6 @@ namespace Report_PricingRange.Models
         public DateTime CREndDate { get; set; }
         public int ModelYear { get; set; }
         public string ModelYearString { get; set; }
+
     }
 }

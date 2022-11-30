@@ -31,11 +31,11 @@ namespace Report_PricingRange.Controllers
 
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",
-                    string styln = "", string trmnm = "", string bDay = "", string yr = "")
+                    string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "")
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
             ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crx,
-                    styln, trmnm, bDay,yr);
+                    styln, trmnm, bDay,yr, mc);
 
             ViewBag.pstat = pstat;
             ViewBag.locd = locd;
@@ -48,6 +48,7 @@ namespace Report_PricingRange.Controllers
             ViewBag.trmnm= trmnm;
             ViewBag.bDay = bDay;
             ViewBag.yr = yr;
+            ViewBag.mc = mc;
             return View(ViewVehiclesModel);
                         
         }

@@ -17,6 +17,7 @@
     string BucketDaysInInventory = ViewBag.bDay;
     string DaysBucketTitle = "";
     string ExpiredTitle = "";
+    string ModelCode = ViewBag.mc;
 
     if (CRExpired != "")
     {
@@ -25,7 +26,8 @@
 
 
     // if there's no make but model is there, get the make
-    if (Make.Trim() == "" && ModelCar.Trim() != "") {
+    if (Make.Trim() == "" && ModelCar.Trim() != "")
+    {
         foreach (var item in Model)
         {
 
@@ -214,125 +216,160 @@
     }
 </style>
 
-<h2>@Make @ModelCar @ModelYear @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName</h2>
+<h2>@Make @ModelCar @ModelCode @ModelYear @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName</h2>
 
+<div class="body-content">
 
-<table class="table table-bordered sticky-header" style="font-size:16px; border-left: none;">
-    <tr style="background-color:#d9edf7;">
-        <th>
-            VIN
-        </th>
-        <th>
-            Stock#
-        </th>
-        <th>
-            Status
-        </th>
+    <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:16px; border-left: none;">
+        <thead>
+            <tr style="background-color:#d9edf7;">
+                <th>
+                    VIN
+                </th>
+                <th>
+                    Stock#
+                </th>
+                <th>
+                    Status
+                </th>
 
-        <th>
-            Days In Stock
-        </th>
-        <th>
-            Location
-        </th>
-        <th>
-            Make
-        </th>
-        <th>
-            Model
-        </th>
-        <th>
-            Year
-        </th>
-        <th align="right">
-            MSRP
-        </th>
-        <th align="right">
-            Invoice
-        </th>
-        <th align="right">
-            Fitzway Low Price
-        </th>
-        <th align="right">
-            MSRP%
-        </th>
-        <th align="center">
-            Matrix?
-        </th>
-        <th align="right">
-            MAAP
-        </th>
-        <th align="right">
-            CRebate $
-        </th>
-        <th align="right">
-            CR Expire
-        </th>
-    </tr>
+                <th>
+                    Days In Stock
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Model#
+                </th>
+                <th>
+                    Year
+                </th>
+                <th align="right">
+                    MSRP
+                </th>
+                <th align="right">
+                    Invoice
+                </th>
+                <th align="right">
+                    Fitzway Low Price
+                </th>
+                <th align="right">
+                    MSRP%
+                </th>
+                <th align="center">
+                    Matrix?
+                </th>
+                <th align="right">
+                    MAAP
+                </th>
+                <th align="right">
+                    CRebate $
+                </th>
+                <th align="right">
+                    CR Expire
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
-        @Html.ActionLink("" + item.Vin, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
-    </td>
-    <td>
-        @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VehicleStatus)
-    </td>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.ActionLink("" + item.Vin, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
+                </td>
+                <td>
+                    @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleStatus)
+                </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.DAYSININVENTORY)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LocationCode)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MakeName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ModelName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ModelYear)
-    </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DAYSININVENTORY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MakeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelYear)
+                </td>
 
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.MSRPPrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.InvoicePrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.InternetPrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.PercentageMSRP)%
-    </td>
-    <td align="center">
-        @Html.DisplayFor(modelItem => item.MatrixPricing)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.MAPPrice)
-    </td>
-    <td align="right">
-        @Html.DisplayFor(modelItem => item.CRAmount)
-    </td>
-    <td align="right">
-        @if (item.CRAmount > 0)
-        {
-            @item.CREndDate.ToShortDateString()
-        }
-    </td>
-</tr>
-    }
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.MSRPPrice)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.InvoicePrice)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.InternetPrice)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.PercentageMSRP)%
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.MatrixPricing)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.MAPPrice)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.CRAmount)
+                </td>
+                <td align="right">
+                    @if (item.CRAmount > 0)
+                    {
+                        @item.CREndDate.ToShortDateString()
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
 
-    <tr>
-        <td>
-            @Model.Count() vehicles
-        </td>
-    </tr>
+            <tr>
+                <td>
+                    @Model.Count() vehicles
+                </td>
+            </tr>
 
-</table>
+    </table>
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTable.moment('M/D/YYYY H:mm:ss A');
+
+            $('#vehicleList').DataTable({
+                deferRender: true,
+                //scrollY: '50vh',
+                //scrollCollapse: true,
+                columnDefs: [
+                    {
+                        targets: -1,
+                        className: 'dt-head-center'
+                    }
+                ],
+                scroller: true,
+                ordering: true,
+                searching: false,
+                paging: false
+            });
+        });
+
+    </script>
