@@ -330,7 +330,9 @@
                     @Html.DisplayFor(modelItem => item.MAPPrice)
                 </td>
                 <td align="right">
-                    @Html.DisplayFor(modelItem => item.CRAmount)
+                    @if (item.CRAmount > 0) { 
+                        @Html.DisplayFor(modelItem => item.CRAmount)
+                    }
                 </td>
                 <td align="right">
                     @if (item.CRAmount > 0)
