@@ -25,15 +25,32 @@ namespace Report_PricingRange.Business
                 }
             }
 
-            //var associateAppointments = SqlMapperUtil.StoredProcWithParams<AssociateAppointment>("sp_CommissionGetAssociateAppointmentsByDate", new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate.AddDays(1) }, "SalesCommission");
-
-            leadReportModel.Prices = prices;
-            //leadReportModel.AssociateAppointments = associateAppointments;
+             leadReportModel.Prices = prices;
 
             return leadReportModel;
         }
 
-        public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "", 
+        public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel, DateTime DateOfReport ,bool bReturnDeals = true)
+        {
+
+            var procedureName = "PricingRangeSum_History";
+
+            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new { parDate = DateOfReport },"Rackspace");
+
+            foreach (var price in prices)
+            {
+                if (price.LocationCode == null)
+                {
+                    price.LocationCode = "";
+                }
+            }
+
+            leadReportModel.Prices = prices;
+
+            return leadReportModel;
+        }
+
+        public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
         {
@@ -44,10 +61,62 @@ namespace Report_PricingRange.Business
                 ModelYear = "0";
             }
 
-            var prices = SqlMapperUtil.StoredProcWithParams <PricedVehicle>(procedureName, new {
-                parPricingStatus = PriceStatus, parLoc = LocCode, StockNumber = StockNum, 
-                        MakeName = Make, ModelName = Modeln, MatrixStatus = MatrixYN, CRExpired = CRExpired, StyleName = StyleName, 
-                    TrimName = TrimName, BucketDaysInInventory = BucketDaysInInventory, parModelYear = Int32.Parse(ModelYear), ModelCode = ModelCode }, "Rackspace");
+            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new
+            {
+                parPricingStatus = PriceStatus,
+                parLoc = LocCode,
+                StockNumber = StockNum,
+                MakeName = Make,
+                ModelName = Modeln,
+                MatrixStatus = MatrixYN,
+                CRExpired = CRExpired,
+                StyleName = StyleName,
+                TrimName = TrimName,
+                BucketDaysInInventory = BucketDaysInInventory,
+                parModelYear = Int32.Parse(ModelYear),
+                ModelCode = ModelCode
+            }, "Rackspace");
+
+            //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
+
+
+            foreach (var price in prices)
+            {
+                if (price.LocationCode == null)
+                {
+                    price.LocationCode = "";
+                }
+            }
+
+            return prices;
+        }
+
+        public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
+            string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
+            string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "", string DatePast = "")
+        {
+
+            var procedureName = "PricingRangeVehicles";
+            if (ModelYear == "")
+            {
+                ModelYear = "0";
+            }
+
+            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new
+            {
+                parPricingStatus = PriceStatus,
+                parLoc = LocCode,
+                StockNumber = StockNum,
+                MakeName = Make,
+                ModelName = Modeln,
+                MatrixStatus = MatrixYN,
+                CRExpired = CRExpired,
+                StyleName = StyleName,
+                TrimName = TrimName,
+                BucketDaysInInventory = BucketDaysInInventory,
+                parModelYear = Int32.Parse(ModelYear),
+                ModelCode = ModelCode
+            }, "Rackspace");
 
             //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
 

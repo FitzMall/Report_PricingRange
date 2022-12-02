@@ -31,12 +31,21 @@ namespace Report_PricingRange.Controllers
 
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",
-                    string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "")
+                    string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "", string dt = "")
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
-            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crx,
-                    styln, trmnm, bDay,yr, mc);
+            
+            if (dt =="") { 
+                ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crx,
+                    styln, trmnm, bDay, yr, mc);
+            }
+            else
+            {
 
+            }
+
+
+            ViewBag.dt = dt;
             ViewBag.pstat = pstat;
             ViewBag.locd = locd;
             ViewBag.stckn = stckn;
@@ -56,7 +65,8 @@ namespace Report_PricingRange.Controllers
         {
             var leadReportModel = new ReportTemplateModel();
 
-            leadReportModel.ReportStartDate = DateTime.Now.AddMonths(-1);
+            //            leadReportModel.ReportStartDate = DateTime.Now.AddMonths(-1);
+            leadReportModel.ReportStartDate = DateTime.Now;
             leadReportModel.ReportEndDate = DateTime.Now;
 
 
@@ -115,19 +125,15 @@ namespace Report_PricingRange.Controllers
             leadReportModel.ReportStartDate = startDate;
             leadReportModel.ReportEndDate = endDate;
 
-            leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
+            if (startDate == DateTime.Today) { 
+                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
+            } else { 
+                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, startDate, false);
+            }
 
             return View(leadReportModel);
         }
 
-        public ActionResult DrillDown(string PricingStatus = "",
-                    string LocCode = "", string StockNum = "", string Make = "", string Model = "", string MatrixYN = "")
-        {
 
-            
-
-            return Redirect("ViewVehicles");
-
-        }
     }
 }
