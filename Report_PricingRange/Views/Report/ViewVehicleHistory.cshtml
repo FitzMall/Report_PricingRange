@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "ViewVehicleHistory";
-    string Vin = "";
+    string Vin = ViewBag.vin;
 
 }
 
@@ -114,7 +114,7 @@
         <thead>
             <tr style="background-color:#d9edf7;">
                 <th>
-                    VIN
+                    Date
                 </th>
                 <th>
                     Stock#
@@ -207,13 +207,6 @@
             </tr>
             }
         </tbody>
-
-            <tr>
-                <td>
-                    @Model.Count() vehicles
-                </td>
-            </tr>
-
     </table>
 </div>
 
