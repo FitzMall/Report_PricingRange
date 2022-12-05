@@ -50,6 +50,8 @@ namespace Report_PricingRange.Business
             return leadReportModel;
         }
 
+        //[LastPriceChangesByVIN]
+
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
@@ -90,6 +92,31 @@ namespace Report_PricingRange.Business
 
             return prices;
         }
+
+        public static List<PricedVehicle> GetVehicleHistory(List<PricedVehicle> ListPricedVehicle, string Vin = "")
+        {
+
+            var procedureName = "PricingHistory_ByVin";
+  
+            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new
+            {
+                parVin = Vin,
+            }, "Rackspace");
+
+            //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
+
+
+            foreach (var price in prices)
+            {
+                if (price.LocationCode == null)
+                {
+                    price.LocationCode = "";
+                }
+            }
+
+            return prices;
+        }
+
 
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
             string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",

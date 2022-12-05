@@ -54,5 +54,12 @@ namespace Report_PricingRange.Models
         public int ModelYear { get; set; }
         public string ModelYearString { get; set; }
 
+        public decimal Markup { get; set; }
+        public string MSRPInvoiceFlag { get; set; }
+
+        public string RecDate { get; set; }
+
+        // public DateTime LastPriceChangeDate { get; set; }
+
     }
 }

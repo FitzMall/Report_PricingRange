@@ -28,6 +28,19 @@ namespace Report_PricingRange.Controllers
 
         }
 
+        public ActionResult ViewVehicleHistory(string vin = "")
+        {
+            var ViewVehicleHistory = new List<PricedVehicle>();
+
+                ViewVehicleHistory = SqlQueries.GetVehicleHistory(ViewVehicleHistory, vin);
+
+                ViewBag.vin = vin;
+    
+            ViewBag.vin = vin;
+            return View(ViewVehicleHistory);
+
+        }
+
 
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",
@@ -35,15 +48,9 @@ namespace Report_PricingRange.Controllers
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
             
-            if (dt =="") { 
                 ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crx,
                     styln, trmnm, bDay, yr, mc);
-            }
-            else
-            {
-
-            }
-
+ 
 
             ViewBag.dt = dt;
             ViewBag.pstat = pstat;
@@ -127,8 +134,9 @@ namespace Report_PricingRange.Controllers
 
             if (startDate == DateTime.Today) { 
                 leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
-            } else { 
-                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, startDate, false);
+            } else {
+                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
+                //  leadReportModel = SqlQueries.GetPriceReport(leadReportModel, startDate, false);
             }
 
             return View(leadReportModel);

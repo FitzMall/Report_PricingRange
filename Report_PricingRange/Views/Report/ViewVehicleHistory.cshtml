@@ -1,118 +1,8 @@
 ﻿@model IEnumerable<Report_PricingRange.Models.PricedVehicle>
 
 @{
-    ViewBag.Title = "ViewVehicles";
-    string PricingStatus = ViewBag.pstat;
-    string LocCode = ViewBag.locd;
-    string StockNum = ViewBag.stckn;
-    string Make = ViewBag.Make;
-    string ModelCar = ViewBag.mdlv;
-    string ModelYear = ViewBag.yr;
-    string MatrixYN = ViewBag.mxyn;
-    string PricingTitle = "";
-    string MatrixTitle = "";
-    string CRExpired = ViewBag.crexp;
-    string StyleName = ViewBag.styln;
-    string TrimName = ViewBag.trmnm;
-    string BucketDaysInInventory = ViewBag.bDay;
-    string DaysBucketTitle = "";
-    string ExpiredTitle = "";
-    string ModelCode = ViewBag.mc;
-
-    if (CRExpired != "")
-    {
-        ExpiredTitle = "(Rebate: " + CRExpired + ")";
-    }
-
-
-    // if there's no make but model is there, get the make
-    if (Make.Trim() == "" && ModelCar.Trim() != "")
-    {
-        foreach (var item in Model)
-        {
-
-            if (item.ModelCode != "")
-            {
-                Make = item.MakeName;
-            }
-            break;
-        }
-    }
-
-    if (BucketDaysInInventory != "" && BucketDaysInInventory != null)
-    {
-        DaysBucketTitle = BucketDaysInInventory + " Days";
-    }
-
-    switch (MatrixYN)
-    {
-
-        case "Y":
-            MatrixTitle = "(Matrix Pricing)";
-            break;
-
-        case "N":
-            MatrixTitle = "(Not Matrix Pricing)";
-            break;
-    }
-
-    if (LocCode != "" && (Make + ModelCar) != "")
-    {
-        LocCode = "at " + LocCode;
-    }
-
-    switch (PricingStatus)
-    {
-
-        case "InStock":
-            PricingTitle = "In-Stock";
-            break;
-
-        case "OnOrder":
-            PricingTitle = "On-Order";
-            break;
-
-        case "InStock1":
-            PricingTitle = "In-Stock MSRP+";
-            break;
-
-        case "InStock2":
-            PricingTitle = "In-Stock MSRP";
-            break;
-
-        case "InStock3":
-            PricingTitle = "In-Stock Invoice+200";
-            break;
-
-        case "InStock4":
-            PricingTitle = "In-Stock Invoice Less 200";
-            break;
-
-        case "InStock5":
-            PricingTitle = "In-Stock Less Than Invoice";
-            break;
-
-        case "OnOrder1":
-            PricingTitle = "On-Order MSRP+";
-            break;
-
-        case "OnOrder2":
-            PricingTitle = "On-Order MSRP";
-            break;
-
-        case "OnOrder3":
-            PricingTitle = "On-Order Invoice+200";
-            break;
-
-        case "OnOrder4":
-            PricingTitle = "On-Order Invoice Less 200";
-            break;
-
-        case "OnOrder5":
-            PricingTitle = "On-Order Less Than Invoice";
-            break;
-
-    }
+    ViewBag.Title = "ViewVehicleHistory";
+    string Vin = "";
 
 }
 
@@ -216,7 +106,7 @@
     }
 </style>
 
-<h2>@Make @ModelCar @ModelCode @ModelYear @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName</h2>
+<h2>Price History for Vehicle @Vin</h2>
 
 <div class="body-content">
 
@@ -229,27 +119,8 @@
                 <th>
                     Stock#
                 </th>
-                <th>
-                    Status
-                </th>
-
-                <th>
-                    Days In Stock
-                </th>
-                <th>
+                  <th>
                     Location
-                </th>
-                <th>
-                    Make
-                </th>
-                <th>
-                    Model
-                </th>
-                <th>
-                    Model#
-                </th>
-                <th>
-                    Year
                 </th>
                 <th align="right">
                     MSRP
@@ -289,37 +160,14 @@
             {
             <tr>
                 <td>
-                    @Html.ActionLink("" + item.Vin, "ViewVehicleHistory", new
-               {
-                vin = item.Vin
-               }, new { target = "_blank" })
+                    @Html.DisplayFor(modelItem => item.RecDate)
                 </td>
                 <td>
                     @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VehicleStatus)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.DAYSININVENTORY)
-                </td>
-                <td>
+                   <td>
                     @Html.DisplayFor(modelItem => item.LocationCode)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MakeName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModelName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModelCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModelYear)
-                </td>
-
                 <td align="right">
                     @Html.DisplayFor(modelItem => item.MSRPPrice)
                 </td>
