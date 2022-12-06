@@ -57,7 +57,7 @@ namespace Report_PricingRange.Models
         public decimal Markup { get; set; }
         public string MSRPInvoiceFlag { get; set; }
 
-        public string RecDate { get; set; }
+        public DateTime RecDate { get; set; }
 
         // public DateTime LastPriceChangeDate { get; set; }
 

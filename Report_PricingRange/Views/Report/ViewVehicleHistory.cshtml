@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "ViewVehicleHistory";
     string Vin = ViewBag.vin;
-
+    int PreviousPrice = 0;
 }
 
 @section CSS
@@ -112,99 +112,90 @@
 
     <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:16px; border-left: none;">
         <thead>
-            <tr style="background-color:#d9edf7;">
-                <th>
-                    Date
-                </th>
-                <th>
-                    Stock#
-                </th>
-                  <th>
-                    Location
-                </th>
-                <th align="right">
-                    MSRP
-                </th>
-                <th align="right">
-                    Invoice
-                </th>
-                <th align="right">
-                    Fitzway Low Price
-                </th>
-                <th align="right">
-                    MSRP%
-                </th>
-                <th align="center">
-                    Matrix?
-                </th>
-                <th align="right">
-                    MAAP
-                </th>
-                <th align="right">
-                    CRebate $
-                </th>
-                <th align="right">
-                    CR Expire
-                </th>
-                <th align="right">
-                    Markup
-                </th>
-                <th align="right">
-                    MSRP/Invoice?
-                </th>
-            </tr>
+        <tr style="background-color:#d9edf7;">
+            <th>
+                Date
+            </th>
+            <th>
+                Stock#
+            </th>
+            <th>
+                Location
+            </th>
+            <th align="right">
+                Fitzway Low Price
+            </th>
+            <th align="right">
+                MSRP%
+            </th>
+            <th align="center">
+                Matrix?
+            </th>
+            <th align="right">
+                MAAP
+            </th>
+            <th align="right">
+                CRebate $
+            </th>
+            <th align="right">
+                CR Expire
+            </th>
+            <th align="right">
+                Markup
+            </th>
+            <th align="right">
+                MSRP/Invoice?
+            </th>
+        </tr>
         </thead>
         <tbody>
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RecDate)
-                </td>
-                <td>
-                    @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
-                </td>
-                   <td>
-                    @Html.DisplayFor(modelItem => item.LocationCode)
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.MSRPPrice)
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.InvoicePrice)
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.InternetPrice)
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.PercentageMSRP)%
-                </td>
-                <td align="center">
-                    @Html.DisplayFor(modelItem => item.MatrixPricing)
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.MAPPrice)
-                </td>
-                <td align="right">
-                    @if (item.CRAmount > 0)
-                    {
-                        @Html.DisplayFor(modelItem => item.CRAmount)
-                    }
-                </td>
-                <td align="right">
-                    @if (item.CRAmount > 0)
-                    {
-                        @item.CREndDate.ToShortDateString()
-                    }
-                </td>
-                <td align="right">
-                    @Html.DisplayFor(modelItem => item.Markup)
-                </td>
-                <td align="center">
-                    @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
-                </td>
-            </tr>
+                if (PreviousPrice != item.InternetPrice){ 
+                <tr>
+                    <td>
+                        @item.RecDate.ToShortDateString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StockNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationCode)
+                    </td>
+                    <td align="right" style="background-color:lightblue">
+                        @Html.DisplayFor(modelItem => item.InternetPrice)
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.PercentageMSRP)%
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.MatrixPricing)
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.MAPPrice)
+                    </td>
+                    <td align="right">
+                        @if (item.CRAmount > 0)
+                        {
+                            @Html.DisplayFor(modelItem => item.CRAmount)
+                        }
+                    </td>
+                    <td align="right">
+                        @if (item.CRAmount > 0)
+                        {
+                            @item.CREndDate.ToShortDateString()
+                        }
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.Markup)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
+                    </td>
+                </tr>
+                }
+                PreviousPrice = item.InternetPrice;
             }
         </tbody>
     </table>
