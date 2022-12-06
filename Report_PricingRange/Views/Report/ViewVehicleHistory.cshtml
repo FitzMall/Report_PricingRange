@@ -116,20 +116,11 @@
             <th>
                 Date
             </th>
-            <th>
-                Stock#
-            </th>
-            <th>
+             <th>
                 Location
             </th>
             <th align="right">
                 Fitzway Low Price
-            </th>
-            <th align="right">
-                MSRP%
-            </th>
-            <th align="center">
-                Matrix?
             </th>
             <th align="right">
                 MAAP
@@ -143,10 +134,7 @@
             <th align="right">
                 Markup
             </th>
-            <th align="right">
-                MSRP/Invoice?
-            </th>
-        </tr>
+         </tr>
         </thead>
         <tbody>
 
@@ -157,42 +145,30 @@
                     <td>
                         @item.RecDate.ToShortDateString()
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StockNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LocationCode)
-                    </td>
-                    <td align="right" style="background-color:lightblue">
-                        @Html.DisplayFor(modelItem => item.InternetPrice)
-                    </td>
-                    <td align="right">
-                        @Html.DisplayFor(modelItem => item.PercentageMSRP)%
-                    </td>
-                    <td align="center">
-                        @Html.DisplayFor(modelItem => item.MatrixPricing)
-                    </td>
-                    <td align="right">
-                        @Html.DisplayFor(modelItem => item.MAPPrice)
-                    </td>
-                    <td align="right">
-                        @if (item.CRAmount > 0)
-                        {
-                            @Html.DisplayFor(modelItem => item.CRAmount)
-                        }
-                    </td>
-                    <td align="right">
-                        @if (item.CRAmount > 0)
-                        {
-                            @item.CREndDate.ToShortDateString()
-                        }
-                    </td>
-                    <td align="right">
-                        @Html.DisplayFor(modelItem => item.Markup)
-                    </td>
-                    <td align="center">
-                        @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
-                    </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.LocationCode)
+                </td>
+                <td align="right" style="background-color:lightblue">
+                    @Html.DisplayFor(modelItem => item.InternetPrice)
+                </td>
+                 <td align="right">
+                    @Html.DisplayFor(modelItem => item.MAPPrice)
+                </td>
+                <td align="right">
+                    @if (item.CRAmount > 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.CRAmount)
+                    }
+                </td>
+                <td align="right">
+                    @if (item.CRAmount > 0)
+                    {
+                        @item.CREndDate.ToShortDateString()
+                    }
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Markup)
+                </td>
                 </tr>
                 }
                 PreviousPrice = item.InternetPrice;
