@@ -112,64 +112,95 @@
 
     <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:16px; border-left: none;">
         <thead>
-        <tr style="background-color:#d9edf7;">
-            <th>
-                Date
-            </th>
-             <th>
-                Location
-            </th>
-            <th align="right">
-                Fitzway Low Price
-            </th>
-            <th align="right">
-                MAAP
-            </th>
-            <th align="right">
-                CRebate $
-            </th>
-            <th align="right">
-                CR Expire
-            </th>
-            <th align="right">
-                Markup
-            </th>
-         </tr>
+            <tr style="background-color:#d9edf7;">
+                <th>
+                    Date
+                </th>
+                <th>
+                    Location
+                </th>
+                <th align="left">
+                    Fitzway Low Price
+                </th>
+                <th align="left">
+                    MAAP
+                </th>
+                <th align="left">
+                    CRebate $
+                </th>
+                <th align="left">
+                    CR Expire
+                </th>
+                <th align="left">
+                    Markup
+                </th>
+                <th align="left">
+                    Markup
+                </th>
+                <th align="left">
+                    MSRP/Invoice?
+                </th>
+                <th align="left">
+                    FD$
+                </th>
+                <th align="left">
+                    FD Exp
+                </th>
+            </tr>
         </thead>
         <tbody>
 
             @foreach (var item in Model)
             {
                 if (PreviousPrice != item.InternetPrice){ 
-                <tr>
-                    <td>
-                        @item.RecDate.ToShortDateString()
-                    </td>
-                   <td>
+            <tr>
+                <td>
+                    @item.RecDate.ToShortDateString()
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.LocationCode)
                 </td>
-                <td align="right" style="background-color:lightblue">
+                <td align="left" style="background-color:lightblue">
                     @Html.DisplayFor(modelItem => item.InternetPrice)
                 </td>
-                 <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.MAPPrice)
                 </td>
-                <td align="right">
+                <td align="left">
                     @if (item.CRAmount > 0)
                     {
                         @Html.DisplayFor(modelItem => item.CRAmount)
                     }
                 </td>
-                <td align="right">
+                <td align="left">
                     @if (item.CRAmount > 0)
                     {
                         @item.CREndDate.ToShortDateString()
                     }
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.Markup)
                 </td>
-                </tr>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => item.Markup)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
+                </td>
+                <td align="left">
+                    @if (item.FDAmount > 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.FDAmount)
+                    }
+                </td>
+                <td align="left">
+                    @if (item.FDAmount > 0)
+                    {
+                        @item.FDEndDate.ToShortDateString()
+                    }
+                </td>
+            </tr>
+
                 }
                 PreviousPrice = item.InternetPrice;
             }

@@ -223,21 +223,19 @@
     <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:16px; border-left: none;">
         <thead>
             <tr style="background-color:#d9edf7;">
+
                 <th>
-                    VIN
+                    Stk#
                 </th>
                 <th>
-                    Stock#
-                </th>
-                <th>
-                    Status
+                    Stat
                 </th>
 
                 <th>
-                    Days In Stock
+                    Days
                 </th>
                 <th>
-                    Location
+                    Loc
                 </th>
                 <th>
                     Make
@@ -251,35 +249,41 @@
                 <th>
                     Year
                 </th>
-                <th align="right">
+                <th align="left">
                     MSRP
                 </th>
-                <th align="right">
+                <th align="left">
                     Invoice
                 </th>
-                <th align="right">
-                    Fitzway Low Price
+                <th align="left">
+                    Fitzway LP
                 </th>
-                <th align="right">
+                <th align="left">
                     MSRP%
                 </th>
                 <th align="center">
                     Matrix?
                 </th>
-                <th align="right">
+                <th align="left">
                     MAAP
                 </th>
-                <th align="right">
-                    CRebate $
+                <th align="left">
+                    CR$
                 </th>
-                <th align="right">
-                    CR Expire
+                <th align="left">
+                    Exp
                 </th>
-                <th align="right">
+                <th align="left">
                     Markup
                 </th>
-                <th align="right">
-                    MSRP/Invoice?
+                <th align="left">
+                    MSRP/Inv
+                </th>
+                <th align="left">
+                    FD$
+                </th>
+                <th align="left">
+                    Exp
                 </th>
             </tr>
         </thead>
@@ -289,12 +293,13 @@
             {
             <tr>
                 <td>
-                    @Html.ActionLink("" + item.Vin, "ViewVehicleHistory", new
-               {
-                vin = item.Vin
-               }, new { target = "_blank" })
-                </td>
-                <td>
+                    @Html.ActionLink("$", "ViewVehicleHistory", new
+                    {
+                    vin = item.Vin
+                    }
+                    , new { @class = "btn btn-success btn-sm glyphicon" }
+                    )
+
                     @Html.ActionLink("" + item.StockNumber, "GoToFitzMall", new { keywordSearch = item.Xrefid }, new { target = "_blank" })
                 </td>
                 <td>
@@ -308,7 +313,7 @@
                     @Html.DisplayFor(modelItem => item.LocationCode)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MakeName)
+                    @Html.DisplayFor(modelItem => item.MakeCode)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ModelName)
@@ -320,41 +325,53 @@
                     @Html.DisplayFor(modelItem => item.ModelYear)
                 </td>
 
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.MSRPPrice)
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.InvoicePrice)
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.InternetPrice)
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.PercentageMSRP)%
                 </td>
                 <td align="center">
                     @Html.DisplayFor(modelItem => item.MatrixPricing)
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.MAPPrice)
                 </td>
-                <td align="right">
+                <td align="left">
                     @if (item.CRAmount > 0)
                     {
                         @Html.DisplayFor(modelItem => item.CRAmount)
                     }
                 </td>
-                <td align="right">
+                <td align="left">
                     @if (item.CRAmount > 0)
                     {
                         @item.CREndDate.ToShortDateString()
                     }
                 </td>
-                <td align="right">
+                <td align="left">
                     @Html.DisplayFor(modelItem => item.Markup)
                 </td>
                 <td align="center">
                     @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
+                </td>
+                <td align="left">
+                    @if (item.FDAmount > 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.FDAmount)
+                    }
+                </td>
+                <td align="left">
+                    @if (item.FDAmount > 0)
+                    {
+                        @item.FDEndDate.ToShortDateString()
+                    }
                 </td>
             </tr>
             }

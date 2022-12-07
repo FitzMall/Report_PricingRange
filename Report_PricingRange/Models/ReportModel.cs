@@ -59,6 +59,10 @@ namespace Report_PricingRange.Models
 
         public DateTime RecDate { get; set; }
 
+        public DateTime FDStartDate { get; set; }
+        public DateTime FDEndDate { get; set; }
+        public int FDAmount { get; set; }
+
         // public DateTime LastPriceChangeDate { get; set; }
 
     }
