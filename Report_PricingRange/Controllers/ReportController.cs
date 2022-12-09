@@ -28,6 +28,17 @@ namespace Report_PricingRange.Controllers
 
         }
 
+        public ActionResult MatrixInfo(string Location, string MakeCode, string ModelNumber, string Year)
+        {
+
+            // add the parameter fields to this for direct link
+            string FitzMallURLVehicle = "http://jjfserver/asp/pricematrixedit1.asp?fx=edit&id=" + Location + MakeCode + ModelNumber + 
+                    Year + "&mc=" + MakeCode + "&loc="+ Location +"&cntid=1";
+
+            return Redirect(FitzMallURLVehicle);
+
+        }
+
         public ActionResult ViewVehicleHistory(string vin = "")
         {
             var ViewVehicleHistory = new List<PricedVehicle>();
