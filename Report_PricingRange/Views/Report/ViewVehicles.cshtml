@@ -338,16 +338,8 @@
                     @Html.DisplayFor(modelItem => item.PercentageMSRP)%
                 </td>
                 <td align="center">
-                    @if (item.MatrixPricing != "Y")
-                    {
                         @Html.DisplayFor(modelItem => item.MatrixPricing)
-                    }
-                    else
-                    {
-                        @Html.ActionLink("" + item.MatrixPricing, "MatrixInfo", new {  Location = item.LocationCode,  MakeCode = item.MakeCode
-                        ,  ModelNumber = item.ModelCode,  Year = item.ModelYear.ToString() }, new { target = "_blank" })
 
-                    }
                 </td>
                 <td align="left">
                     @Html.DisplayFor(modelItem => item.MAPPrice)
