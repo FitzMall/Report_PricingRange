@@ -67,14 +67,12 @@
             decimal InStock1Count = 0;
             decimal InStock2Count = 0;
             decimal InStock3Count = 0;
-            decimal InStock4Count = 0;
             decimal InStock5Count = 0;
             decimal InStockCountTotal = 0;
 
             decimal OnOrder1Count = 0;
             decimal OnOrder2Count = 0;
             decimal OnOrder3Count = 0;
-            decimal OnOrder4Count = 0;
             decimal OnOrder5Count = 0;
             decimal OnOrderCountTotal = 0;
             decimal BOTHCountTotal = 0;
@@ -89,8 +87,8 @@
         <thead>
             <tr style="background-color:#d9edf7;">
                 <th class="text-center divider-column"></th>
-                <th class="text-center divider-column" colspan="6">In Stock (Status 1,2)</th>
-                <th class="text-center divider-column" colspan="6">On Order- EXCL Status 15</th>
+                <th class="text-center divider-column" colspan="5">In Stock (Status 1,2)</th>
+                <th class="text-center divider-column" colspan="5">On Order- EXCL Status 15</th>
                 <th class="text-center divider-column" colspan="1">Total</th>
             </tr>
             <tr style="background-color:#f5f5f5;">
@@ -99,9 +97,7 @@
 
                 <th class="text-center">MSRP</th>
 
-                <th class="text-center">Invoice+200</th>
-
-                <th class="text-center">Invoice Less 200</th>
+                <th class="text-center">&lt; MSRP&gt;Inv</th>
 
                 <th class="text-center">Less Than Invoice</th>
                 <th class="text-centerr divider-column">TOTAL</th>
@@ -110,9 +106,7 @@
 
                 <th class="text-center">MSRP</th>
 
-                <th class="text-center">Invoice+200</th>
-
-                <th class="text-center">Invoice Less 200</th>
+                <th class="text-center">&lt; MSRP&gt;Inv</th>
 
                 <th class="text-center">Less Than Invoice</th>
                 <th class="text-center divider-column">TOTAL</th>
@@ -297,10 +291,6 @@
                 BreakDown1InStockStatus3 = BreakDown1.Sum(x => x.Id);
                 InStock3Count += BreakDown1InStockStatus3;
 
-                BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                BreakDown1InStockStatus4 = BreakDown1.Sum(x => x.Id);
-                InStock4Count += BreakDown1InStockStatus4;
-
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                 BreakDown1InStockStatus5 = BreakDown1.Sum(x => x.Id);
                 InStock5Count += BreakDown1InStockStatus5;
@@ -318,10 +308,6 @@
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
                 BreakDown1OnOrderStatus3 = BreakDown1.Sum(x => x.Id);
                 OnOrder3Count += BreakDown1OnOrderStatus3;
-
-                BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                BreakDown1OnOrderStatus4 = BreakDown1.Sum(x => x.Id);
-                OnOrder4Count += BreakDown1OnOrderStatus4;
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                 BreakDown1OnOrderStatus5 = BreakDown1.Sum(x => x.Id);
@@ -403,33 +389,6 @@
                                 @Html.ActionLink("" + BreakDown1InStockStatus3, "ViewVehicles", new
                                 {
                                     pstat = "InStock3",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
-                            }
-                        }
-
-                    </td>
-                    <td class="text-center">
-                        @{ if ((BreakDown1InStockStatus4 == 0) | (bPrintFormat != false))
-                            {
-                                @BreakDown1InStockStatus4
-                            }
-                            else
-                            {
-
-                                @Html.ActionLink("" + BreakDown1InStockStatus4, "ViewVehicles", new
-                                {
-                                    pstat = "InStock4",
                                     locd = BreakDownLevel1Location,
                                     stckn = BreakDownLevel1Stock,
                                     Make = BreakDownLevel1Make,
@@ -583,34 +542,7 @@
                         }
 
                     </td>
-                    <td class="text-center">
-                        @{ if ((BreakDown1OnOrderStatus4 == 0) | (bPrintFormat != false))
-                            {
-                                @BreakDown1OnOrderStatus4
-                            }
-                            else
-                            {
-
-                                @Html.ActionLink("" + BreakDown1OnOrderStatus4, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder4",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
-                            }
-                        }
-
-                    </td>
-                    <td class="text-center">
+                            <td class="text-center">
                         @{ if ((BreakDown1OnOrderStatus5 == 0) | (bPrintFormat != false))
                             {
                                 @BreakDown1OnOrderStatus5
@@ -871,8 +803,6 @@
                     BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
                     BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                    BreakDown2InStockStatus4 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                     BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
@@ -884,8 +814,6 @@
                     BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
                     BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                    BreakDown2OnOrderStatus4 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                     BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
                     BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
@@ -969,34 +897,6 @@
                                         @Html.ActionLink("" + BreakDown2InStockStatus3, "ViewVehicles", new
                                         {
                                             pstat = "InStock3",
-                                            locd = BreakDownLevel2Location,
-                                            stckn = BreakDownLevel2Stock,
-                                            Make = BreakDownLevel2Make,
-                                            mdlv = BreakDownLevel2Model,
-                                            mxyn = BreakDownLevel2Matrix,
-                                            crx = BreakDownLevel2CRExpired,
-                                            styln = BreakDownLevel2Style,
-                                            trmnm = BreakDownLevel2Trim,
-                                            bDay = BreakDownLevel2BucketDaysInInventory,
-                                            yr = BreakdownLevel2ModelYear,
-                                            mc = BreakDownLevel2ModelCode
-
-                                        }, new { target = "_blank" })
-                                    }
-                                }
-
-                            </td>
-                            <td class="text-center">
-                                @{ if ((BreakDown2InStockStatus4 == 0) | (bPrintFormat != false))
-                                    {
-                                        @BreakDown2InStockStatus4
-                                    }
-                                    else
-                                    {
-
-                                        @Html.ActionLink("" + BreakDown2InStockStatus4, "ViewVehicles", new
-                                        {
-                                            pstat = "InStock4",
                                             locd = BreakDownLevel2Location,
                                             stckn = BreakDownLevel2Stock,
                                             Make = BreakDownLevel2Make,
@@ -1139,34 +1039,6 @@
                                         @Html.ActionLink("" + BreakDown2OnOrderStatus3, "ViewVehicles", new
                                         {
                                             pstat = "OnOrder3",
-                                            locd = BreakDownLevel2Location,
-                                            stckn = BreakDownLevel2Stock,
-                                            Make = BreakDownLevel2Make,
-                                            mdlv = BreakDownLevel2Model,
-                                            mxyn = BreakDownLevel2Matrix,
-                                            crx = BreakDownLevel2CRExpired,
-                                            styln = BreakDownLevel2Style,
-                                            trmnm = BreakDownLevel2Trim,
-                                            bDay = BreakDownLevel2BucketDaysInInventory,
-                                            yr = BreakdownLevel2ModelYear,
-                                            mc = BreakDownLevel2ModelCode
-
-                                        }, new { target = "_blank" })
-                                    }
-                                }
-
-                            </td>
-                            <td class="text-center">
-                                @{ if ((BreakDown2OnOrderStatus4 == 0) | (bPrintFormat != false))
-                                    {
-                                        @BreakDown2OnOrderStatus4
-                                    }
-                                    else
-                                    {
-
-                                        @Html.ActionLink("" + BreakDown2OnOrderStatus4, "ViewVehicles", new
-                                        {
-                                            pstat = "OnOrder4",
                                             locd = BreakDownLevel2Location,
                                             stckn = BreakDownLevel2Stock,
                                             Make = BreakDownLevel2Make,
@@ -1451,8 +1323,6 @@
                         BreakDown3InStockStatus2 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
                         BreakDown3InStockStatus3 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                        BreakDown3InStockStatus4 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                         BreakDown3InStockStatus5 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
@@ -1463,8 +1333,6 @@
                         BreakDown3OnOrderStatus2 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
                         BreakDown3OnOrderStatus3 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                        BreakDown3OnOrderStatus4 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                         BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
                         BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
@@ -1543,33 +1411,6 @@
                                             @Html.ActionLink("" + BreakDown3InStockStatus3, "ViewVehicles", new
                                        {
                                            pstat = "InStock3",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
-                                                mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
-                                        }
-                                    }
-
-                                </td>
-                                <td class="text-center">
-                                    @{ if ((BreakDown3InStockStatus4 == 0) | (bPrintFormat != false))
-                                        {
-                                            @BreakDown3InStockStatus4
-                                        }
-                                        else
-                                        {
-
-                                            @Html.ActionLink("" + BreakDown3InStockStatus4, "ViewVehicles", new
-                                       {
-                                           pstat = "InStock4",
                                            locd = BreakDownLevel3Location,
                                            stckn = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
@@ -1706,33 +1547,6 @@
                                             @Html.ActionLink("" + BreakDown3OnOrderStatus3, "ViewVehicles", new
                                        {
                                            pstat = "OnOrder3",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
-                                                mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
-                                        }
-                                    }
-
-                                </td>
-                                <td class="text-center">
-                                    @{ if ((BreakDown3OnOrderStatus4 == 0) | (bPrintFormat != false))
-                                        {
-                                            @BreakDown3OnOrderStatus4
-                                        }
-                                        else
-                                        {
-
-                                            @Html.ActionLink("" + BreakDown3OnOrderStatus4, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder4",
                                            locd = BreakDownLevel3Location,
                                            stckn = BreakDownLevel3Stock,
                                            Make = BreakDownLevel3Make,
@@ -2008,8 +1822,6 @@
                             BreakDown4InStockStatus2 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
                             BreakDown4InStockStatus3 = BreakDown4data.Sum(x => x.Id);
-                            BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock4");
-                            BreakDown4InStockStatus4 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
                             BreakDown4InStockStatus5 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
@@ -2021,8 +1833,6 @@
                             BreakDown4OnOrderStatus2 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
                             BreakDown4OnOrderStatus3 = BreakDown4data.Sum(x => x.Id);
-                            BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder4");
-                            BreakDown4OnOrderStatus4 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                             BreakDown4OnOrderStatus5 = BreakDown4data.Sum(x => x.Id);
                             BreakDown4OnOrderStatusTotal = BreakDown4OnOrderStatus1 + BreakDown4OnOrderStatus2 + BreakDown4OnOrderStatus3 + BreakDown4OnOrderStatus4 + BreakDown4OnOrderStatus5;
@@ -2105,33 +1915,6 @@
                                                 @Html.ActionLink("" + BreakDown4InStockStatus3, "ViewVehicles", new
                                                 {
                                                     pstat = "InStock3",
-                                                    locd = BreakDownLevel4Location,
-                                                    stckn = BreakDownLevel4Stock,
-                                                    Make = BreakDownLevel4Make,
-                                                    mdlv = BreakDownLevel4Model,
-                                                    mxyn = BreakDownLevel4Matrix,
-                                                    crx = BreakDownLevel4CRExpired,
-                                                    styln = BreakDownLevel4Style,
-                                                    trmnm = BreakDownLevel4Trim,
-                                                    bDay = BreakDownLevel4BucketDaysInInventory,
-                                                    yr = BreakDownLevel4ModelYear,
-                                                    mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
-                                            }
-                                        }
-
-                                    </td>
-                                    <td class="text-center">
-                                        @{ if ((BreakDown4InStockStatus4 == 0) | (bPrintFormat != false))
-                                            {
-                                                @BreakDown4InStockStatus4
-                                            }
-                                            else
-                                            {
-
-                                                @Html.ActionLink("" + BreakDown4InStockStatus4, "ViewVehicles", new
-                                                {
-                                                    pstat = "InStock4",
                                                     locd = BreakDownLevel4Location,
                                                     stckn = BreakDownLevel4Stock,
                                                     Make = BreakDownLevel4Make,
@@ -2286,33 +2069,6 @@
 
                                     </td>
                                     <td class="text-center">
-                                        @{ if ((BreakDown4OnOrderStatus4 == 0) | (bPrintFormat != false))
-                                            {
-                                                @BreakDown4OnOrderStatus4
-                                            }
-                                            else
-                                            {
-
-                                                @Html.ActionLink("" + BreakDown4OnOrderStatus4, "ViewVehicles", new
-                                                {
-                                                    pstat = "OnOrder4",
-                                                    locd = BreakDownLevel4Location,
-                                                    stckn = BreakDownLevel4Stock,
-                                                    Make = BreakDownLevel4Make,
-                                                    mdlv = BreakDownLevel4Model,
-                                                    mxyn = BreakDownLevel4Matrix,
-                                                    crx = BreakDownLevel4CRExpired,
-                                                    styln = BreakDownLevel4Style,
-                                                    trmnm = BreakDownLevel4Trim,
-                                                    bDay = BreakDownLevel4BucketDaysInInventory,
-                                                    yr = BreakDownLevel4ModelYear,
-                                                    mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
-                                            }
-                                        }
-
-                                    </td>
-                                    <td class="text-center">
                                         @{ if ((BreakDown4OnOrderStatus5 == 0) | (bPrintFormat != false))
                                             {
                                                 @BreakDown4OnOrderStatus5
@@ -2425,8 +2181,6 @@
 
                 <th class="text-center">@InStock3Count</th>
 
-                <th class="text-center">@InStock4Count</th>
-
                 <th class="text-center">@InStock5Count</th>
                 <th class="text-center divider-column ">@InStockCountTotal</th>
 
@@ -2435,8 +2189,6 @@
                 <th class="text-center">@OnOrder2Count</th>
 
                 <th class="text-center">@OnOrder3Count</th>
-
-                <th class="text-center">@OnOrder4Count</th>
 
                 <th class="text-center">@OnOrder5Count</th>
 

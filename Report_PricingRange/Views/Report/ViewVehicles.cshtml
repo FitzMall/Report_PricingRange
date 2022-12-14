@@ -261,6 +261,12 @@
                 <th align="left">
                     MSRP%
                 </th>
+                <th align="left">
+                    &lt;MSRP
+                </th>
+                <th align="left">
+                    &gt;Invoice
+                </th>
                 <th align="center">
                     Matrix
                 </th>
@@ -337,8 +343,14 @@
                 <td align="left">
                     @Html.DisplayFor(modelItem => item.PercentageMSRP)%
                 </td>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => item.UnderMSRP)
+                </td>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => item.OverInvoice)
+                </td>
                 <td align="center">
-                        @Html.DisplayFor(modelItem => item.MatrixPricing)
+                    @Html.DisplayFor(modelItem => item.MatrixPricing)
 
                 </td>
                 <td align="left">

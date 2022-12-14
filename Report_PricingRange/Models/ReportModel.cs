@@ -63,6 +63,9 @@ namespace Report_PricingRange.Models
         public DateTime FDEndDate { get; set; }
         public int FDAmount { get; set; }
 
+        public int UnderMSRP { get; set; }
+        public int OverInvoice { get; set; }
+
         // public DateTime LastPriceChangeDate { get; set; }
 
     }

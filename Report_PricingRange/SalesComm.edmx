@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SalesCommissionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesCommission.dbo.SalesBoardAllMTD' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SalesBoardAllMTD">
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="25" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="25" />
+          <Property Name="LOCATION" Type="char" MaxLength="20" />
+          <Property Name="sl_SalesAssociate1" Type="varchar" MaxLength="200" />
+          <Property Name="DAY1" Type="int" />
+          <Property Name="DAY2" Type="int" />
+          <Property Name="DAY3" Type="int" />
+          <Property Name="DAY4" Type="int" />
+          <Property Name="DAY5" Type="int" />
+          <Property Name="DAY6" Type="int" />
+          <Property Name="DAY7" Type="int" />
+          <Property Name="DAY8" Type="int" />
+          <Property Name="DAY9" Type="int" />
+          <Property Name="DAY10" Type="int" />
+          <Property Name="DAY11" Type="int" />
+          <Property Name="DAY12" Type="int" />
+          <Property Name="DAY13" Type="int" />
+          <Property Name="DAY14" Type="int" />
+          <Property Name="DAY15" Type="int" />
+          <Property Name="DAY16" Type="int" />
+          <Property Name="DAY17" Type="int" />
+          <Property Name="DAY18" Type="int" />
+          <Property Name="DAY19" Type="int" />
+          <Property Name="DAY20" Type="int" />
+          <Property Name="DAY21" Type="int" />
+          <Property Name="DAY22" Type="int" />
+          <Property Name="DAY23" Type="int" />
+          <Property Name="DAY24" Type="int" />
+          <Property Name="DAY25" Type="int" />
+          <Property Name="DAY26" Type="int" />
+          <Property Name="DAY27" Type="int" />
+          <Property Name="DAY28" Type="int" />
+          <Property Name="DAY29" Type="int" />
+          <Property Name="DAY30" Type="int" />
+          <Property Name="DAY31" Type="int" />
+          <Property Name="MTD" Type="int" />
+        </EntityType>-->
+        <EntityContainer Name="SalesCommissionModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SalesCommissionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SalesCommissionEntities" annotation:LazyLoadingEnabled="true" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SalesCommissionModelStoreContainer" CdmEntityContainer="SalesCommissionEntities" />
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
