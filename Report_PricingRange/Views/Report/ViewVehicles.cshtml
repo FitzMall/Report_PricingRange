@@ -228,11 +228,11 @@
                     Stk#
                 </th>
                 <th>
-                    Stat
+                    St
                 </th>
 
                 <th>
-                    Days
+                    Day
                 </th>
                 <th>
                     Loc
@@ -244,16 +244,16 @@
                     Model
                 </th>
                 <th>
-                    Model#
+                    Mdl#
                 </th>
                 <th>
-                    Year
+                    Yr
                 </th>
                 <th align="left">
                     MSRP
                 </th>
                 <th align="left">
-                    Invoice
+                    Invc
                 </th>
                 <th align="left">
                     FLP
@@ -265,7 +265,7 @@
                     &lt;MSRP
                 </th>
                 <th align="left">
-                    &gt;Invoice
+                    &gt;Invc
                 </th>
                 <th align="center">
                     Matrix
@@ -365,7 +365,7 @@
                 <td align="left">
                     @if (item.CRAmount > 0)
                     {
-                        @item.CREndDate.ToShortDateString()
+                        @item.CREndDate.ToString("MM/dd")
                     }
                 </td>
                 <td align="left">
@@ -383,7 +383,7 @@
                 <td align="left">
                     @if (item.FDAmount > 0)
                     {
-                        @item.FDEndDate.ToShortDateString()
+                        @item.FDEndDate.ToString("MM/dd")
                     }
                 </td>
             </tr>
