@@ -68,7 +68,9 @@ namespace Report_PricingRange.Models
 
         public int UnderMSRP { get; set; }
         public int OverInvoice { get; set; }
-      
+
+        public int Cars { get; set; }
+
         // public DateTime LastPriceChangeDate { get; set; }
 
     }

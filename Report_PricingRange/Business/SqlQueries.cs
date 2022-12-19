@@ -27,6 +27,22 @@ namespace Report_PricingRange.Business
 
              leadReportModel.Prices = prices;
 
+            // supply
+            procedureName = "PricingRangeSupply";
+
+            var supply = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace");
+
+            foreach (var car in supply)
+            {
+                if (car.LocationCode == null)
+                {
+                    car.LocationCode = "";
+                }
+            }
+
+            leadReportModel.Prices = prices;
+            leadReportModel.Supply = supply;
+
             return leadReportModel;
         }
 
