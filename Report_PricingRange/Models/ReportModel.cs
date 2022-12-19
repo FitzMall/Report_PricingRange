@@ -14,6 +14,9 @@ namespace Report_PricingRange.Models
         public DateTime ReportStartDate { get; set; }
         public DateTime ReportEndDate { get; set; }
         public List<PricedVehicle> Prices { get; set; }
+
+        public List<PricedVehicle> Supply { get; set; }
+
     }
 
     public class PricedVehicle
@@ -65,7 +68,7 @@ namespace Report_PricingRange.Models
 
         public int UnderMSRP { get; set; }
         public int OverInvoice { get; set; }
-
+      
         // public DateTime LastPriceChangeDate { get; set; }
 
     }
