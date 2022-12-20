@@ -199,7 +199,7 @@
                 {
                     case "ModelName":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelName == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelName == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelName == breakdown1.ToUpper());
                         BreakDownLevel1Model = breakdown1;
                         break;
                     case "ModelCode":
@@ -222,14 +222,14 @@
 
                     case "MakeName":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MakeName == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.MakeName == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.MakeName == breakdown1.ToUpper());
                         BreakDownLevel1Make = breakdown1;
 
                         break;
 
                     case "MatrixPricing":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MatrixPricing == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.MatrixPricing == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1Matrix = breakdown1;
                         break;
 
@@ -242,21 +242,21 @@
 
                     case "CRExpired":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.CRExpired == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.CRExpired == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1CRExpired = breakdown1;
 
                         break;
 
                     case "BucketDaysInInventory":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.BucketDaysInInventory == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.BucketDaysInInventory == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1BucketDaysInInventory = breakdown1;
 
                         break;
 
                     case "StyleName":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StyleName == breakdown1);
-                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StyleName == breakdown1);
+                        BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StyleName == breakdown1.ToUpper());
                         BreakDownLevel1Style = breakdown1;
 
                         break;
@@ -336,11 +336,21 @@
                 OnOrderCountTotal += BreakDown1OnOrderStatusTotal;
                 BOTHCountTotal = OnOrderCountTotal + InStockCountTotal;
 
+                decimal Supply30Day_BreakDown1 = 0;
+                string Supply30Day_Caption1 = "";
+
+                Supply30Day_Caption1 = "Err";
+                if (BreakDown1Supply > 0)
+                {
+                    Supply30Day_BreakDown1 = ((30 / BreakDown1Supply) * BreakDown1InStockStatusTotal);
+                    Supply30Day_Caption1 = Supply30Day_BreakDown1.ToString("N1");
+                }
+
                 <tr class="location-bd1-data-row-@Breakdown1Index @label1.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd1-collapse-@Breakdown1Index">
 
                     <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@Breakdown1Index" style="cursor: pointer;" class="location-bd1-collapse-@Breakdown1Index-href collapsed" data-target=".location-bd1-collapse-@Breakdown1Index">@label1 </a></td>
                     <td>
-                        @BreakDown1Supply
+                        @Supply30Day_Caption1
                     </td>
 
                     <td class="text-center">
@@ -656,216 +666,227 @@
         });
                 </script>
 
-                string BreakDownLevel2Location = "" + BreakDownLevel1Location;
-                string BreakDownLevel2Model = "" + BreakDownLevel1Model;
-                string BreakDownLevel2Make = "" + BreakDownLevel1Make;
-                string BreakDownLevel2Matrix = "" + BreakDownLevel1Matrix;
-                string BreakDownLevel2Stock = "" + BreakDownLevel1Stock;
-                string BreakDownLevel2CRExpired = "" + BreakDownLevel1CRExpired;
-                string BreakDownLevel2BucketDaysInInventory = "" + BreakDownLevel1BucketDaysInInventory;
-                string BreakDownLevel2Style = "" + BreakDownLevel1Style;
-                string BreakDownLevel2Trim = "" + BreakDownLevel1Trim;
-                string BreakdownLevel2ModelYear = "" + BreakdownLevel1ModelYear;
-                string BreakDownLevel2ModelCode = "" + BreakDownLevel1ModelCode;
+                            string BreakDownLevel2Location = "" + BreakDownLevel1Location;
+                            string BreakDownLevel2Model = "" + BreakDownLevel1Model;
+                            string BreakDownLevel2Make = "" + BreakDownLevel1Make;
+                            string BreakDownLevel2Matrix = "" + BreakDownLevel1Matrix;
+                            string BreakDownLevel2Stock = "" + BreakDownLevel1Stock;
+                            string BreakDownLevel2CRExpired = "" + BreakDownLevel1CRExpired;
+                            string BreakDownLevel2BucketDaysInInventory = "" + BreakDownLevel1BucketDaysInInventory;
+                            string BreakDownLevel2Style = "" + BreakDownLevel1Style;
+                            string BreakDownLevel2Trim = "" + BreakDownLevel1Trim;
+                            string BreakdownLevel2ModelYear = "" + BreakdownLevel1ModelYear;
+                            string BreakDownLevel2ModelCode = "" + BreakDownLevel1ModelCode;
 
 
-                var BreakdownLevel2Values = new List<string>();
+                            var BreakdownLevel2Values = new List<string>();
 
-                switch (Model.BreakDownLevel2)
-                {
-                    case "ModelName":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
-                        break;
-                    case "ModelCode":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
-                        break;
+                            switch (Model.BreakDownLevel2)
+                            {
+                                case "ModelName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
+                                    break;
+                                case "ModelCode":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "ModelYear":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
-                        break;
+                                case "ModelYear":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "StockNumber":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
-                        break;
+                                case "StockNumber":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "MakeName":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
-                        break;
+                                case "MakeName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "MatrixPricing":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
-                        break;
+                                case "MatrixPricing":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "LocationCode":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
-                        break;
+                                case "LocationCode":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-                    case "CRExpired":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
+                                case "CRExpired":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
 
-                        break;
+                                    break;
 
-                    case "BucketDaysInInventory":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
+                                case "BucketDaysInInventory":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
 
-                        break;
+                                    break;
 
-                    case "StyleName":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
+                                case "StyleName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
 
-                        break;
+                                    break;
 
-                    case "Trim":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
+                                case "Trim":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
 
-                        break;
+                                    break;
 
-                    default:
-                        // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
-                        break;
-                }
-
-
-                foreach (var BreakDown2 in BreakdownLevel2Values)
-                {
-                    var label2 = "" + BreakDown2;
-
-                    var BreakDown2filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
-                    var BreakDown2filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
-
-                    switch (Model.BreakDownLevel2)
-                    {
-                        case "ModelName":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelName == BreakDown2);
-                            BreakDownLevel2Model = BreakDown2;
-                            break;
-                        case "ModelCode":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode == BreakDown2);
-                            BreakDownLevel2ModelCode = BreakDown2;
-                            break;
-
-                        case "ModelYear":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelYearString == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelYearString == BreakDown2);
-                            BreakdownLevel2ModelYear = BreakDown2;
-                            break;
-
-                        case "StockNumber":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StockNumber == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StockNumber == BreakDown2);
-                            BreakDownLevel2Stock = BreakDown2;
-                            break;
-
-                        case "MakeName":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MakeName == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.MakeName == BreakDown2);
-                            BreakDownLevel2Make = BreakDown2;
-                            break;
-
-                        case "MatrixPricing":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.MatrixPricing == BreakDown2);
-                            BreakDownLevel2Matrix = BreakDown2;
-                            break;
-
-                        case "LocationCode":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.LocationCode == BreakDown2);
-                            BreakDownLevel2Location = BreakDown2;
-
-                            break;
-
-                        case "CRExpired":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.CRExpired == BreakDown2);
-                            BreakDownLevel2CRExpired = BreakDown2;
-
-                            break;
-
-                        case "BucketDaysInInventory":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.BucketDaysInInventory == BreakDown2);
-                            BreakDownLevel2BucketDaysInInventory = BreakDown2;
-
-                            break;
-
-                        case "StyleName":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StyleName == BreakDown2);
-                            BreakDownLevel2Style = BreakDown2;
-
-                            break;
-
-                        case "Trim":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.Trim == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.Trim == BreakDown2);
-                            BreakDownLevel2Trim = BreakDown2;
-
-                            break;
+                                default:
+                                    // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
+                                    break;
+                            }
 
 
-                        default:
-                            break;
-                    }
+                            foreach (var BreakDown2 in BreakdownLevel2Values)
+                            {
+                                var label2 = "" + BreakDown2;
+
+                                var BreakDown2filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
+                                var BreakDown2filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
+
+                                switch (Model.BreakDownLevel2)
+                                {
+                                    case "ModelName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelName == BreakDown2.ToUpper());
+                                        BreakDownLevel2Model = BreakDown2;
+                                        break;
+                                    case "ModelCode":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode == BreakDown2);
+                                        BreakDownLevel2ModelCode = BreakDown2;
+                                        break;
+
+                                    case "ModelYear":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelYearString == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelYearString == BreakDown2);
+                                        BreakdownLevel2ModelYear = BreakDown2;
+                                        break;
+
+                                    case "StockNumber":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StockNumber == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StockNumber == BreakDown2);
+                                        BreakDownLevel2Stock = BreakDown2;
+                                        break;
+
+                                    case "MakeName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MakeName == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.MakeName == BreakDown2.ToUpper());
+                                        BreakDownLevel2Make = BreakDown2;
+                                        break;
+
+                                    case "MatrixPricing":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2Matrix = BreakDown2;
+                                        break;
+
+                                    case "LocationCode":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.LocationCode == BreakDown2);
+                                        BreakDownLevel2Location = BreakDown2;
+
+                                        break;
+
+                                    case "CRExpired":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2CRExpired = BreakDown2;
+
+                                        break;
+
+                                    case "BucketDaysInInventory":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2BucketDaysInInventory = BreakDown2;
+
+                                        break;
+
+                                    case "StyleName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StyleName == BreakDown2.ToUpper());
+                                        BreakDownLevel2Style = BreakDown2;
+
+                                        break;
+
+                                    case "Trim":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.Trim == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.Trim == BreakDown2);
+                                        BreakDownLevel2Trim = BreakDown2;
+
+                                        break;
 
 
-                    decimal BreakDown2InStockStatus1 = 0;
-                    decimal BreakDown2InStockStatus2 = 0;
-
-                    decimal BreakDown2InStockStatus3 = 0;
-                    decimal BreakDown2InStockStatus4 = 0;
-                    decimal BreakDown2InStockStatus5 = 0;
-                    decimal BreakDown2InStockStatusTotal = 0;
-
-                    decimal BreakDown2OnOrderStatus1 = 0;
-                    decimal BreakDown2OnOrderStatus2 = 0;
-
-                    decimal BreakDown2OnOrderStatus3 = 0;
-                    decimal BreakDown2OnOrderStatus4 = 0;
-                    decimal BreakDown2OnOrderStatus5 = 0;
-                    decimal BreakDown2OnOrderStatusTotal = 0;
-                    decimal BreakDown2Total = 0;
-                    decimal BreakDown2Supply = 0;
-
-                    // supply
-
-                    BreakDown2Supply = BreakDown2filteredSupply.Sum(x => x.Cars);
-     
+                                    default:
+                                        break;
+                                }
 
 
-                    var BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                    BreakDown2InStockStatus1 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                    BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                    BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                    BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
+                                decimal BreakDown2InStockStatus1 = 0;
+                                decimal BreakDown2InStockStatus2 = 0;
+
+                                decimal BreakDown2InStockStatus3 = 0;
+                                decimal BreakDown2InStockStatus4 = 0;
+                                decimal BreakDown2InStockStatus5 = 0;
+                                decimal BreakDown2InStockStatusTotal = 0;
+
+                                decimal BreakDown2OnOrderStatus1 = 0;
+                                decimal BreakDown2OnOrderStatus2 = 0;
+
+                                decimal BreakDown2OnOrderStatus3 = 0;
+                                decimal BreakDown2OnOrderStatus4 = 0;
+                                decimal BreakDown2OnOrderStatus5 = 0;
+                                decimal BreakDown2OnOrderStatusTotal = 0;
+                                decimal BreakDown2Total = 0;
+                                decimal BreakDown2Supply = 0;
+
+                                // supply
+
+                                BreakDown2Supply = BreakDown2filteredSupply.Sum(x => x.Cars);
 
 
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                    BreakDown2OnOrderStatus1 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                    BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                    BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                    BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
-                    BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
-                    BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
+
+                                var BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
+                                BreakDown2InStockStatus1 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
+                                BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
+                                BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
+                                BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
 
 
-                    if (BreakDown2Total > 0)
-                    {
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
+                                BreakDown2OnOrderStatus1 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                                BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                                BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                                BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
+                                BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
+
+                                decimal Supply30Day_BreakDown2 = 0;
+                                string Supply30Day_Caption2 = "";
+
+                                Supply30Day_Caption2 = "Err";
+
+                                if (BreakDown2Supply > 0)
+                                {
+                                    Supply30Day_BreakDown2 = ((30 / BreakDown2Supply) * BreakDown2InStockStatusTotal);
+                                    Supply30Day_Caption2 = Supply30Day_BreakDown2.ToString("N1");
+                                }
+
+
+                                if (BreakDown2Total > 0)
+                                {
                         <tr class="location-bd1-collapse-@Breakdown1Index collapse out location-bd2-data-row-@BreakDown2Index @label2.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd2-collapse-@BreakDown2Index">
 
                             <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
 
                             <td>
-                                @BreakDown2Supply
+                                @Supply30Day_Caption2
                             </td>
 
                             <td class="text-center">
@@ -1195,213 +1216,225 @@
         });
                     </script>
 
-                    string BreakDownLevel3Location = "" + BreakDownLevel2Location;
-                    string BreakDownLevel3Model = "" + BreakDownLevel2Model;
-                    string BreakDownLevel3Make = "" + BreakDownLevel2Make;
-                    string BreakDownLevel3Matrix = "" + BreakDownLevel2Matrix;
-                    string BreakDownLevel3Stock = "" + BreakDownLevel2Stock;
-                    string BreakDownLevel3CRExpired = "" + BreakDownLevel2CRExpired;
-                    string BreakDownLevel3BucketDaysInInventory = "" + BreakDownLevel2BucketDaysInInventory;
-                    string BreakDownLevel3Style = "" + BreakDownLevel2Style;
-                    string BreakDownLevel3Trim = "" + BreakDownLevel2Trim;
-                    string BreakdownLevel3ModelYear = "" + BreakdownLevel2ModelYear;
-                    string BreakDownLevel3ModelCode = "" + BreakDownLevel2ModelCode;
+                                    string BreakDownLevel3Location = "" + BreakDownLevel2Location;
+                                    string BreakDownLevel3Model = "" + BreakDownLevel2Model;
+                                    string BreakDownLevel3Make = "" + BreakDownLevel2Make;
+                                    string BreakDownLevel3Matrix = "" + BreakDownLevel2Matrix;
+                                    string BreakDownLevel3Stock = "" + BreakDownLevel2Stock;
+                                    string BreakDownLevel3CRExpired = "" + BreakDownLevel2CRExpired;
+                                    string BreakDownLevel3BucketDaysInInventory = "" + BreakDownLevel2BucketDaysInInventory;
+                                    string BreakDownLevel3Style = "" + BreakDownLevel2Style;
+                                    string BreakDownLevel3Trim = "" + BreakDownLevel2Trim;
+                                    string BreakdownLevel3ModelYear = "" + BreakdownLevel2ModelYear;
+                                    string BreakDownLevel3ModelCode = "" + BreakDownLevel2ModelCode;
 
-                    var BreakdownLevel3Values = new List
-                                                    <string>
-                                                        ();
+                                    var BreakdownLevel3Values = new List
+                                                                    <string>
+                                                                        ();
 
-                    switch (Model.BreakDownLevel3)
-                    {
-                        case "ModelName":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
-                            break;
-                        case "ModelCode":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                    switch (Model.BreakDownLevel3)
+                                    {
+                                        case "ModelName":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
+                                            break;
+                                        case "ModelCode":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "ModelYear":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "ModelYear":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "StockNumber":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "StockNumber":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "MakeName":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "MakeName":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "MatrixPricing":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "MatrixPricing":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "LocationCode":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "LocationCode":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        case "CRExpired":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
+                                        case "CRExpired":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
 
-                            break;
+                                            break;
 
-                        case "BucketDaysInInventory":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
+                                        case "BucketDaysInInventory":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
 
-                            break;
+                                            break;
 
-                        case "StyleName":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
+                                        case "StyleName":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
 
-                            break;
+                                            break;
 
-                        case "Trim":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
-                            break;
+                                        case "Trim":
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
+                                            break;
 
-                        default:
-                            break;
-                    }
+                                        default:
+                                            break;
+                                    }
 
-                    foreach (var BreakDown3 in BreakdownLevel3Values)
-                    {
-                        var label3 = "" + BreakDown3;
+                                    foreach (var BreakDown3 in BreakdownLevel3Values)
+                                    {
+                                        var label3 = "" + BreakDown3;
 
-                        var BreakDown3filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>
-                            ();
+                                        var BreakDown3filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>
+                                            ();
 
-                        var BreakDown3filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
+                                        var BreakDown3filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
 
 
-                        switch (Model.BreakDownLevel3)
-                        {
-                            case "ModelName":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelName == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelName == BreakDown3);
-                                BreakDownLevel3Model = BreakDown3;
-                                break;
+                                        switch (Model.BreakDownLevel3)
+                                        {
+                                            case "ModelName":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelName == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelName == BreakDown3.ToUpper());
+                                                BreakDownLevel3Model = BreakDown3;
+                                                break;
 
-                            case "ModelCode":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelCode == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelCode == BreakDown3);
-                                BreakDownLevel3ModelCode = BreakDown3;
-                                break;
+                                            case "ModelCode":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelCode == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelCode == BreakDown3);
+                                                BreakDownLevel3ModelCode = BreakDown3;
+                                                break;
 
-                            case "ModelYear":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelYearString == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelYearString == BreakDown3);
-                                BreakdownLevel3ModelYear = BreakDown3;
-                                break;
+                                            case "ModelYear":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.ModelYearString == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.ModelYearString == BreakDown3);
+                                                BreakdownLevel3ModelYear = BreakDown3;
+                                                break;
 
-                            case "StockNumber":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StockNumber == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.StockNumber == BreakDown3);
-                                BreakDownLevel3Stock = BreakDown3;
-                                break;
+                                            case "StockNumber":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StockNumber == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.StockNumber == BreakDown3);
+                                                BreakDownLevel3Stock = BreakDown3;
+                                                break;
 
-                            case "MakeName":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.MakeName == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.MakeName == BreakDown3);
-                                BreakDownLevel3Make = BreakDown3;
-                                break;
+                                            case "MakeName":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.MakeName == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.MakeName == BreakDown3.ToUpper());
+                                                BreakDownLevel3Make = BreakDown3;
+                                                break;
 
-                            case "MatrixPricing":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.MatrixPricing == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.MatrixPricing == BreakDown3);
-                                BreakDownLevel3Matrix = BreakDown3;
-                                break;
+                                            case "MatrixPricing":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.MatrixPricing == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply;
+                                                BreakDownLevel3Matrix = BreakDown3;
+                                                break;
 
-                            case "LocationCode":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.LocationCode == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.LocationCode == BreakDown3);
-                                BreakDownLevel3Location = BreakDown3;
+                                            case "LocationCode":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.LocationCode == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.LocationCode == BreakDown3);
+                                                BreakDownLevel3Location = BreakDown3;
 
-                                break;
+                                                break;
 
-                            case "CRExpired":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.CRExpired == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.CRExpired == BreakDown3);
-                                BreakDownLevel3CRExpired = BreakDown3;
+                                            case "CRExpired":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.CRExpired == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply;
+                                                BreakDownLevel3CRExpired = BreakDown3;
 
-                                break;
+                                                break;
 
-                            case "BucketDaysInInventory":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.BucketDaysInInventory == BreakDown3);
-                                BreakDownLevel3BucketDaysInInventory = BreakDown3;
+                                            case "BucketDaysInInventory":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply;
+                                                BreakDownLevel3BucketDaysInInventory = BreakDown3;
 
-                                break;
+                                                break;
 
-                            case "StyleName":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StyleName == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.StyleName == BreakDown3);
-                                BreakDownLevel3Style = BreakDown3;
+                                            case "StyleName":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StyleName == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.StyleName == BreakDown3.ToUpper());
+                                                BreakDownLevel3Style = BreakDown3;
 
-                                break;
+                                                break;
 
-                            case "Trim":
-                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.Trim == BreakDown3);
-                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.Trim == BreakDown3);
-                                BreakDownLevel3Trim = BreakDown3;
+                                            case "Trim":
+                                                BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.Trim == BreakDown3);
+                                                BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.Trim == BreakDown3);
+                                                BreakDownLevel3Trim = BreakDown3;
 
-                                break;
+                                                break;
 
-                            default:
-                                break;
-                        }
+                                            default:
+                                                break;
+                                        }
 
-                        decimal BreakDown3InStockStatus1 = 0;
-                        decimal BreakDown3InStockStatus2 = 0;
+                                        decimal BreakDown3InStockStatus1 = 0;
+                                        decimal BreakDown3InStockStatus2 = 0;
 
-                        decimal BreakDown3InStockStatus3 = 0;
-                        decimal BreakDown3InStockStatus4 = 0;
-                        decimal BreakDown3InStockStatus5 = 0;
-                        decimal BreakDown3InStockStatusTotal = 0;
+                                        decimal BreakDown3InStockStatus3 = 0;
+                                        decimal BreakDown3InStockStatus4 = 0;
+                                        decimal BreakDown3InStockStatus5 = 0;
+                                        decimal BreakDown3InStockStatusTotal = 0;
 
-                        decimal BreakDown3OnOrderStatus1 = 0;
-                        decimal BreakDown3OnOrderStatus2 = 0;
+                                        decimal BreakDown3OnOrderStatus1 = 0;
+                                        decimal BreakDown3OnOrderStatus2 = 0;
 
-                        decimal BreakDown3OnOrderStatus3 = 0;
-                        decimal BreakDown3OnOrderStatus4 = 0;
-                        decimal BreakDown3OnOrderStatus5 = 0;
-                        decimal BreakDown3OnOrderStatusTotal = 0;
-                        decimal BreakDown3Total = 0;
-                        decimal BreakDown3Supply = 0;
+                                        decimal BreakDown3OnOrderStatus3 = 0;
+                                        decimal BreakDown3OnOrderStatus4 = 0;
+                                        decimal BreakDown3OnOrderStatus5 = 0;
+                                        decimal BreakDown3OnOrderStatusTotal = 0;
+                                        decimal BreakDown3Total = 0;
+                                        decimal BreakDown3Supply = 0;
 
-                        // supply
+                                        // supply
 
-                        BreakDown3Supply = BreakDown3filteredSupply.Sum(x => x.Cars);
-             
+                                        BreakDown3Supply = BreakDown3filteredSupply.Sum(x => x.Cars);
 
-                        var BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-                        BreakDown3InStockStatus1 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-                        BreakDown3InStockStatus2 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-                        BreakDown3InStockStatus3 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-                        BreakDown3InStockStatus5 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
 
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-                        BreakDown3OnOrderStatus1 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-                        BreakDown3OnOrderStatus2 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-                        BreakDown3OnOrderStatus3 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-                        BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
-                        BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
-                        BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
+                                        var BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
+                                        BreakDown3InStockStatus1 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
+                                        BreakDown3InStockStatus2 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
+                                        BreakDown3InStockStatus3 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
+                                        BreakDown3InStockStatus5 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3InStockStatusTotal = BreakDown3InStockStatus1 + BreakDown3InStockStatus2 + BreakDown3InStockStatus3 + BreakDown3InStockStatus4 + BreakDown3InStockStatus5;
 
-                        if (BreakDown3Total > 0)
-                        {
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
+                                        BreakDown3OnOrderStatus1 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                                        BreakDown3OnOrderStatus2 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                                        BreakDown3OnOrderStatus3 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                                        BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
+                                        BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
+                                        BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
+                                        decimal Supply30Day_BreakDown3 = 0;
+                                        string Supply30Day_Caption3 = "";
+
+                                        Supply30Day_Caption3 = "Err";
+
+
+                                        if (BreakDown3Supply > 0)
+                                        {
+                                            Supply30Day_BreakDown3 = ((30 / BreakDown3Supply) * BreakDown3InStockStatusTotal);
+                                            Supply30Day_Caption3 = Supply30Day_BreakDown3.ToString();
+                                        }
+
+
+                                        if (BreakDown3Total > 0)
+                                        {
 
                             <tr class="location-bd2-collapse-@BreakDown2Index collapse out location-bd3-data-row-@BreakDown3Index @label3.Replace(" ", "-").Replace(".", "-").Replace("/", "-").Replace("'", "-").Replace("*", "-").Replace("(", "-").Replace(")", "-")" data-collapse="location-bd3-collapse-@BreakDown3Index">
 
                                 <td class="divider-column indent-td3"><a data-toggle="collapse" id="location-bd3-collapse-@BreakDown3Index" style="cursor: pointer;" class="location-bd3-collapse-@BreakDown3Index-href collapsed indent-3" data-target=".location-bd3-collapse-@BreakDown3Index">@label3 </a></td>
                                 <td>
-                                    @BreakDown3Supply
+                                    @Supply30Day_Caption3
                                 </td>
                                 <td class="text-center">
                                     @{ if ((BreakDown3InStockStatus1 == 0) | (bPrintFormat != false))
@@ -1425,7 +1458,7 @@
                                            bDay = BreakDownLevel3BucketDaysInInventory,
                                            yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                    }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1439,20 +1472,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3InStockStatus2, "ViewVehicles", new
-                                       {
-                                           pstat = "InStock2",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "InStock2",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1467,20 +1500,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3InStockStatus3, "ViewVehicles", new
-                                       {
-                                           pstat = "InStock3",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "InStock3",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1494,20 +1527,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3InStockStatus5, "ViewVehicles", new
-                                       {
-                                           pstat = "InStock5",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "InStock5",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1521,20 +1554,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3InStockStatusTotal, "ViewVehicles", new
-                                       {
-                                           pstat = "InStock",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "InStock",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1548,20 +1581,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3OnOrderStatus1, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder1",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "OnOrder1",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1575,20 +1608,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3OnOrderStatus2, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder2",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "OnOrder2",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1603,20 +1636,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3OnOrderStatus3, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder3",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "OnOrder3",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1630,20 +1663,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3OnOrderStatus5, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder5",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "OnOrder5",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1658,20 +1691,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3OnOrderStatusTotal, "ViewVehicles", new
-                                       {
-                                           pstat = "OnOrder",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "OnOrder",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1685,20 +1718,20 @@
                                         {
 
                                             @Html.ActionLink("" + BreakDown3Total, "ViewVehicles", new
-                                       {
-                                           pstat = "",
-                                           locd = BreakDownLevel3Location,
-                                           stckn = BreakDownLevel3Stock,
-                                           Make = BreakDownLevel3Make,
-                                           mdlv = BreakDownLevel3Model,
-                                           mxyn = BreakDownLevel3Matrix,
-                                           crx = BreakDownLevel3CRExpired,
-                                           styln = BreakDownLevel3Style,
-                                           trmnm = BreakDownLevel3Trim,
-                                           bDay = BreakDownLevel3BucketDaysInInventory,
-                                           yr = BreakdownLevel3ModelYear,
+                                            {
+                                                pstat = "",
+                                                locd = BreakDownLevel3Location,
+                                                stckn = BreakDownLevel3Stock,
+                                                Make = BreakDownLevel3Make,
+                                                mdlv = BreakDownLevel3Model,
+                                                mxyn = BreakDownLevel3Matrix,
+                                                crx = BreakDownLevel3CRExpired,
+                                                styln = BreakDownLevel3Style,
+                                                trmnm = BreakDownLevel3Trim,
+                                                bDay = BreakDownLevel3BucketDaysInInventory,
+                                                yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                       }, new { target = "_blank" })
+                                            }, new { target = "_blank" })
                                         }
                                     }
 
@@ -1713,8 +1746,8 @@
                                     $(".location-bd3-collapse-@BreakDown3Index-href").click(function () {
                                         $('.location-bd3-data-row-@BreakDown3Index ').toggleClass('selected-row');
                                         $(".location-bd3-collapse-@BreakDown3Index-href").toggleClass('changed');
-            });
-        });
+                                        });
+                                    });
                         </script>
                                         string BreakDownLevel4Location = "" + BreakDownLevel3Location;
                                         string BreakDownLevel4Model = "" + BreakDownLevel3Model;
@@ -1797,7 +1830,7 @@
                                             {
                                                 case "ModelName":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.ModelName == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.ModelName == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.ModelName == BreakDown4.ToUpper());
                                                     BreakDownLevel4Model = BreakDown4;
                                                     break;
 
@@ -1821,13 +1854,13 @@
 
                                                 case "MakeName":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.MakeName == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.MakeName == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.MakeName == BreakDown4.ToUpper());
                                                     BreakDownLevel4Make = BreakDown4;
                                                     break;
 
                                                 case "MatrixPricing":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.MatrixPricing == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.MatrixPricing == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply;
                                                     BreakDownLevel4Matrix = BreakDown4;
                                                     break;
 
@@ -1839,21 +1872,21 @@
 
                                                 case "CRExpired":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.CRExpired == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.CRExpired == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply;
                                                     BreakDownLevel4CRExpired = BreakDown4;
 
                                                     break;
 
                                                 case "BucketDaysInInventory":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.BucketDaysInInventory == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply;
                                                     BreakDownLevel4BucketDaysInInventory = BreakDown4;
 
                                                     break;
 
                                                 case "StyleName":
                                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.StyleName == BreakDown4);
-                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.StyleName == BreakDown4);
+                                                    BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.StyleName == BreakDown4.ToUpper());
                                                     BreakDownLevel4Style = BreakDown4;
 
                                                     break;
@@ -1891,7 +1924,7 @@
                                             // supply
 
                                             BreakDown4Supply = BreakDown4filteredSupply.Sum(x => x.Cars);
-                   
+
                                             var BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
                                             BreakDown4InStockStatus1 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
@@ -1914,6 +1947,17 @@
                                             BreakDown4OnOrderStatusTotal = BreakDown4OnOrderStatus1 + BreakDown4OnOrderStatus2 + BreakDown4OnOrderStatus3 + BreakDown4OnOrderStatus4 + BreakDown4OnOrderStatus5;
                                             BreakDown4Total = BreakDown4OnOrderStatusTotal + BreakDown4InStockStatusTotal;
 
+                                            decimal Supply30Day_BreakDown4 = 0;
+                                            string Supply30Day_Caption4 = "";
+
+                                            Supply30Day_Caption4 = "Err";
+
+                                            if (BreakDown4Supply > 0)
+                                            {
+                                                Supply30Day_BreakDown4 = ((30 / BreakDown4Supply) * BreakDown4InStockStatusTotal);
+                                                Supply30Day_Caption4 = Supply30Day_BreakDown4.ToString("N1");
+                                            }
+
 
                                             if (BreakDown4Total > 0)
                                             {
@@ -1924,7 +1968,7 @@
                                         <a data-toggle="collapse" id="location-bd2-collapse-@BreakDown4Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown4Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown4Index">@label4 </a>
                                     </td>
                                     <td>
-                                        @BreakDown4Supply
+                                        @Supply30Day_Caption4
                                     </td>
                                     <td class="text-center">
 
