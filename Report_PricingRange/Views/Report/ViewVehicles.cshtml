@@ -19,6 +19,8 @@
     string ExpiredTitle = "";
     string ModelCode = ViewBag.mc;
 
+    decimal CalculatedMarkup = 0;
+
     if (CRExpired != "")
     {
         ExpiredTitle = "(Rebate: " + CRExpired + ")";
@@ -250,7 +252,7 @@
                     Yr
                 </th>
                 <th align="left">
-                    MSRP
+                    MSRP +Incent 
                 </th>
                 <th align="left">
                     Invc
@@ -369,7 +371,17 @@
                     }
                 </td>
                 <td align="left">
-                    @Html.DisplayFor(modelItem => item.Markup)
+                    @if (item.MatrixPricing == "N")
+                    {
+                        CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
+
+                        @CalculatedMarkup
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Markup)
+
+                    }
                 </td>
                 <td align="center">
                     @Html.DisplayFor(modelItem => item.MSRPInvoiceFlag)
