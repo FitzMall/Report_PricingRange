@@ -188,6 +188,7 @@
             string BreakDownLevel1Trim = "";
             string BreakdownLevel1ModelYear = "";
             string BreakDownLevel1ModelCode = "";
+            bool ShowSupplySold_Breakdown1 = true;
 
             Sold30Count = Model.Supply.Sum(x => x.Cars);
 
@@ -234,6 +235,7 @@
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MatrixPricing == breakdown1);
                         BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1Matrix = breakdown1;
+                        ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
                         break;
 
                     case "LocationCode":
@@ -247,6 +249,7 @@
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.CRExpired == breakdown1);
                         BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1CRExpired = breakdown1;
+                        ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
 
                         break;
 
@@ -254,6 +257,7 @@
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.BucketDaysInInventory == breakdown1);
                         BreakDown1filteredSupply = Model.Supply;
                         BreakDownLevel1BucketDaysInInventory = breakdown1;
+                        ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
 
                         break;
 
@@ -261,6 +265,7 @@
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StyleName == breakdown1);
                         BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StyleName == breakdown1.ToUpper());
                         BreakDownLevel1Style = breakdown1;
+                        ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
 
                         break;
 
@@ -340,18 +345,28 @@
 
                 decimal Supply30Day_BreakDown1 = 0;
                 string Supply30Day_Caption1 = "";
+                string BreakDown1Supply_Caption = "";
 
                 Supply30Day_Caption1 = "Err";
+                BreakDown1Supply_Caption = BreakDown1Supply.ToString("N1");
                 if (BreakDown1Supply > 0)
                 {
                     Supply30Day_BreakDown1 = ((30 / BreakDown1Supply) * BreakDown1InStockStatusTotal);
                     Supply30Day_Caption1 = Supply30Day_BreakDown1.ToString("N1");
                 }
 
+                if (ShowSupplySold_Breakdown1 == false)
+                {
+                    Supply30Day_Caption1 = "";
+                    BreakDown1Supply_Caption = "";
+
+                }
+
+
                 <tr class="location-bd1-data-row-@Breakdown1Index @label1.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd1-collapse-@Breakdown1Index">
 
                     <td class="divider-column breakdown-column"><a data-toggle="collapse" id="location-bd1-collapse-@Breakdown1Index" style="cursor: pointer;" class="location-bd1-collapse-@Breakdown1Index-href collapsed" data-target=".location-bd1-collapse-@Breakdown1Index">@label1 </a></td>
-                    <td class="text-center">@BreakDown1Supply</td>
+                    <td class="text-center">@BreakDown1Supply_Caption</td>
                     <td class="divider-column text-center">
                         @Supply30Day_Caption1
                     </td>
@@ -680,7 +695,7 @@
                 string BreakDownLevel2Trim = "" + BreakDownLevel1Trim;
                 string BreakdownLevel2ModelYear = "" + BreakdownLevel1ModelYear;
                 string BreakDownLevel2ModelCode = "" + BreakDownLevel1ModelCode;
-
+                bool ShowSupplySold_Breakdown2 = true;
 
                 var BreakdownLevel2Values = new List<string>();
 
@@ -752,6 +767,7 @@
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName == BreakDown2);
                             BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelName == BreakDown2.ToUpper());
                             BreakDownLevel2Model = BreakDown2;
+                            ShowSupplySold_Breakdown2 = false;
                             break;
                         case "ModelCode":
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode == BreakDown2);
@@ -781,6 +797,7 @@
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
                             BreakDown2filteredSupply = BreakDown1filteredSupply;
                             BreakDownLevel2Matrix = BreakDown2;
+                            ShowSupplySold_Breakdown2 = false;
                             break;
 
                         case "LocationCode":
@@ -794,6 +811,7 @@
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
                             BreakDown2filteredSupply = BreakDown1filteredSupply;
                             BreakDownLevel2CRExpired = BreakDown2;
+                            ShowSupplySold_Breakdown2 = false;
 
                             break;
 
@@ -801,6 +819,7 @@
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
                             BreakDown2filteredSupply = BreakDown1filteredSupply;
                             BreakDownLevel2BucketDaysInInventory = BreakDown2;
+                            ShowSupplySold_Breakdown2 = false;
 
                             break;
 
@@ -808,6 +827,7 @@
                             BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName == BreakDown2);
                             BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StyleName == BreakDown2.ToUpper());
                             BreakDownLevel2Style = BreakDown2;
+                            ShowSupplySold_Breakdown2 = false;
 
                             break;
 
@@ -875,18 +895,23 @@
                     // SoldOut pricing status = dummy record for out of stock item
                     BreakDown2OutOfStock = BreakDown2data.Sum(x => x.Id);
 
-
+                    string BreakDown2Supply_Caption = "";
                     decimal Supply30Day_BreakDown2 = 0;
                     string Supply30Day_Caption2 = "";
 
                     Supply30Day_Caption2 = "Err";
-
+                    BreakDown2Supply_Caption = BreakDown2Supply.ToString("N1");
                     if (BreakDown2Supply > 0)
                     {
                         Supply30Day_BreakDown2 = ((30 / BreakDown2Supply) * BreakDown2InStockStatusTotal);
                         Supply30Day_Caption2 = Supply30Day_BreakDown2.ToString("N1");
                     }
 
+                    if (ShowSupplySold_Breakdown2 == false)
+                    {
+                        BreakDown2Supply_Caption = "";
+                        Supply30Day_Caption2 = "";
+                    }
 
                     if (BreakDown2Total > 0)
                     {
@@ -894,7 +919,7 @@
 
                             <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
 
-                            <td class="text-center">@BreakDown2Supply</td>
+                            <td class="text-center">@BreakDown2Supply_Caption</td>
                             <td class="divider-column text-center">
                                 @Supply30Day_Caption2
                             </td>
@@ -922,7 +947,7 @@
                                           ,
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
-                                        }, new { target = "_blank" })
+                            }, new { target = "_blank" })
                                     }
                                 }
 
@@ -1222,8 +1247,8 @@
                                     $(".location-bd2-collapse-@BreakDown2Index-href").click(function () {
                                         $('.location-bd2-data-row-@BreakDown2Index ').toggleClass('selected-row');
                                         $(".location-bd2-collapse-@BreakDown2Index-href").toggleClass('changed');
-            });
-        });
+                                });
+                            });
                     </script>
 
                     string BreakDownLevel3Location = "" + BreakDownLevel2Location;
@@ -1237,6 +1262,7 @@
                     string BreakDownLevel3Trim = "" + BreakDownLevel2Trim;
                     string BreakdownLevel3ModelYear = "" + BreakdownLevel2ModelYear;
                     string BreakDownLevel3ModelCode = "" + BreakDownLevel2ModelCode;
+                    bool ShowSupplySold_Breakdown3 = true;
 
                     var BreakdownLevel3Values = new List
                                                     <string>
@@ -1340,6 +1366,7 @@
                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.MatrixPricing == BreakDown3);
                                 BreakDown3filteredSupply = BreakDown2filteredSupply;
                                 BreakDownLevel3Matrix = BreakDown3;
+                                ShowSupplySold_Breakdown3 = false;
                                 break;
 
                             case "LocationCode":
@@ -1353,6 +1380,7 @@
                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.CRExpired == BreakDown3);
                                 BreakDown3filteredSupply = BreakDown2filteredSupply;
                                 BreakDownLevel3CRExpired = BreakDown3;
+                                ShowSupplySold_Breakdown3 = false;
 
                                 break;
 
@@ -1367,6 +1395,7 @@
                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.StyleName == BreakDown3);
                                 BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.StyleName == BreakDown3.ToUpper());
                                 BreakDownLevel3Style = BreakDown3;
+                                ShowSupplySold_Breakdown3 = false;
 
                                 break;
 
@@ -1374,6 +1403,7 @@
                                 BreakDown3filteredPrices = BreakDown2filteredPrices.FindAll(x => x.Trim == BreakDown3);
                                 BreakDown3filteredSupply = BreakDown2filteredSupply.FindAll(x => x.Trim == BreakDown3);
                                 BreakDownLevel3Trim = BreakDown3;
+                                ShowSupplySold_Breakdown3 = false;
 
                                 break;
 
@@ -1428,7 +1458,7 @@
                         string Supply30Day_Caption3 = "";
 
                         Supply30Day_Caption3 = "Err";
-
+                        string BreakDown3Supply_Caption = BreakDown3Supply.ToString("N1");
 
                         if (BreakDown3Supply > 0)
                         {
@@ -1436,6 +1466,11 @@
                             Supply30Day_Caption3 = Supply30Day_BreakDown3.ToString("N1");
                         }
 
+                        if (ShowSupplySold_Breakdown3 == false)
+                        {
+                            BreakDown3Supply_Caption = "";
+                            Supply30Day_Caption3 = "";
+                        }
 
                         if (BreakDown3Total > 0)
                         {
@@ -1444,7 +1479,7 @@
 
                                 <td class="divider-column indent-td3"><a data-toggle="collapse" id="location-bd3-collapse-@BreakDown3Index" style="cursor: pointer;" class="location-bd3-collapse-@BreakDown3Index-href collapsed indent-3" data-target=".location-bd3-collapse-@BreakDown3Index">@label3 </a></td>
                                 <td class="text-center">
-                                    @BreakDown3Supply
+                                    @BreakDown3Supply_Caption
                                 </td>
                                 <td class="divider-column text-center">
                                     @Supply30Day_Caption3
@@ -1773,10 +1808,10 @@
                         string BreakDownLevel4Trim = "" + BreakDownLevel3Trim;
                         string BreakDownLevel4ModelYear = "" + BreakdownLevel3ModelYear;
                         string BreakDownLevel4ModelCode = "" + BreakDownLevel3ModelCode;
-
+                        bool ShowSupplySold_Breakdown4 = true;
 
                         var BreakDownLevel4Values = new List<string>
-                                    ();
+                                                ();
                         var BreakDown4filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
 
                         switch (Model.BreakDownLevel4)
@@ -1875,6 +1910,7 @@
                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.MatrixPricing == BreakDown4);
                                     BreakDown4filteredSupply = BreakDown3filteredSupply;
                                     BreakDownLevel4Matrix = BreakDown4;
+                                    ShowSupplySold_Breakdown4 = false;
                                     break;
 
                                 case "LocationCode":
@@ -1887,6 +1923,7 @@
                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.CRExpired == BreakDown4);
                                     BreakDown4filteredSupply = BreakDown3filteredSupply;
                                     BreakDownLevel4CRExpired = BreakDown4;
+                                    ShowSupplySold_Breakdown4 = false;
 
                                     break;
 
@@ -1894,12 +1931,14 @@
                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown4);
                                     BreakDown4filteredSupply = BreakDown3filteredSupply;
                                     BreakDownLevel4BucketDaysInInventory = BreakDown4;
+                                    ShowSupplySold_Breakdown4 = false;
 
                                     break;
 
                                 case "StyleName":
                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.StyleName == BreakDown4);
                                     BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.StyleName == BreakDown4.ToUpper());
+                                    ShowSupplySold_Breakdown4 = false;
                                     BreakDownLevel4Style = BreakDown4;
 
                                     break;
@@ -1908,6 +1947,7 @@
                                     BreakDown4filteredPrices = BreakDown3filteredPrices.FindAll(x => x.Trim == BreakDown4);
                                     BreakDown4filteredSupply = BreakDown3filteredSupply.FindAll(x => x.Trim == BreakDown4);
                                     BreakDownLevel4Trim = BreakDown4;
+                                    ShowSupplySold_Breakdown4 = false;
 
                                     break;
 
@@ -1962,7 +2002,7 @@
 
                             decimal Supply30Day_BreakDown4 = 0;
                             string Supply30Day_Caption4 = "";
-
+                            string BreakDown4Supply_Caption = BreakDown4Supply.ToString("N1");
                             Supply30Day_Caption4 = "Err";
 
                             if (BreakDown4Supply > 0)
@@ -1971,6 +2011,11 @@
                                 Supply30Day_Caption4 = Supply30Day_BreakDown4.ToString("N1");
                             }
 
+                            if (ShowSupplySold_Breakdown4 == false)
+                            {
+                                Supply30Day_Caption4 = "";
+                                BreakDown4Supply_Caption = "";
+                            }
 
                             if (BreakDown4Total > 0)
                             {
@@ -1980,7 +2025,7 @@
                                     <td class="divider-column indent-td4">
                                         <a data-toggle="collapse" id="location-bd2-collapse-@BreakDown4Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown4Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown4Index">@label4 </a>
                                     </td>
-                                    <td class="text-center">@BreakDown4Supply</td>
+                                    <td class="text-center">@BreakDown4Supply_Caption</td>
                                     <td class="divider-column text-center">
                                         @Supply30Day_Caption4
                                     </td>

@@ -252,7 +252,7 @@
                     Yr
                 </th>
                 <th align="left">
-                    MSRP +Incent 
+                    MSRP 
                 </th>
                 <th align="left">
                     Invc
@@ -264,10 +264,10 @@
                     MSRP%
                 </th>
                 <th align="left">
-                    &lt;MSRP
+                    &lt;MSRP +Inc
                 </th>
                 <th align="left">
-                    &gt;Invc
+                    &gt;Invc +Inc
                 </th>
                 <th align="center">
                     Matrix
@@ -373,8 +373,12 @@
                 <td align="left">
                     @if (item.MatrixPricing == "N")
                     {
-                        CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
-
+                        @if (item.MSRPInvoiceFlag == "M") {
+                            CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
+                        } else
+                        {
+                            CalculatedMarkup = (item.InvoicePrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
+                        }
                         @CalculatedMarkup
                     }
                     else
