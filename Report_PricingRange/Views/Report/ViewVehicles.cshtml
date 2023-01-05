@@ -373,7 +373,7 @@
                 <td align="left">
                     @if (item.MatrixPricing == "N")
                     {
-                        @if (item.MSRPInvoiceFlag == "M") {
+                        if (item.MSRPInvoiceFlag == "M") {
                             CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
                         } else
                         {
