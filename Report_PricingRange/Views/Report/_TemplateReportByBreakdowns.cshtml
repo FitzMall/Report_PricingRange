@@ -301,7 +301,7 @@
                                 breakdownLevel1Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                                 break;
                             case "ModelCode":
-                                breakdownLevel1Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                                breakdownLevel1Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
                                 break;
                             case "ModelYear":
                                 breakdownLevel1Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
@@ -351,8 +351,6 @@
                         }
 
 
-            //var define was here
-
                         foreach (var breakdown1 in breakdownLevel1Values)
                         {
                             label1 = "" + breakdown1;
@@ -362,51 +360,51 @@
                             switch (Model.BreakDownLevel1)
                             {
                                 case "ModelName":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelName.ToUpper() == breakdown1.ToUpper());
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelName.ToUpper() == breakdown1.ToUpper());
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelName.ToUpper() == label1.ToUpper());
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelName.ToUpper() == label1.ToUpper());
                                     BreakDownLevel1Model = breakdown1;
                                     break;
                                 case "ModelCode":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelCode == breakdown1);
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelCode == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelCode == label1);
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelCode == label1);
                                     BreakDownLevel1ModelCode = breakdown1;
                                     break;
 
                                 case "ModelYear":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelYearString == breakdown1);
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelYearString == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.ModelYearString == label1);
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.ModelYearString == label1);
                                     BreakdownLevel1ModelYear = breakdown1;
                                     break;
 
                                 case "StockNumber":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StockNumber == breakdown1);
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StockNumber == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StockNumber == label1);
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StockNumber == label1);
                                     BreakDownLevel1Stock = breakdown1;
                                     break;
 
                                 case "MakeName":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MakeName.ToUpper() == breakdown1.ToUpper());
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.MakeName.ToUpper() == breakdown1.ToUpper());
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MakeName.ToUpper() == label1.ToUpper());
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.MakeName.ToUpper() == label1.ToUpper());
                                     BreakDownLevel1Make = breakdown1;
 
                                     break;
 
                                 case "MatrixPricing":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MatrixPricing == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.MatrixPricing == label1);
                                     BreakDown1filteredSupply = Model.Supply;
-                                    BreakDownLevel1Matrix = breakdown1;
+                                    BreakDownLevel1Matrix = label1;
                                     ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
                                     break;
 
                                 case "LocationCode":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.LocationCode == breakdown1);
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.LocationCode == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.LocationCode == label1);
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.LocationCode == label1);
                                     BreakDownLevel1Location = breakdown1;
 
                                     break;
 
                                 case "CRExpired":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.CRExpired == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.CRExpired == label1);
                                     BreakDown1filteredSupply = Model.Supply;
                                     BreakDownLevel1CRExpired = breakdown1;
                                     ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
@@ -414,7 +412,7 @@
                                     break;
 
                                 case "BucketDaysInInventory":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.BucketDaysInInventory == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.BucketDaysInInventory == label1);
                                     BreakDown1filteredSupply = Model.Supply;
                                     BreakDownLevel1BucketDaysInInventory = breakdown1;
                                     ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
@@ -422,16 +420,16 @@
                                     break;
 
                                 case "StyleName":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StyleName.ToUpper() == breakdown1.ToUpper());
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StyleName.ToUpper() == breakdown1.ToUpper());
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.StyleName.ToUpper() == label1.ToUpper());
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.StyleName.ToUpper() == label1.ToUpper());
                                     BreakDownLevel1Style = breakdown1;
                                     ShowSupplySold_Breakdown1 = false;  // don't show sold/supply for this breakdown (will not make sense)
 
                                     break;
 
                                 case "Trim":
-                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.Trim == breakdown1);
-                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.Trim == breakdown1);
+                                    BreakDown1filteredPrices = Model.Prices.FindAll(x => x.Trim == label1);
+                                    BreakDown1filteredSupply = Model.Supply.FindAll(x => x.Trim == label1);
                                     BreakDownLevel1Trim = breakdown1;
 
                                     break;
@@ -844,235 +842,235 @@
         });
                 </script>
 
-                BreakDownLevel2Location = "" + BreakDownLevel1Location;
-        BreakDownLevel2Model = "" + BreakDownLevel1Model;
-        BreakDownLevel2Make = "" + BreakDownLevel1Make;
-        BreakDownLevel2Matrix = "" + BreakDownLevel1Matrix;
-        BreakDownLevel2Stock = "" + BreakDownLevel1Stock;
-        BreakDownLevel2CRExpired = "" + BreakDownLevel1CRExpired;
-        BreakDownLevel2BucketDaysInInventory = "" + BreakDownLevel1BucketDaysInInventory;
-        BreakDownLevel2Style = "" + BreakDownLevel1Style;
-        BreakDownLevel2Trim = "" + BreakDownLevel1Trim;
-        BreakdownLevel2ModelYear = "" + BreakdownLevel1ModelYear;
-        BreakDownLevel2ModelCode = "" + BreakDownLevel1ModelCode;
-        ShowSupplySold_Breakdown2 = true;
+                            BreakDownLevel2Location = "" + BreakDownLevel1Location;
+                            BreakDownLevel2Model = "" + BreakDownLevel1Model;
+                            BreakDownLevel2Make = "" + BreakDownLevel1Make;
+                            BreakDownLevel2Matrix = "" + BreakDownLevel1Matrix;
+                            BreakDownLevel2Stock = "" + BreakDownLevel1Stock;
+                            BreakDownLevel2CRExpired = "" + BreakDownLevel1CRExpired;
+                            BreakDownLevel2BucketDaysInInventory = "" + BreakDownLevel1BucketDaysInInventory;
+                            BreakDownLevel2Style = "" + BreakDownLevel1Style;
+                            BreakDownLevel2Trim = "" + BreakDownLevel1Trim;
+                            BreakdownLevel2ModelYear = "" + BreakdownLevel1ModelYear;
+                            BreakDownLevel2ModelCode = "" + BreakDownLevel1ModelCode;
+                            ShowSupplySold_Breakdown2 = true;
 
 
-        switch (Model.BreakDownLevel2)
-        {
-            case "ModelName":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
-                break;
-            case "ModelCode":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
-                break;
+                            switch (Model.BreakDownLevel2)
+                            {
+                                case "ModelName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
+                                    break;
+                                case "ModelCode":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "ModelYear":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
-                break;
+                                case "ModelYear":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "StockNumber":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
-                break;
+                                case "StockNumber":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.StockNumber).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "MakeName":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
-                break;
+                                case "MakeName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.MakeName).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "MatrixPricing":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
-                break;
+                                case "MatrixPricing":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.MatrixPricing).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "LocationCode":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
-                break;
+                                case "LocationCode":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.LocationCode).Distinct().OrderBy(x => x).ToList();
+                                    break;
 
-            case "CRExpired":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
+                                case "CRExpired":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.CRExpired).Distinct().OrderBy(x => x).ToList();
 
-                break;
+                                    break;
 
-            case "BucketDaysInInventory":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
+                                case "BucketDaysInInventory":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.BucketDaysInInventory).Distinct().OrderBy(x => x).ToList();
 
-                break;
+                                    break;
 
-            case "StyleName":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
+                                case "StyleName":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.StyleName).Distinct().OrderBy(x => x).ToList();
 
-                break;
+                                    break;
 
-            case "Trim":
-                BreakdownLevel2Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
+                                case "Trim":
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.Trim).Distinct().OrderBy(x => x).ToList();
 
-                break;
+                                    break;
 
-            default:
-                // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
-                break;
-        }
-
-
-        foreach (var BreakDown2 in BreakdownLevel2Values)
-        {
-            label2 = "" + BreakDown2;
-
-            BreakDown2filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
-            BreakDown2filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
-
-            switch (Model.BreakDownLevel2)
-            {
-                case "ModelName":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDownLevel2Model = BreakDown2;
-                    break;
-                case "ModelCode":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode.ToUpper() == BreakDown2.ToUpper());
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode.ToUpper() == BreakDown2.ToUpper());
-                    BreakDownLevel2ModelCode = BreakDown2;
-                    break;
-
-                case "ModelYear":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelYearString == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelYearString == BreakDown2);
-                    BreakdownLevel2ModelYear = BreakDown2;
-                    break;
-
-                case "StockNumber":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StockNumber == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StockNumber == BreakDown2);
-                    BreakDownLevel2Stock = BreakDown2;
-                    break;
-
-                case "MakeName":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MakeName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.MakeName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDownLevel2Make = BreakDown2;
-                    break;
-
-                case "MatrixPricing":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply;
-                    BreakDownLevel2Matrix = BreakDown2;
-                    ShowSupplySold_Breakdown2 = false;
-                    break;
-
-                case "LocationCode":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.LocationCode == BreakDown2);
-                    BreakDownLevel2Location = BreakDown2;
-
-                    break;
-
-                case "CRExpired":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply;
-                    BreakDownLevel2CRExpired = BreakDown2;
-                    ShowSupplySold_Breakdown2 = false;
-
-                    break;
-
-                case "BucketDaysInInventory":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply;
-                    BreakDownLevel2BucketDaysInInventory = BreakDown2;
-                    ShowSupplySold_Breakdown2 = false;
-
-                    break;
-
-                case "StyleName":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StyleName.ToUpper() == BreakDown2.ToUpper());
-                    BreakDownLevel2Style = BreakDown2;
-                    ShowSupplySold_Breakdown2 = false;
-
-                    break;
-
-                case "Trim":
-                    BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.Trim == BreakDown2);
-                    BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.Trim == BreakDown2);
-                    BreakDownLevel2Trim = BreakDown2;
-
-                    break;
+                                default:
+                                    // breakdownLevel1Values = Model.Prices.Select(x => x.DealerId.ToString()).Distinct().OrderBy(x => x).ToList();
+                                    break;
+                            }
 
 
-                default:
-                    break;
-            }
+                            foreach (var BreakDown2 in BreakdownLevel2Values)
+                            {
+                                label2 = "" + BreakDown2;
+
+                                BreakDown2filteredPrices = new List<Report_PricingRange.Models.PricedVehicle>();
+                                BreakDown2filteredSupply = new List<Report_PricingRange.Models.PricedVehicle>();
+
+                                switch (Model.BreakDownLevel2)
+                                {
+                                    case "ModelName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDownLevel2Model = BreakDown2;
+                                        break;
+                                    case "ModelCode":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDownLevel2ModelCode = BreakDown2;
+                                        break;
+
+                                    case "ModelYear":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelYearString == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelYearString == BreakDown2);
+                                        BreakdownLevel2ModelYear = BreakDown2;
+                                        break;
+
+                                    case "StockNumber":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StockNumber == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StockNumber == BreakDown2);
+                                        BreakDownLevel2Stock = BreakDown2;
+                                        break;
+
+                                    case "MakeName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MakeName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.MakeName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDownLevel2Make = BreakDown2;
+                                        break;
+
+                                    case "MatrixPricing":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.MatrixPricing == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2Matrix = BreakDown2;
+                                        ShowSupplySold_Breakdown2 = false;
+                                        break;
+
+                                    case "LocationCode":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.LocationCode == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.LocationCode == BreakDown2);
+                                        BreakDownLevel2Location = BreakDown2;
+
+                                        break;
+
+                                    case "CRExpired":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.CRExpired == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2CRExpired = BreakDown2;
+                                        ShowSupplySold_Breakdown2 = false;
+
+                                        break;
+
+                                    case "BucketDaysInInventory":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.BucketDaysInInventory == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply;
+                                        BreakDownLevel2BucketDaysInInventory = BreakDown2;
+                                        ShowSupplySold_Breakdown2 = false;
+
+                                        break;
+
+                                    case "StyleName":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.StyleName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.StyleName.ToUpper() == BreakDown2.ToUpper());
+                                        BreakDownLevel2Style = BreakDown2;
+                                        ShowSupplySold_Breakdown2 = false;
+
+                                        break;
+
+                                    case "Trim":
+                                        BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.Trim == BreakDown2);
+                                        BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.Trim == BreakDown2);
+                                        BreakDownLevel2Trim = BreakDown2;
+
+                                        break;
 
 
-            BreakDown2InStockStatus1 = 0;
-            BreakDown2InStockStatus2 = 0;
-
-            BreakDown2InStockStatus3 = 0;
-            BreakDown2InStockStatus4 = 0;
-            BreakDown2InStockStatus5 = 0;
-            BreakDown2InStockStatusTotal = 0;
-
-            BreakDown2OnOrderStatus1 = 0;
-            BreakDown2OnOrderStatus2 = 0;
-
-            BreakDown2OnOrderStatus3 = 0;
-            BreakDown2OnOrderStatus4 = 0;
-            BreakDown2OnOrderStatus5 = 0;
-            BreakDown2OnOrderStatusTotal = 0;
-            BreakDown2Total = 0;
-            BreakDown2Supply = 0;
-            BreakDown2OutOfStock = 0;
-
-            // supply
-
-            BreakDown2Supply = BreakDown2filteredSupply.Sum(x => x.Cars);
+                                    default:
+                                        break;
+                                }
 
 
+                                BreakDown2InStockStatus1 = 0;
+                                BreakDown2InStockStatus2 = 0;
 
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
-            BreakDown2InStockStatus1 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
-            BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
-            BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
-            BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
+                                BreakDown2InStockStatus3 = 0;
+                                BreakDown2InStockStatus4 = 0;
+                                BreakDown2InStockStatus5 = 0;
+                                BreakDown2InStockStatusTotal = 0;
+
+                                BreakDown2OnOrderStatus1 = 0;
+                                BreakDown2OnOrderStatus2 = 0;
+
+                                BreakDown2OnOrderStatus3 = 0;
+                                BreakDown2OnOrderStatus4 = 0;
+                                BreakDown2OnOrderStatus5 = 0;
+                                BreakDown2OnOrderStatusTotal = 0;
+                                BreakDown2Total = 0;
+                                BreakDown2Supply = 0;
+                                BreakDown2OutOfStock = 0;
+
+                                // supply
+
+                                BreakDown2Supply = BreakDown2filteredSupply.Sum(x => x.Cars);
 
 
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
-            BreakDown2OnOrderStatus1 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
-            BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
-            BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
-            BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
-            BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
-            BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
 
-            BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "SoldOut");
-            // SoldOut pricing status = dummy record for out of stock item
-            BreakDown2OutOfStock = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock1");
+                                BreakDown2InStockStatus1 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock2");
+                                BreakDown2InStockStatus2 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock3");
+                                BreakDown2InStockStatus3 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "InStock5");
+                                BreakDown2InStockStatus5 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2InStockStatusTotal = BreakDown2InStockStatus1 + BreakDown2InStockStatus2 + BreakDown2InStockStatus3 + BreakDown2InStockStatus4 + BreakDown2InStockStatus5;
 
-            BreakDown2Supply_Caption = "";
-            Supply30Day_BreakDown2 = 0;
-            Supply30Day_Caption2 = "";
 
-            Supply30Day_Caption2 = "Err";
-            BreakDown2Supply_Caption = BreakDown2Supply.ToString("N0");
-            if (BreakDown2Supply > 0)
-            {
-                Supply30Day_BreakDown2 = ((30 / BreakDown2Supply) * BreakDown2InStockStatusTotal);
-                Supply30Day_Caption2 = Supply30Day_BreakDown2.ToString("N1");
-            }
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
+                                BreakDown2OnOrderStatus1 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder2");
+                                BreakDown2OnOrderStatus2 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder3");
+                                BreakDown2OnOrderStatus3 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
+                                BreakDown2OnOrderStatus5 = BreakDown2data.Sum(x => x.Id);
+                                BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
+                                BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
 
-            if (ShowSupplySold_Breakdown2 == false)
-            {
-                BreakDown2Supply_Caption = "";
-                Supply30Day_Caption2 = "";
-            }
+                                BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "SoldOut");
+                                // SoldOut pricing status = dummy record for out of stock item
+                                BreakDown2OutOfStock = BreakDown2data.Sum(x => x.Id);
 
-            if (BreakDown2filteredPrices.Count > 0)
-            {
+                                BreakDown2Supply_Caption = "";
+                                Supply30Day_BreakDown2 = 0;
+                                Supply30Day_Caption2 = "";
+
+                                Supply30Day_Caption2 = "Err";
+                                BreakDown2Supply_Caption = BreakDown2Supply.ToString("N0");
+                                if (BreakDown2Supply > 0)
+                                {
+                                    Supply30Day_BreakDown2 = ((30 / BreakDown2Supply) * BreakDown2InStockStatusTotal);
+                                    Supply30Day_Caption2 = Supply30Day_BreakDown2.ToString("N1");
+                                }
+
+                                if (ShowSupplySold_Breakdown2 == false)
+                                {
+                                    BreakDown2Supply_Caption = "";
+                                    Supply30Day_Caption2 = "";
+                                }
+
+                                if (BreakDown2filteredPrices.Count > 0)
+                                {
                         <tr class="location-bd1-collapse-@Breakdown1Index collapse out location-bd2-data-row-@BreakDown2Index @label2.Replace(" ", "-").Replace(".","-").Replace("/","-").Replace("'","-").Replace("*","-").Replace("(","-").Replace(")","-")" data-collapse="location-bd2-collapse-@BreakDown2Index">
 
                             <td class="divider-column indent-td2"><a data-toggle="collapse" id="location-bd2-collapse-@BreakDown2Index" style="cursor: pointer;" class="location-bd2-collapse-@BreakDown2Index-href collapsed indent-2" data-target=".location-bd2-collapse-@BreakDown2Index">@label2 </a></td>
@@ -1429,7 +1427,7 @@
                 BreakdownLevel3Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                 break;
             case "ModelCode":
-                BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
                 break;
 
             case "ModelYear":
@@ -1974,7 +1972,7 @@
                 BreakDownLevel4Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                 break;
             case "ModelCode":
-                BreakDownLevel4Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                BreakDownLevel4Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
                 break;
             case "ModelYear":
                 BreakDownLevel4Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
