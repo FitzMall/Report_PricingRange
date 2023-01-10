@@ -47,7 +47,6 @@ namespace Report_PricingRange.Controllers
 
                 ViewBag.vin = vin;
     
-            ViewBag.vin = vin;
             return View(ViewVehicleHistory);
 
         }
