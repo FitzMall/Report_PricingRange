@@ -374,10 +374,10 @@
                     @if (item.MatrixPricing == "N")
                     {
                         if (item.MSRPInvoiceFlag == "M") {
-                            CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
+                            CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) - (item.CRAmount + item.FDAmount);
                         } else
                         {
-                            CalculatedMarkup = (item.InvoicePrice - item.InternetPrice) + item.CRAmount + item.FDAmount;
+                            CalculatedMarkup = (item.InvoicePrice -  item.InternetPrice) - (item.CRAmount + item.FDAmount);
                         }
                         @CalculatedMarkup
                     }
