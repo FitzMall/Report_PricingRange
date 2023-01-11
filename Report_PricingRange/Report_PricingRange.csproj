@@ -239,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="db\" />
     <Folder Include="Views\Vehicle\" />
   </ItemGroup>
   <ItemGroup>
