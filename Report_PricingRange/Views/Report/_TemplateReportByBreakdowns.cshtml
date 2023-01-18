@@ -75,8 +75,7 @@
             decimal OnOrder5Count = 0;
             decimal OnOrderCountTotal = 0;
             decimal BOTHCountTotal = 0;
-            decimal Sold30Count = 0;
-            decimal LineTotal = 0;
+    
             decimal Supply30Day_BreakDownTotal = 0;
 
             var Breakdown1Index = 0;
@@ -275,7 +274,7 @@
             <tr style="background-color:#f5f5f5;">
                 <th class="text-centerr divider-column"> </th>
                 <th class="text-center">Sold 30</th>
-                <th class="divider-column text-center" ">Supply</th>
+                <th class="divider-column text-center" >Supply</th>
                 <th class="text-center">MSRP+</th>
 
                 <th class="text-center">MSRP</th>
@@ -839,15 +838,7 @@
 
                 </tr>
 
-                <script type="text/javascript">
 
-                                $(document).ready(function () {
-                                    $(".location-bd1-collapse-@Breakdown1Index-href").click(function () {
-                                        $('.location-bd1-data-row-@Breakdown1Index ').toggleClass('selected-row');
-                                        $(".location-bd1-collapse-@Breakdown1Index-href").toggleClass('changed');
-            });
-        });
-                </script>
 
                 BreakDownLevel2Location = "" + BreakDownLevel1Location;
                 BreakDownLevel2Model = "" + BreakDownLevel1Model;
@@ -1404,15 +1395,6 @@
                     }
 
 
-                    <script type="text/javascript">
-
-                                $(document).ready(function () {
-                                    $(".location-bd2-collapse-@BreakDown2Index-href").click(function () {
-                                        $('.location-bd2-data-row-@BreakDown2Index ').toggleClass('selected-row');
-                                        $(".location-bd2-collapse-@BreakDown2Index-href").toggleClass('changed');
-            });
-        });
-                    </script>
 
                     BreakDownLevel3Location = "" + BreakDownLevel2Location;
                     BreakDownLevel3Model = "" + BreakDownLevel2Model;
@@ -1949,15 +1931,7 @@
 
                             </tr>
                         }
-                        <script type="text/javascript">
 
-                                $(document).ready(function () {
-                                    $(".location-bd3-collapse-@BreakDown3Index-href").click(function () {
-                                        $('.location-bd3-data-row-@BreakDown3Index ').toggleClass('selected-row');
-                                        $(".location-bd3-collapse-@BreakDown3Index-href").toggleClass('changed');
-            });
-        });
-                        </script>
                         BreakDownLevel4Location = "" + BreakDownLevel3Location;
                         BreakDownLevel4Model = "" + BreakDownLevel3Model;
                         BreakDownLevel4Make = "" + BreakDownLevel3Make;
@@ -2838,6 +2812,16 @@
 
 </div>
 
+<script type="text/javascript">
+
+                                $(document).ready(function () {
+                                    $(".location-bd1-collapse-@Breakdown1Index-href").click(function () {
+                                        $('.location-bd1-data-row-@Breakdown1Index ').toggleClass('selected-row');
+                                        $(".location-bd1-collapse-@Breakdown1Index-href").toggleClass('changed');
+            });
+        });
+</script>
+
 <script>
     // @@preserve jQuery.floatThead 1.2.9 - http://mkoryak.github.io/floatThead/ - Copyright (c) 2012 - 2014 Misha Koryak
     // @@license MIT
@@ -2850,4 +2834,24 @@
         $(".sticky-header").floatThead({ scrollingTop: 70 });
 
     });
+</script>
+
+<script type="text/javascript">
+
+                                $(document).ready(function () {
+                                    $(".location-bd2-collapse-@BreakDown2Index-href").click(function () {
+                                        $('.location-bd2-data-row-@BreakDown2Index ').toggleClass('selected-row');
+                                        $(".location-bd2-collapse-@BreakDown2Index-href").toggleClass('changed');
+            });
+        });
+</script>
+
+<script type="text/javascript">
+
+                                $(document).ready(function () {
+                                    $(".location-bd3-collapse-@BreakDown3Index-href").click(function () {
+                                        $('.location-bd3-data-row-@BreakDown3Index ').toggleClass('selected-row');
+                                        $(".location-bd3-collapse-@BreakDown3Index-href").toggleClass('changed');
+            });
+        });
 </script>
