@@ -13,7 +13,7 @@ namespace Report_PricingRange.Business
         public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel, bool bReturnDeals = true)
         {
 
-            var procedureName = "PricingRangeSumALLModelsTEST";
+            var procedureName = "PricingRangeSumALLModels";
 
             var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace"); 
 
@@ -32,7 +32,7 @@ namespace Report_PricingRange.Business
             leadReportModel.Prices = prices;
 
             // supply
-            procedureName = "PricingRangeSupplyTEST";
+            procedureName = "PricingRangeSupply";
 
             var supply = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace");
 
@@ -77,7 +77,7 @@ namespace Report_PricingRange.Business
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
         {
 
-            var procedureName = "PricingRangeVehiclesTEST";
+            var procedureName = "PricingRangeVehicles";
             if (ModelYear == "")
             {
                 ModelYear = "0";
