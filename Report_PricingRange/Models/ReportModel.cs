@@ -19,6 +19,32 @@ namespace Report_PricingRange.Models
 
     }
 
+    public class Lead
+    {
+           
+        public int  DealerID { get; set; }
+        public int VehicleOfInterestID { get; set; }
+        public int LeadID { get; set; }
+        public int AutoID { get; set; }
+        public string InventoryType { get; set; }
+        public string StockNumber { get; set; }
+        public string VIN { get; set; }
+        public int Year { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public string Trim { get; set; }
+        public string InteriorColor { get; set; }
+        public string ExteriorColor { get; set; }
+        public int Odometer { get; set; }
+        public double Price { get; set; }
+        public Boolean IsPrimary { get; set; }
+        public string RecordStatusCode { get; set; }
+        public DateTime LastUpdatedUTCDate { get; set; }
+        public DateTime FitzLoadUpdDate { get; set; }
+        public string VehicleMemo { get; set; }
+
+    }
+
     public class PricedVehicle
     {
         public int Id { get; set; }
