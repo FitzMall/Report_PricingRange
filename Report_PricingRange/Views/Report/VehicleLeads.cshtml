@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Report_PricingRange.Models.Lead>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleOfInterestID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Odometer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPrimary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordStatusCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdatedUTCDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DealerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleOfInterestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Odometer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPrimary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordStatusCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedUTCDate)
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script>
+        $('#vehicleList').DataTable({
+            searching: true,
+            dom: 'Bfrti',
+            pageLength: -1,
+            order: [[1, "desc"]],
+            buttons: [
+                {
+                    extend: 'copyHtml5', footer: true,
+                },
+                {
+                    extend: 'excelHtml5', footer: true,
+                },
+                {
+                    extend: 'pdfHtml5', footer: true,
+                    orientation: 'landscape'
+                },
+                {
+                    extend: 'print', footer: true,
+                    orientation: 'landscape'
+                }
+            ],
+            retrieve: true
+        });
+
+
+

@@ -51,6 +51,17 @@ namespace Report_PricingRange.Controllers
 
         }
 
+        public ActionResult VehicleLeads(string stock = "")
+        {
+            var ViewVehicleLeads = new List<Lead>();
+
+            ViewVehicleLeads = SqlQueries.GetLeadsByVehicle(ViewVehicleLeads, stock);
+
+            ViewBag.stock = stock;
+
+            return View(ViewVehicleLeads);
+
+        }
 
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",

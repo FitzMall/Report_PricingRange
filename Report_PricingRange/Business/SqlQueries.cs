@@ -77,7 +77,7 @@ namespace Report_PricingRange.Business
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
         {
 
-            var procedureName = "PricingRangeVehicles";
+            var procedureName = "PricingRangeVehicles_TEST2";
             if (ModelYear == "")
             {
                 ModelYear = "0";
@@ -98,9 +98,6 @@ namespace Report_PricingRange.Business
                 parModelYear = Int32.Parse(ModelYear),
                 ModelCode = ModelCode
             }, "Rackspace");
-
-            //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
-
 
             foreach (var price in prices)
             {
@@ -133,6 +130,18 @@ namespace Report_PricingRange.Business
                     price.LocationCode = "";
                 }
             }
+
+            return prices;
+        }
+
+        public static List<Lead> GetLeadsByVehicle(List<Lead> leads, string StockNumber = "")
+        {
+            var procedureName = "LeadsbyStockNumber";
+
+            var prices = SqlMapperUtil.StoredProcWithParams<Lead>(procedureName, new
+            {
+                parStockNumber = StockNumber,
+            }, "VINSolution");
 
             return prices;
         }

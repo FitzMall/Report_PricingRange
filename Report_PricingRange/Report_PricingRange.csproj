@@ -236,6 +236,7 @@
     <Content Include="Views\Report\_TemplateReportByBreakdowns.cshtml" />
     <Content Include="Views\Report\ViewVehicles.cshtml" />
     <Content Include="Views\Report\ViewVehicleHistory.cshtml" />
+    <Content Include="Views\Report\VehicleLeads.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

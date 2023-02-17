@@ -33,16 +33,12 @@ namespace Report_PricingRange.Models
         public string Make { get; set; }
         public string Model { get; set; }
         public string Trim { get; set; }
-        public string InteriorColor { get; set; }
-        public string ExteriorColor { get; set; }
         public int Odometer { get; set; }
         public double Price { get; set; }
         public Boolean IsPrimary { get; set; }
         public string RecordStatusCode { get; set; }
         public DateTime LastUpdatedUTCDate { get; set; }
-        public DateTime FitzLoadUpdDate { get; set; }
-        public string VehicleMemo { get; set; }
-
+   
     }
 
     public class PricedVehicle
@@ -96,6 +92,8 @@ namespace Report_PricingRange.Models
         public int OverInvoice { get; set; }
 
         public int Cars { get; set; }
+
+        public int Leads { get; set; }
 
         // public DateTime LastPriceChangeDate { get; set; }
 

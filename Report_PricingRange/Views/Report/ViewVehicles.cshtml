@@ -252,7 +252,7 @@
                     Yr
                 </th>
                 <th align="left">
-                    MSRP 
+                    MSRP
                 </th>
                 <th align="left">
                     Invc
@@ -292,6 +292,9 @@
                 </th>
                 <th align="left">
                     Exp
+                </th>
+                <th align="left">
+                    Leads
                 </th>
             </tr>
         </thead>
@@ -373,11 +376,13 @@
                 <td align="left">
                     @if (item.MatrixPricing == "N")
                     {
-                        if (item.MSRPInvoiceFlag == "M") {
-                            CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) - (item.CRAmount + item.FDAmount);
-                        } else
+                        if (item.MSRPInvoiceFlag == "M")
                         {
-                            CalculatedMarkup = (item.InvoicePrice -  item.InternetPrice) - (item.CRAmount + item.FDAmount);
+                            CalculatedMarkup = (item.MSRPPrice - item.InternetPrice) - (item.CRAmount + item.FDAmount);
+                        }
+                        else
+                        {
+                            CalculatedMarkup = (item.InvoicePrice - item.InternetPrice) - (item.CRAmount + item.FDAmount);
                         }
                         @CalculatedMarkup
                     }
@@ -401,6 +406,17 @@
                     {
                         @item.FDEndDate.ToString("MM/dd")
                     }
+                </td>
+                <td>
+                    @if (item.Leads > 0)
+                    {
+                    @Html.ActionLink("" + item.Leads, "VehicleLeads", new
+               {
+                   stock = item.StockNumber
+               }
+                             )
+                    }
+
                 </td>
             </tr>
             }
