@@ -410,11 +410,7 @@
                 <td>
                     @if (item.Leads > 0)
                     {
-                    @Html.ActionLink("" + item.Leads, "VehicleLeads", new
-               {
-                   stock = item.StockNumber
-               }
-                             )
+                        @Html.DisplayFor(modelItem => item.Leads)
                     }
 
                 </td>
