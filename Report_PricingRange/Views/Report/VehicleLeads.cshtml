@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<Report_PricingRange.Models.Lead>
 
+@{
+    string showStockNumber = ViewBag.stock;
+    string showHeader = "Leads for Vehicle: " + showStockNumber;
+}
+
 @section CSS
 {
     <link rel="stylesheet" href="~/Scripts/Chosen/chosen.css">
@@ -99,6 +104,9 @@
         content: '\2023';
     }
 </style>
+
+<h2>@showHeader</h2>
+
 <table class="table">
     <tr>
         <th>
@@ -108,22 +116,22 @@
             @Html.DisplayNameFor(model => model.LeadID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerLastName)
+            Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerFirstName)
+            First
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CellPhone)
+            Cell
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstAttemptedContactUTCDate)
+            First Attempted Contact
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastAttemptedContactUTCDate)
+            Last Attempted Contact
         </th>
         <th></th>
     </tr>
