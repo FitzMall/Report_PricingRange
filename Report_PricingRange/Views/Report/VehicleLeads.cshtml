@@ -131,10 +131,19 @@
                     Email
                 </th>
                 <th>
+                    Status
+                </th>
+                <th>
+                    
+                </th>
+                <th>
                     First Attempted Contact
                 </th>
                 <th>
                     Last Attempted Contact
+                </th>
+                <th>
+                    Sales Rep
                 </th>
             </tr>
         </thead>
@@ -142,32 +151,42 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Team)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeadID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerLastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CellPhone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
-                    </td>
-                   </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CellPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales_FirstName)
+                    @Html.DisplayFor(modelItem => item.Sales_LastName)
+                </td>
+            </tr>
             }
 
         </tbody>
