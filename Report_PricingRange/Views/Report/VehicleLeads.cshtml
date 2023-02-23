@@ -107,93 +107,99 @@
 
 <h2>@showHeader</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Team)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LeadID)
-        </th>
-        <th>
-            Last Name
-        </th>
-        <th>
-            First
-        </th>
-        <th>
-            Cell
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            First Attempted Contact
-        </th>
-        <th>
-            Last Attempted Contact
-        </th>
-        <th></th>
-    </tr>
+<div class="body-content">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeadID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerLastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CellPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
-            </td>
-            <td></td>
-        </tr>
-    }
+    <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:14px; border-left: none;">
+        <thead>
+            <tr style="background-color:#d9edf7;">
+                <th>
+                    @Html.DisplayNameFor(model => model.Team)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeadID)
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    First
+                </th>
+                <th>
+                    Cell
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    First Attempted Contact
+                </th>
+                <th>
+                    Last Attempted Contact
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-</table>
-
-
-<script>
-    $('#vehicleList').DataTable({
-        searching: true,
-        dom: 'Bfrti',
-        pageLength: -1,
-        order: [[1, "desc"]],
-        buttons: [
+            @foreach (var item in Model)
             {
-                extend: 'copyHtml5', footer: true,
-            },
-            {
-                extend: 'excelHtml5', footer: true,
-            },
-            {
-                extend: 'pdfHtml5', footer: true,
-                orientation: 'landscape'
-            },
-            {
-                extend: 'print', footer: true,
-                orientation: 'landscape'
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Team)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CellPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
+                    </td>
+                   </tr>
             }
-        ],
-        retrieve: true
-    });
-</script>
+
+        </tbody>
+
+
+    </table>
+    </div>
+
+    <script>
+        $('#vehicleList').DataTable({
+            searching: true,
+            dom: 'Bfrti',
+            pageLength: -1,
+            order: [[1, "desc"]],
+            buttons: [
+                {
+                    extend: 'copyHtml5', footer: true,
+                },
+                {
+                    extend: 'excelHtml5', footer: true,
+                },
+                {
+                    extend: 'pdfHtml5', footer: true,
+                    orientation: 'landscape'
+                },
+                {
+                    extend: 'print', footer: true,
+                    orientation: 'landscape'
+                }
+            ],
+            retrieve: true
+        });
+    </script>
 
 
