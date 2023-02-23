@@ -413,7 +413,12 @@
                 <td>
                     @if (item.Leads > 0)
                     {
-                        @Html.DisplayFor(modelItem => item.Leads)
+                        @Html.ActionLink(("" + item.Leads), "VehicleLeads", new
+                   {
+                       stock = item.StockNumber
+                   }, new { target = "_blank" })
+
+
                     }
 
                 </td>

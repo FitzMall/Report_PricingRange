@@ -23,22 +23,55 @@ namespace Report_PricingRange.Models
     {
            
         public int  DealerID { get; set; }
-        public int VehicleOfInterestID { get; set; }
-        public int LeadID { get; set; }
-        public int AutoID { get; set; }
-        public string InventoryType { get; set; }
-        public string StockNumber { get; set; }
-        public string VIN { get; set; }
-        public int Year { get; set; }
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public string Trim { get; set; }
-        public int Odometer { get; set; }
-        public double Price { get; set; }
-        public Boolean IsPrimary { get; set; }
-        public string RecordStatusCode { get; set; }
+          public int LeadID { get; set; }
+          public string VOfInterest_InventoryType { get; set; }
+        public string VOfInterest_StockNumber { get; set; }
+        public string VOfInterest_VIN { get; set; }
+        public int VOfInterest_Year { get; set; }
+        public string VOfInterest_Make { get; set; }
+        public string VOfInterest_Model { get; set; }
+        public string VOfInterest_Trim { get; set; }
+        public int VOfInterest_Odometer { get; set; }
+        public double VOfInterest_Price { get; set; }
+        public string TradeIn_RecordStatusCode { get; set; }
         public DateTime LastUpdatedUTCDate { get; set; }
-   
+
+        public DateTime FirstAttemptedContactUTCDate{ get; set; }
+        public DateTime LastAttemptedContactUTCDate{ get; set; }
+        public DateTime LastAttemptedEmailContactUTCDate{ get; set; }
+        public DateTime LastAttemptedPhoneContactUTCDate{ get; set; }
+        public DateTime LastCustomerContactUTCDate{ get; set; }
+        public DateTime LastAttemptedOrActualContactUTCDate{ get; set; }
+        public DateTime DealerActionableUTCDate{ get; set; }
+
+        public string CustomerLastName{ get; set; }
+        public string CustomerFirstName{ get; set; }
+        public string CustomerType{ get; set; }
+        public string CustomerStatus{ get; set; }
+        public string CustomerMiddleName{ get; set; }
+        public string CompanyName{ get; set; }
+        public string PostalCode{ get; set; }
+        public string DayTimePhone{ get; set; }
+        public string DayTimePhoneExt{ get; set; }
+        public string EveningPhone{ get; set; }
+        public string EveningPhoneExt{ get; set; }
+        public string CellPhone{ get; set; }
+        public string Fax{ get; set; }
+        public string Email{ get; set; }
+        public string AlternateEmail{ get; set; }
+        public string SalesMgrName{ get; set; }
+
+        public int LeadStatusID{ get; set; }
+        public string LeadStatusName{ get; set; }
+        public string LeadStatusTypeName{ get; set; }
+        public string LeadSourceName{ get; set; }
+        public string LeadSourceTypeName{ get; set; }
+        public string LeadSourceGroupName{ get; set; }
+        public string SalesRepUserID{ get; set; }
+        public string Sales_FirstName{ get; set; }
+        public string Sales_LastName{ get; set; }
+        public string Team{ get; set; }
+
     }
 
     public class PricedVehicle
