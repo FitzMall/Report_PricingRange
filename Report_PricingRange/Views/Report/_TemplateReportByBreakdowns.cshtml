@@ -924,8 +924,8 @@
                             BreakDownLevel2Model = BreakDown2;
                             break;
                         case "ModelCode":
-                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode.ToUpper() == BreakDown2);
-                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode.ToUpper() == BreakDown2);
+                            BreakDown2filteredPrices = BreakDown1filteredPrices.FindAll(x => x.ModelCode == BreakDown2);
+                            BreakDown2filteredSupply = BreakDown1filteredSupply.FindAll(x => x.ModelCode == BreakDown2);
                             BreakDownLevel2ModelCode = BreakDown2;
                             break;
 

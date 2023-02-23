@@ -94,6 +94,7 @@ namespace Report_PricingRange.Models
         public int Cars { get; set; }
 
         public int Leads { get; set; }
+        public int Leads30 { get; set; }
 
         // public DateTime LastPriceChangeDate { get; set; }
 

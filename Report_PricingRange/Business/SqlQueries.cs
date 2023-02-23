@@ -77,7 +77,7 @@ namespace Report_PricingRange.Business
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
         {
 
-            var procedureName = "PricingRangeVehicles_TEST2";
+            var procedureName = "PricingRangeVehicles";
             if (ModelYear == "")
             {
                 ModelYear = "0";
