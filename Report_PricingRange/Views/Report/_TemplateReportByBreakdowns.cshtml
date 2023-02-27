@@ -307,7 +307,7 @@
                     breakdownLevel1Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                     break;
                 case "ModelCode":
-                    breakdownLevel1Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
+                    breakdownLevel1Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
                     break;
                 case "ModelYear":
                     breakdownLevel1Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
@@ -860,7 +860,7 @@
                         BreakdownLevel2Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                         break;
                     case "ModelCode":
-                        BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
+                        BreakdownLevel2Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
                         break;
 
                     case "ModelYear":
@@ -1416,7 +1416,7 @@
                             BreakdownLevel3Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                             break;
                         case "ModelCode":
-                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
+                            BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
                             break;
 
                         case "ModelYear":
@@ -1953,7 +1953,7 @@
                                 BreakDownLevel4Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                                 break;
                             case "ModelCode":
-                                BreakDownLevel4Values = Model.Prices.Select(x => x.ModelCode.Trim()).Distinct().OrderBy(x => x).ToList();
+                                BreakDownLevel4Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
                                 break;
                             case "ModelYear":
                                 BreakDownLevel4Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
