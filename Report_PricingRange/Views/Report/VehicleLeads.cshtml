@@ -105,8 +105,17 @@
     }
 </style>
 
-<h2>@showHeader</h2>
+<h2>
+    @showHeader
 
+
+</h2>
+@Html.ActionLink("See in VinSolutions", "VehicleLeadsInVinSolutions", new
+    {
+    stock = showStockNumber
+    }
+    , new { @class = "btn btn-success" }
+    )
 <div class="body-content">
 
     <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:14px; border-left: none;">
@@ -134,7 +143,7 @@
                     Status
                 </th>
                 <th>
-                    
+
                 </th>
                 <th>
                     First Attempted Contact
@@ -151,74 +160,74 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Team)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LeadID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CustomerLastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CustomerFirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CellPhone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LeadStatusName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sales_FirstName)
-                    @Html.DisplayFor(modelItem => item.Sales_LastName)
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Team)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CellPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadStatusName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sales_FirstName)
+                        @Html.DisplayFor(modelItem => item.Sales_LastName)
+                    </td>
+                </tr>
             }
 
         </tbody>
 
 
     </table>
-    </div>
+</div>
 
-    <script>
-        $('#vehicleList').DataTable({
-            searching: true,
-            dom: 'Bfrti',
-            pageLength: -1,
-            order: [[1, "desc"]],
-            buttons: [
-                {
-                    extend: 'copyHtml5', footer: true,
-                },
-                {
-                    extend: 'excelHtml5', footer: true,
-                },
-                {
-                    extend: 'pdfHtml5', footer: true,
-                    orientation: 'landscape'
-                },
-                {
-                    extend: 'print', footer: true,
-                    orientation: 'landscape'
-                }
-            ],
-            retrieve: true
-        });
-    </script>
+<script>
+    $('#vehicleList').DataTable({
+        searching: true,
+        dom: 'Bfrti',
+        pageLength: -1,
+        order: [[1, "desc"]],
+        buttons: [
+            {
+                extend: 'copyHtml5', footer: true,
+            },
+            {
+                extend: 'excelHtml5', footer: true,
+            },
+            {
+                extend: 'pdfHtml5', footer: true,
+                orientation: 'landscape'
+            },
+            {
+                extend: 'print', footer: true,
+                orientation: 'landscape'
+            }
+        ],
+        retrieve: true
+    });
+</script>
 
 

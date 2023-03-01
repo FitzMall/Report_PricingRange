@@ -63,6 +63,17 @@ namespace Report_PricingRange.Controllers
 
         }
 
+        public ActionResult VehicleLeadsInVinSolutions(string stock = "")
+        {
+
+            string FitzMallURLVehicle = "https://apps.vinmanager.com/vinconnect/#/Cardashboard/Pages/LeadManagement/ActiveLeadsLayout.aspx?SelectedTab=t_ILM&rightpaneframe=HIDE&leftpaneframe=AdvancedSearch2.aspx?searchdata=";
+            FitzMallURLVehicle += stock;
+
+            return Redirect(FitzMallURLVehicle);
+
+        }
+
+
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",
                     string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "", string dt = "")
