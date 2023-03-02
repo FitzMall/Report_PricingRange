@@ -63,11 +63,11 @@ namespace Report_PricingRange.Controllers
 
         }
 
-        public ActionResult VehicleLeadsInVinSolutions(string stock = "")
+        public ActionResult VehicleLeadsInVinSolutions(string searchval = "")
         {
 
             string FitzMallURLVehicle = "https://apps.vinmanager.com/vinconnect/#/Cardashboard/Pages/LeadManagement/ActiveLeadsLayout.aspx?SelectedTab=t_ILM&rightpaneframe=HIDE&leftpaneframe=AdvancedSearch2.aspx?searchdata=";
-            FitzMallURLVehicle += stock;
+            FitzMallURLVehicle += searchval;
 
             return Redirect(FitzMallURLVehicle);
 

@@ -3,6 +3,8 @@
 @{
     string showStockNumber = ViewBag.stock;
     string showHeader = "Leads for Vehicle: " + showStockNumber;
+    string Email = "";
+    string CellPhone = "";
 }
 
 @section CSS
@@ -110,12 +112,7 @@
 
 
 </h2>
-@Html.ActionLink("See in VinSolutions", "VehicleLeadsInVinSolutions", new
-    {
-    stock = showStockNumber
-    }
-    , new { @class = "btn btn-success" }
-    )
+
 <div class="body-content">
 
     <table id="vehicleList" class="table display table-bordered order-column cell-border " cellpadding="2" cellspacing="0" style="font-size:14px; border-left: none;">
@@ -160,6 +157,8 @@
 
             @foreach (var item in Model)
             {
+                Email = item.Email + " ";
+                CellPhone = item.CellPhone + " ";
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Team)
@@ -174,11 +173,20 @@
                         @Html.DisplayFor(modelItem => item.CustomerFirstName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CellPhone)
+                        @Html.ActionLink(CellPhone, "VehicleLeadsInVinSolutions", new
+                   {
+                       searchval = CellPhone
+                   }
+  , new { target = "_blank" })
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
+                        @Html.ActionLink(Email, "VehicleLeadsInVinSolutions", new
+                   {
+                       searchval = Email
+                   }
+    , new { target = "_blank" })
+    
+                   </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
                     </td>
