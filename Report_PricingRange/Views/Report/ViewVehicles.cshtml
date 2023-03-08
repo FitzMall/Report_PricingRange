@@ -299,6 +299,9 @@
                 <th align="left">
                     Leads 30
                 </th>
+                <th align="left">
+                    Web Views
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -426,6 +429,13 @@
                     @if (item.Leads30 > 0)
                     {
                         @Html.DisplayFor(modelItem => item.Leads30)
+                    }
+
+                </td>
+                <td>
+                    @if (item.webviews > 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.webviews)
                     }
 
                 </td>

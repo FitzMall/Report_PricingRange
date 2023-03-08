@@ -78,6 +78,7 @@ namespace Report_PricingRange.Business
         {
 
             var procedureName = "PricingRangeVehicles";
+            // in FitzWay on .16
             if (ModelYear == "")
             {
                 ModelYear = "0";

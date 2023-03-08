@@ -129,6 +129,8 @@ namespace Report_PricingRange.Models
         public int Leads { get; set; }
         public int Leads30 { get; set; }
 
+        public int webviews { get; set; }
+
         // public DateTime LastPriceChangeDate { get; set; }
 
     }
