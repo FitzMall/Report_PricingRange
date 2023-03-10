@@ -5,6 +5,8 @@
     string showHeader = "Leads for Vehicle: " + showStockNumber;
     string Email = "";
     string CellPhone = "";
+    string SearchString = "";
+    string LeadID = "";
 }
 
 @section CSS
@@ -159,51 +161,52 @@
             {
                 Email = item.Email + " ";
                 CellPhone = item.CellPhone + " ";
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Team)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeadID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerLastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
-                    </td>
-                    <td>
-                        @Html.ActionLink(CellPhone, "VehicleLeadsInVinSolutions", new
-                   {
-                       searchval = CellPhone
-                   }
-  , new { target = "_blank" })
-                    </td>
-                    <td>
-                        @Html.ActionLink(Email, "VehicleLeadsInVinSolutions", new
-                   {
-                       searchval = Email
-                   }
-    , new { target = "_blank" })
-    
-                   </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeadStatusName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sales_FirstName)
-                        @Html.DisplayFor(modelItem => item.Sales_LastName)
-                    </td>
-                </tr>
+                LeadID = item.LeadID + " ";
+                SearchString = Email;
+                if (SearchString.Trim() == "")
+                {
+                    SearchString = CellPhone;
+                }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.ActionLink(LeadID, "VehicleLeadsInVinSolutions", new
+               {
+                   searchval = SearchString
+               }
+, new { target = "_blank" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CellPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadStatusTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstAttemptedContactUTCDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastAttemptedContactUTCDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales_FirstName)
+                    @Html.DisplayFor(modelItem => item.Sales_LastName)
+                </td>
+            </tr>
             }
 
         </tbody>
