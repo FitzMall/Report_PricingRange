@@ -107,6 +107,7 @@ namespace Report_PricingRange.Controllers
             //            leadReportModel.ReportStartDate = DateTime.Now.AddMonths(-1);
             leadReportModel.ReportStartDate = DateTime.Now;
             leadReportModel.ReportEndDate = DateTime.Now;
+            leadReportModel.IncludeStatus2InReport = true;
 
 
             return View(leadReportModel);
@@ -160,15 +161,27 @@ namespace Report_PricingRange.Controllers
                 endDate = Convert.ToDateTime(Request.Form["datepickerEnd"]);
             }
 
+            bool IncludeStatus2 = true;
+            if (Request.Form["Include2Chk"] == "on")
+            {
+                IncludeStatus2 = true;
+            }
+            else
+            {
+                IncludeStatus2 = false;
+            }
 
             leadReportModel.ReportStartDate = startDate;
             leadReportModel.ReportEndDate = endDate;
 
-            if (startDate == DateTime.Today) { 
-                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
-            } else {
-                leadReportModel = SqlQueries.GetPriceReport(leadReportModel, false);
-                //  leadReportModel = SqlQueries.GetPriceReport(leadReportModel, startDate, false);
+            leadReportModel.IncludeStatus2InReport = IncludeStatus2;
+
+            if (IncludeStatus2)
+            {
+                leadReportModel = SqlQueries.GetPriceReport(leadReportModel);
+            } else
+            {
+                leadReportModel = SqlQueries.GetPriceReport(leadReportModel);
             }
 
             return View(leadReportModel);

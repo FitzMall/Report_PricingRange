@@ -267,7 +267,15 @@
         <thead>
             <tr style="background-color:#d9edf7;">
                 <th class="text-center divider-column" colspan="3"></th>
-                <th class="text-center divider-column" colspan="5">In Stock (Status 1,2)</th>
+                @{ if (Model.IncludeStatus2InReport == true)
+                    {
+                        <th class="text-center divider-column" colspan="5">In Stock (Status 1,2)</th>
+                    }
+                    else
+                    {
+                        <th class="text-center divider-column" colspan="5">In Stock (Status 1 ONLY)</th>
+                    }
+                }
                 <th class="text-center divider-column" colspan="5">On Order- EXCL Status 15</th>
                 <th class="text-center divider-column" colspan="1">Total</th>
             </tr>

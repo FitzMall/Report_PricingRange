@@ -248,6 +248,26 @@
                     <hr class="hr-divider" />
                 </div>
             </div>
+
+
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-sm-12 text-left">
+                    Include Status 2?
+                    @{
+                        if (Model.IncludeStatus2InReport == true)
+                        {
+                            <input type="checkbox" name="Include2Chk" checked>
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="Include2Chk">
+                        }
+                    }
+                </div>
+            </div>
+
+
+
             <div class="row" style="margin-bottom: 15px;">
                 <div class="col-sm-12 text-right">
                     <button class="btn btn-primary" type="submit" value="submit" name="Submit">Submit</button>

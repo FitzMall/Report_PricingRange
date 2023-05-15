@@ -17,6 +17,8 @@ namespace Report_PricingRange.Models
 
         public List<PricedVehicle> Supply { get; set; }
 
+        public bool IncludeStatus2InReport { get; set; }
+
     }
 
     public class Lead

@@ -10,10 +10,19 @@ namespace Report_PricingRange.Business
     public class SqlQueries
     {
 
-        public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel, bool bReturnDeals = true)
+        public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel)
         {
+            bool bIncludeStatus2 = leadReportModel.IncludeStatus2InReport;
 
             var procedureName = "PricingRangeSumALLModels";
+            if (bIncludeStatus2)
+            {
+                 procedureName = "PricingRangeSumALLModels";
+            }
+            else
+            {
+                 procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2";
+            }
 
             var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace"); 
 
