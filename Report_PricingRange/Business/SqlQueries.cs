@@ -83,10 +83,17 @@ namespace Report_PricingRange.Business
 
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
-                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "")
+                    string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "",
+                    bool ExcludeStatus2 = false)
         {
 
             var procedureName = "PricingRangeVehicles";
+
+            if (ExcludeStatus2)
+            {
+                procedureName = "PricingRangeVehiclesEXCLUDEStatus2";
+            }
+
             // in FitzWay on .16
             if (ModelYear == "")
             {

@@ -7,6 +7,7 @@
     nfi.PercentPositivePattern = 1;
     nfi.CurrencySymbol = "";
     bool bPrintFormat = false;
+    bool bExclStatus2 = !(Model.IncludeStatus2InReport);
 
     var applicationPath = Request.ApplicationPath;
 
@@ -564,7 +565,7 @@
                                trmnm = BreakDownLevel1Trim,
                                bDay = BreakDownLevel1BucketDaysInInventory,
                                yr = BreakdownLevel1ModelYear
-        }, new { target = "_blank" })
+        ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -591,7 +592,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -619,7 +620,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -646,7 +647,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -673,7 +674,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -701,7 +702,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -728,7 +729,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -756,7 +757,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -783,7 +784,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -810,7 +811,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -837,7 +838,7 @@
                                     bDay = BreakDownLevel1BucketDaysInInventory,
                                     yr = BreakdownLevel1ModelYear,
                                     mc = BreakDownLevel1ModelCode
-                                }, new { target = "_blank" })
+                                ,x2 = bExclStatus2}, new { target = "_blank" })
                             }
                         }
 
@@ -1109,7 +1110,7 @@
                                           ,
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1137,7 +1138,7 @@
                                            ,
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1166,7 +1167,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1194,7 +1195,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1222,7 +1223,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1251,7 +1252,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1279,7 +1280,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1308,7 +1309,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1336,7 +1337,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1364,7 +1365,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1392,7 +1393,7 @@
                                             yr = BreakdownLevel2ModelYear,
                                             mc = BreakDownLevel2ModelCode
 
-                                        }, new { target = "_blank" })
+                                        ,x2 = bExclStatus2}, new { target = "_blank" })
                                     }
                                 }
 
@@ -1657,7 +1658,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1684,7 +1685,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1712,7 +1713,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1739,7 +1740,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1766,7 +1767,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1793,7 +1794,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1820,7 +1821,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1848,7 +1849,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1875,7 +1876,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1903,7 +1904,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -1930,7 +1931,7 @@
                                                 bDay = BreakDownLevel3BucketDaysInInventory,
                                                 yr = BreakdownLevel3ModelYear,
                                                 mc = BreakDownLevel3ModelCode
-                                            }, new { target = "_blank" })
+                                            ,x2 = bExclStatus2}, new { target = "_blank" })
                                         }
                                     }
 
@@ -2193,7 +2194,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2220,7 +2221,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2248,7 +2249,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2275,7 +2276,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2302,7 +2303,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2330,7 +2331,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2357,7 +2358,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2385,7 +2386,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2412,7 +2413,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2439,7 +2440,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2466,7 +2467,7 @@
                                                     bDay = BreakDownLevel4BucketDaysInInventory,
                                                     yr = BreakDownLevel4ModelYear,
                                                     mc = BreakDownLevel4ModelCode
-                                                }, new { target = "_blank" })
+                                                ,x2 = bExclStatus2}, new { target = "_blank" })
                                             }
                                         }
 
@@ -2532,7 +2533,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2559,7 +2560,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2587,7 +2588,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2614,7 +2615,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2641,7 +2642,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2669,7 +2670,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2696,7 +2697,7 @@
                            bDay = "",
                            yr = "",
                            mc = ""
-                       }, new { target = "_blank" })
+                       ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2724,7 +2725,7 @@
                            bDay = "",
                            yr = "",
                                 mc = ""
-                            }, new { target = "_blank" })
+                            ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2751,7 +2752,7 @@
                            bDay = "",
                            yr = "",
                                 mc = ""
-                            }, new { target = "_blank" })
+                            ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2778,7 +2779,7 @@
                            bDay = "",
                            yr = "",
                                 mc = ""
-                            }, new { target = "_blank" })
+                            ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
@@ -2805,7 +2806,7 @@
                            bDay = "",
                            yr = "",
                                 mc = ""
-                            }, new { target = "_blank" })
+                            ,x2 = bExclStatus2}, new { target = "_blank" })
                         }
                     }
 
