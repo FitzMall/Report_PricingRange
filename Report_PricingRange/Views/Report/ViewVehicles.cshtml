@@ -11,6 +11,7 @@
     string MatrixYN = ViewBag.mxyn;
     string PricingTitle = "";
     string MatrixTitle = "";
+    string VehicleStatusTitle = "";
     string CRExpired = ViewBag.crexp;
     string StyleName = ViewBag.styln;
     string TrimName = ViewBag.trmnm;
@@ -19,6 +20,7 @@
     string ExpiredTitle = "";
     string ModelCode = ViewBag.mc;
     bool bExcludeStatus2 = ViewBag.x2;
+    int VehicleStatus = ViewBag.vs;
 
     decimal CalculatedMarkup = 0;
 
@@ -26,7 +28,6 @@
     {
         ExpiredTitle = "(Rebate: " + CRExpired + ")";
     }
-
 
     // if there's no make but model is there, get the make
     if (Make.Trim() == "" && ModelCar.Trim() != "")
@@ -45,6 +46,12 @@
     if (BucketDaysInInventory != "" && BucketDaysInInventory != null)
     {
         DaysBucketTitle = BucketDaysInInventory + " Days";
+    }
+
+
+    if (VehicleStatus > 0)
+    {
+        VehicleStatusTitle = "Vehicle Status: " + VehicleStatus.ToString();
     }
 
     switch (MatrixYN)
@@ -219,7 +226,7 @@
     }
 </style>
 
-<h2>@Make @ModelCar @ModelCode @ModelYear @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName</h2>
+<h2>@Make @ModelCar @ModelCode @ModelYear @LocCode @PricingTitle @MatrixTitle @ExpiredTitle @DaysBucketTitle @StyleName @TrimName @VehicleStatusTitle</h2>
 
 <div class="body-content">
 
@@ -302,6 +309,9 @@
                 </th>
                 <th align="left">
                     Web Views
+                </th>
+                <th align="left">
+                    Vehicle Status
                 </th>
             </tr>
         </thead>
@@ -437,6 +447,13 @@
                     @if (item.webviews > 0)
                     {
                         @Html.DisplayFor(modelItem => item.webviews)
+                    }
+
+                </td>
+                <td>
+                    @if (item.webviews > 0)
+                    {
+                        @Html.DisplayFor(modelItem => item.VehicleStatus)
                     }
 
                 </td>
