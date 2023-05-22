@@ -327,9 +327,8 @@
                     breakdownLevel1Values = Model.Prices.Select(x => x.ModelYearString).Distinct().OrderBy(x => x).ToList();
                     break;
 
-
                 case "VehicleStatus":
-                    breakdownLevel1Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x).ToList();
+                    breakdownLevel1Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x.AsInt()).ToList();
                     break;
 
                 case "StockNumber":
@@ -409,7 +408,8 @@
                     case "VehicleStatus":
                         BreakDown1filteredPrices = Model.Prices.FindAll(x => x.VehicleStatus == label1);
                         BreakDown1filteredSupply = Model.Supply.FindAll(x => x.VehicleStatus == label1);
-                        BreakDownLevel1VehicleStatus = breakdown1;
+
+                        BreakDownLevel1VehicleStatus = label1;
                         break;
 
                     case "MakeName":
@@ -939,7 +939,7 @@
                                     break;
 
                                 case "VehicleStatus":
-                                    BreakdownLevel2Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x).ToList();
+                                    BreakdownLevel2Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x.AsInt()).ToList();
                                     break;
 
                                 case "MakeName":
@@ -1539,7 +1539,7 @@
                                             break;
 
                                         case "VehicleStatus":
-                                            BreakdownLevel3Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x).ToList();
+                                            BreakdownLevel3Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x.AsInt()).ToList();
                                             break;
 
                                         case "MakeName":
@@ -2114,7 +2114,7 @@
                                                 break;
 
                                             case "VehicleStatus":
-                                                BreakDownLevel4Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x).ToList();
+                                                BreakDownLevel4Values = Model.Prices.Select(x => x.VehicleStatus).Distinct().OrderBy(x => x.AsInt()).ToList();
                                                 break;
 
                                             case "StockNumber":
