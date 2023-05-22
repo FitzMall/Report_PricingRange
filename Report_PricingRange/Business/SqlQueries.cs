@@ -13,15 +13,33 @@ namespace Report_PricingRange.Business
         public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel)
         {
             bool bIncludeStatus2 = leadReportModel.IncludeStatus2InReport;
+            bool bBreakDownByVehicleStatus = (leadReportModel.BreakDownLevel1 == "VehicleStatus") |
+            (leadReportModel.BreakDownLevel2 == "VehicleStatus") |
+            (leadReportModel.BreakDownLevel3 == "VehicleStatus") |
+            (leadReportModel.BreakDownLevel4 == "VehicleStatus");
 
             var procedureName = "PricingRangeSumALLModels";
-            if (bIncludeStatus2)
+
+            if (bBreakDownByVehicleStatus != true)
             {
-                 procedureName = "PricingRangeSumALLModels";
-            }
-            else
+                if (bIncludeStatus2)
+                {
+                    procedureName = "PricingRangeSumALLModels";
+                }
+                else
+                {
+                    procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2";
+                }
+            } else
             {
-                 procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2";
+                if (bIncludeStatus2)
+                {
+                    procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
+                }
+                else
+                {
+                    procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
+                }
             }
 
             var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace"); 
@@ -84,7 +102,7 @@ namespace Report_PricingRange.Business
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "",
-                    bool ExcludeStatus2 = false)
+                    bool ExcludeStatus2 = false, int vs = 0)
         {
 
             var procedureName = "PricingRangeVehicles";
@@ -113,7 +131,8 @@ namespace Report_PricingRange.Business
                 TrimName = TrimName,
                 BucketDaysInInventory = BucketDaysInInventory,
                 parModelYear = Int32.Parse(ModelYear),
-                ModelCode = ModelCode
+                ModelCode = ModelCode,
+                VehicleStatus = vs
             }, "Rackspace");
 
             foreach (var price in prices)
