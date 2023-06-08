@@ -133,6 +133,8 @@ namespace Report_PricingRange.Models
 
         public int webviews { get; set; }
 
+        public int InvoiceTotal { get; set; }
+
         // public DateTime LastPriceChangeDate { get; set; }
 
     }
