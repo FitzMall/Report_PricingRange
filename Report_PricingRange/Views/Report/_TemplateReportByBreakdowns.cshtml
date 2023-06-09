@@ -70,6 +70,7 @@
             decimal InStock5Count = 0;
             decimal InStockCountTotal = 0;
             decimal InStockInvoiceTotal = 0;
+            string sInStockInvoiceTotal = "";
 
             decimal OnOrder1Count = 0;
             decimal OnOrder2Count = 0;
@@ -105,6 +106,10 @@
             decimal BreakDown1InStockStatus5 = 0;
             decimal BreakDown1InStockStatusTotal = 0;
             decimal BreakDown1InStockInvoiceTotal = 0;
+            string sBreakDown1InStockInvoiceTotal = "0";
+            string sBreakDown2InStockInvoiceTotal = "0";
+            string sBreakDown3InStockInvoiceTotal = "0";
+            string sBreakDown4InStockInvoiceTotal = "0";
 
             decimal BreakDown1OnOrderStatus1 = 0;
             decimal BreakDown1OnOrderStatus2 = 0;
@@ -517,6 +522,7 @@
                 InStockCountTotal += BreakDown1InStockStatusTotal;
                 BreakDown1InStockInvoiceTotal = BreakDown1filteredPrices.Sum(x => x.InvoiceTotal);
                 InStockInvoiceTotal += BreakDown1InStockInvoiceTotal;
+                sBreakDown1InStockInvoiceTotal = BreakDown1InStockInvoiceTotal.ToString("c");
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
                 BreakDown1OnOrderStatus1 = BreakDown1.Sum(x => x.Id);
@@ -727,12 +733,12 @@
                     <td class="divider-column text-center">
                         @{ if ((BreakDown1InStockInvoiceTotal == 0) | (bPrintFormat != false))
                             {
-                                @BreakDown1InStockInvoiceTotal
+                                @sBreakDown1InStockInvoiceTotal
                             }
                             else
                             {
 
-                                @Html.ActionLink("" + BreakDown1InStockInvoiceTotal, "ViewVehicles", new
+                                @Html.ActionLink("" + sBreakDown1InStockInvoiceTotal, "ViewVehicles", new
                                 {
                                     pstat = "InStock",
                                     locd = BreakDownLevel1Location,
@@ -1165,6 +1171,7 @@
                                 BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
                                 BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
                                 BreakDown2InStockInvoiceTotal = BreakDown2filteredPrices.Sum(x => x.InvoiceTotal);
+                                sBreakDown2InStockInvoiceTotal = BreakDown2InStockInvoiceTotal.ToString("c");
 
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "SoldOut");
                                 // SoldOut pricing status = dummy record for out of stock item
@@ -1361,12 +1368,12 @@
         <td class="divider-column text-center">
             @{ if ((BreakDown2InStockInvoiceTotal == 0) | (bPrintFormat != false))
                 {
-                    @BreakDown2InStockInvoiceTotal
+                    @sBreakDown2InStockInvoiceTotal
                 }
                 else
                 {
 
-                    @Html.ActionLink("" + BreakDown2InStockInvoiceTotal, "ViewVehicles", new
+                    @Html.ActionLink("" + sBreakDown2InStockInvoiceTotal, "ViewVehicles", new
                     {
                         pstat = "InStock",
                         locd = BreakDownLevel2Location,
@@ -1795,6 +1802,8 @@
                     BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                     BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
                     BreakDown3InStockInvoiceTotal = BreakDown3filteredPrices.Sum(x => x.InvoiceTotal);
+                    sBreakDown3InStockInvoiceTotal = BreakDown3InStockInvoiceTotal.ToString("c");
+
                     BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
                     BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
                     Supply30Day_BreakDown3 = 0;
@@ -1983,12 +1992,12 @@
                                 <td class="divider-column text-center">
                                     @{ if ((BreakDown3InStockInvoiceTotal == 0) | (bPrintFormat != false))
                                         {
-                                            @BreakDown3InStockInvoiceTotal
+                                            @sBreakDown3InStockInvoiceTotal
                                         }
                                         else
                                         {
 
-                                            @Html.ActionLink("" + BreakDown3InStockInvoiceTotal, "ViewVehicles", new
+                                            @Html.ActionLink("" + sBreakDown3InStockInvoiceTotal, "ViewVehicles", new
                                             {
                                                 pstat = "InStock",
                                                 locd = BreakDownLevel3Location,
@@ -2365,7 +2374,7 @@
                                             }
 
                                             BreakDown4InStockInvoiceTotal = 0;
-                            BreakDown4InStockStatus1 = 0;
+                                            BreakDown4InStockStatus1 = 0;
                                             BreakDown4InStockStatus2 = 0;
 
                                             BreakDown4InStockStatus3 = 0;
@@ -2397,6 +2406,7 @@
                                             BreakDown4InStockStatus5 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
                                             BreakDown4InStockInvoiceTotal = BreakDown4filteredPrices.Sum(x => x.InvoiceTotal);
+                                            sBreakDown4InStockInvoiceTotal = BreakDown4InStockInvoiceTotal.ToString("c");
 
 
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
@@ -2595,12 +2605,12 @@
                                     <td class="divider-column text-center">
                                         @{ if ((BreakDown4InStockInvoiceTotal == 0) | (bPrintFormat != false))
                                             {
-                                                @BreakDown4InStockInvoiceTotal
+                                                @sBreakDown4InStockInvoiceTotal
                                             }
                                             else
                                             {
 
-                                                @Html.ActionLink("" + BreakDown4InStockInvoiceTotal, "ViewVehicles", new
+                                                @Html.ActionLink("" + sBreakDown4InStockInvoiceTotal, "ViewVehicles", new
                                                 {
                                                     pstat = "InStock",
                                                     locd = BreakDownLevel4Location,
@@ -2837,7 +2847,7 @@
                     Supply30Day_BreakDownTotal = ((30 / TotalSold30Count) * InStockCountTotal);
                     TotalSupply30Day_CaptionTotal = Supply30Day_BreakDownTotal.ToString("N1");
                 }
-
+                sInStockInvoiceTotal = InStockInvoiceTotal.ToString("c");
             }
             <tr>
             <tr style="background-color:#d9edf7;">
@@ -2993,12 +3003,12 @@
                 <th class="text-center divider-column ">
                     @{ if ((InStockInvoiceTotal == 0) | (bPrintFormat != false))
                         {
-                            @InStockInvoiceTotal
+                            @sInStockInvoiceTotal
                         }
                         else
                         {
 
-                            @Html.ActionLink("" + InStockInvoiceTotal, "ViewVehicles", new
+                            @Html.ActionLink("" + sInStockInvoiceTotal, "ViewVehicles", new
                        {
                            pstat = "InStock",
                            locd = "",
