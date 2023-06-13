@@ -522,7 +522,7 @@
                 InStockCountTotal += BreakDown1InStockStatusTotal;
                 BreakDown1InStockInvoiceTotal = BreakDown1filteredPrices.Sum(x => x.InvoiceTotal);
                 InStockInvoiceTotal += BreakDown1InStockInvoiceTotal;
-                sBreakDown1InStockInvoiceTotal = BreakDown1InStockInvoiceTotal.ToString("c");
+                sBreakDown1InStockInvoiceTotal = BreakDown1InStockInvoiceTotal.ToString("c0");
 
                 BreakDown1 = BreakDown1filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
                 BreakDown1OnOrderStatus1 = BreakDown1.Sum(x => x.Id);
@@ -1171,7 +1171,7 @@
                                 BreakDown2OnOrderStatusTotal = BreakDown2OnOrderStatus1 + BreakDown2OnOrderStatus2 + BreakDown2OnOrderStatus3 + BreakDown2OnOrderStatus4 + BreakDown2OnOrderStatus5;
                                 BreakDown2Total = BreakDown2OnOrderStatusTotal + BreakDown2InStockStatusTotal;
                                 BreakDown2InStockInvoiceTotal = BreakDown2filteredPrices.Sum(x => x.InvoiceTotal);
-                                sBreakDown2InStockInvoiceTotal = BreakDown2InStockInvoiceTotal.ToString("c");
+                                sBreakDown2InStockInvoiceTotal = BreakDown2InStockInvoiceTotal.ToString("c0");
 
                                 BreakDown2data = BreakDown2filteredPrices.FindAll(x => x.PricingStatus == "SoldOut");
                                 // SoldOut pricing status = dummy record for out of stock item
@@ -1802,7 +1802,7 @@
                     BreakDown3data = BreakDown3filteredPrices.FindAll(x => x.PricingStatus == "OnOrder5");
                     BreakDown3OnOrderStatus5 = BreakDown3data.Sum(x => x.Id);
                     BreakDown3InStockInvoiceTotal = BreakDown3filteredPrices.Sum(x => x.InvoiceTotal);
-                    sBreakDown3InStockInvoiceTotal = BreakDown3InStockInvoiceTotal.ToString("c");
+                    sBreakDown3InStockInvoiceTotal = BreakDown3InStockInvoiceTotal.ToString("c0");
 
                     BreakDown3OnOrderStatusTotal = BreakDown3OnOrderStatus1 + BreakDown3OnOrderStatus2 + BreakDown3OnOrderStatus3 + BreakDown3OnOrderStatus4 + BreakDown3OnOrderStatus5;
                     BreakDown3Total = BreakDown3OnOrderStatusTotal + BreakDown3InStockStatusTotal;
@@ -2406,7 +2406,7 @@
                                             BreakDown4InStockStatus5 = BreakDown4data.Sum(x => x.Id);
                                             BreakDown4InStockStatusTotal = BreakDown4InStockStatus1 + BreakDown4InStockStatus2 + BreakDown4InStockStatus3 + BreakDown4InStockStatus4 + BreakDown4InStockStatus5;
                                             BreakDown4InStockInvoiceTotal = BreakDown4filteredPrices.Sum(x => x.InvoiceTotal);
-                                            sBreakDown4InStockInvoiceTotal = BreakDown4InStockInvoiceTotal.ToString("c");
+                                            sBreakDown4InStockInvoiceTotal = BreakDown4InStockInvoiceTotal.ToString("c0");
 
 
                                             BreakDown4data = BreakDown4filteredPrices.FindAll(x => x.PricingStatus == "OnOrder1");
@@ -2847,7 +2847,7 @@
                     Supply30Day_BreakDownTotal = ((30 / TotalSold30Count) * InStockCountTotal);
                     TotalSupply30Day_CaptionTotal = Supply30Day_BreakDownTotal.ToString("N1");
                 }
-                sInStockInvoiceTotal = InStockInvoiceTotal.ToString("c");
+                sInStockInvoiceTotal = InStockInvoiceTotal.ToString("c0");
             }
             <tr>
             <tr style="background-color:#d9edf7;">
