@@ -1611,7 +1611,7 @@
                         BreakdownLevel3Values = Model.Prices.Select(x => x.ModelName).Distinct().OrderBy(x => x).ToList();
                         break;
                     case "ModelCode":
-                        BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).Distinct().OrderBy(x => x).ToList();
+                        BreakdownLevel3Values = Model.Prices.Select(x => x.ModelCode).OrderBy(x => x).ToList();
                         break;
 
                     case "ModelYear":

@@ -13,33 +13,16 @@ namespace Report_PricingRange.Business
         public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel)
         {
             bool bIncludeStatus2 = leadReportModel.IncludeStatus2InReport;
-            bool bBreakDownByVehicleStatus = (leadReportModel.BreakDownLevel1 == "VehicleStatus") |
-            (leadReportModel.BreakDownLevel2 == "VehicleStatus") |
-            (leadReportModel.BreakDownLevel3 == "VehicleStatus") |
-            (leadReportModel.BreakDownLevel4 == "VehicleStatus");
-
+            bool bBreakDownByVehicleStatus = true; 
             var procedureName = "PricingRangeSumALLModels";
 
-            if (bBreakDownByVehicleStatus != true)
+            if (bIncludeStatus2)
             {
-                if (bIncludeStatus2)
-                {
-                    procedureName = "PricingRangeSumALLModels";
-                }
-                else
-                {
-                    procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2";
-                }
-            } else
+                procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
+            }
+            else
             {
-                if (bIncludeStatus2)
-                {
-                    procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
-                }
-                else
-                {
-                    procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
-                }
+                procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
             }
 
             var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace"); 
