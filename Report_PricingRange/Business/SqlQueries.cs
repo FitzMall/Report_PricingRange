@@ -13,8 +13,7 @@ namespace Report_PricingRange.Business
         public static ReportTemplateModel GetPriceReport(ReportTemplateModel leadReportModel)
         {
             bool bIncludeStatus2 = leadReportModel.IncludeStatus2InReport;
-            bool bBreakDownByVehicleStatus = true; 
-            var procedureName = "PricingRangeSumALLModels";
+            var procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
 
             if (bIncludeStatus2)
             {
