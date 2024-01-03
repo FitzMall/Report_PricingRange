@@ -21,7 +21,7 @@ namespace Report_PricingRange.Controllers
         {
 
             // add the Xrefid field to this for direct link
-            string FitzMallURLVehicle = "https://responsive.fitzmall.com/Inventory/Detail/";
+            string FitzMallURLVehicle = "https://responsive.fitzmall.com/Inventory/SearchResults?UseCriteria=true&Page=1&Regions=ALL&Conditions=ALL&Makes=&KeyWordSearch=";
 
 
             return Redirect(FitzMallURLVehicle + keywordSearch) ;
