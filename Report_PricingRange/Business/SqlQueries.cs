@@ -24,7 +24,7 @@ namespace Report_PricingRange.Business
                 procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
             }
 
-            var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace"); 
+            var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "FITZWAY"); 
 
             foreach (var price in prices)
             {
@@ -43,7 +43,7 @@ namespace Report_PricingRange.Business
             // supply
             procedureName = "PricingRangeSupply";
 
-            var supply = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "Rackspace");
+            var supply = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "FITZWAY");
 
             foreach (var car in supply)
             {
@@ -64,7 +64,7 @@ namespace Report_PricingRange.Business
 
             var procedureName = "PricingRangeSum_History";
 
-            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new { parDate = DateOfReport },"Rackspace");
+            var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new { parDate = DateOfReport },"FITZWAY");
 
             foreach (var price in prices)
             {
@@ -115,7 +115,7 @@ namespace Report_PricingRange.Business
                 parModelYear = Int32.Parse(ModelYear),
                 ModelCode = ModelCode,
                 VehicleStatus = vs
-            }, "Rackspace");
+            }, "FITZWAY");
 
             foreach (var price in prices)
             {
@@ -136,7 +136,7 @@ namespace Report_PricingRange.Business
             var prices = SqlMapperUtil.StoredProcWithParams<PricedVehicle>(procedureName, new
             {
                 parVin = Vin,
-            }, "Rackspace");
+            }, "FITZWAY");
 
             //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
 
@@ -190,7 +190,7 @@ namespace Report_PricingRange.Business
                 BucketDaysInInventory = BucketDaysInInventory,
                 parModelYear = Int32.Parse(ModelYear),
                 ModelCode = ModelCode
-            }, "Rackspace");
+            }, "FITZWAY");
 
             //var associateLeads = SqlMapperUtil.StoredProcWithParams<AssociateLead>(procedureName, new { StartDate = leadReportModel.ReportStartDate, EndDate = leadReportModel.ReportEndDate }, "ReynoldsData"); //ReportEndDate.AddDays(1)
 
