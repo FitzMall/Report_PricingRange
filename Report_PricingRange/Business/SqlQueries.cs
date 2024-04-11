@@ -15,13 +15,25 @@ namespace Report_PricingRange.Business
             bool bIncludeStatus2 = leadReportModel.IncludeStatus2InReport;
             var procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
 
-            if (bIncludeStatus2)
+            if (leadReportModel.ReportType == ReportType.New) { 
+                if (bIncludeStatus2)
+                {
+                    procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
+                }
+                else
+                {
+                    procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
+                }
+            } else
             {
-                procedureName = "PricingRangeSumALLModels_VehicleStatusBreakdown";
-            }
-            else
-            {
-                procedureName = "PricingRangeSumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
+                if (bIncludeStatus2)
+                {
+                    procedureName = "PricingRangeUSED_SumALLModels_VehicleStatusBreakdown";
+                }
+                else
+                {
+                    procedureName = "PricingRangeUSED_SumALLModelsEXCLUDEStatus2_VehicleStatusBreakdown";
+                }
             }
 
             var prices = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "FITZWAY"); 
@@ -40,8 +52,12 @@ namespace Report_PricingRange.Business
 
             leadReportModel.Prices = prices;
 
-            // supply
+            // supply  
             procedureName = "PricingRangeSupply";
+            if(leadReportModel.ReportType == ReportType.Used)
+            {
+                procedureName = "PricingRangeUSED_Supply";
+            }
 
             var supply = SqlMapperUtil.StoredProcNOParams<PricedVehicle>(procedureName, "FITZWAY");
 
@@ -84,14 +100,28 @@ namespace Report_PricingRange.Business
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
                     string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
                     string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "",
-                    bool ExcludeStatus2 = false, int vs = 0)
+                    bool ExcludeStatus2 = false, int vs = 0, ReportType usedOrNew = ReportType.New)
         {
 
             var procedureName = "PricingRangeVehicles";
 
-            if (ExcludeStatus2)
+
+            if (usedOrNew == ReportType.New)
             {
-                procedureName = "PricingRangeVehiclesEXCLUDEStatus2";
+                procedureName = "PricingRangeVehicles";
+
+                if (ExcludeStatus2)
+                {
+                    procedureName = "PricingRangeVehiclesEXCLUDEStatus2";
+                }
+            } else
+            {
+                procedureName = "PricingRangeUSED_Vehicles";
+
+                if (ExcludeStatus2)
+                {
+                    procedureName = "PricingRangeUSED_VehiclesEXCLUDEStatus2";
+                }
             }
 
             // in FitzWay on .16
@@ -167,10 +197,16 @@ namespace Report_PricingRange.Business
 
         public static List<PricedVehicle> GetVehicleList(List<PricedVehicle> ListPricedVehicle, string PriceStatus = "",
             string LocCode = "", string StockNum = "", string Make = "", string Modeln = "", string MatrixYN = "", string CRExpired = "",
-            string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = "", string DatePast = "")
+            string StyleName = "", string TrimName = "", string BucketDaysInInventory = "", string ModelYear = "0", string ModelCode = ""
+            , string DatePast = "", ReportType usedOrNew = ReportType.New)
         {
 
             var procedureName = "PricingRangeVehicles";
+            if(usedOrNew == ReportType.Used)
+            {
+                procedureName = "PricingRangeUSED_Vehicles";
+            }
+
             if (ModelYear == "")
             {
                 ModelYear = "0";

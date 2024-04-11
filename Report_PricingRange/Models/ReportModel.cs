@@ -19,7 +19,16 @@ namespace Report_PricingRange.Models
 
         public bool IncludeStatus2InReport { get; set; }
 
+        public ReportType ReportType { get; set; }
+
     }
+
+    public enum ReportType
+    {
+        Used = 0,
+        New
+    }
+
 
     public class Lead
     {

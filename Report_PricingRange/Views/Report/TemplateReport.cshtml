@@ -13,6 +13,11 @@
 
     var breakDowns = new List<string>();
     var breakDownValues = new List<string>();
+    string statusHeader = "New";
+    if (Model.ReportType == Report_PricingRange.Models.ReportType.Used)
+    {
+        statusHeader = "Used";
+    }
 
     breakDowns.Add("Location");
     breakDownValues.Add("LocationCode");
@@ -153,7 +158,7 @@
 
 <div class="row" style="margin-top:25px;">
     <div class="col-sm-2 report-parameters">
-        <h2>Price Range Report</h2>
+        <h2>Price Range Report @statusHeader</h2>
         <h3></h3>
         @using (Html.BeginForm())
         {

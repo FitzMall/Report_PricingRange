@@ -15,6 +15,11 @@
     {
         applicationPath = "";
     }
+    string statusHeader = "New";
+    if (Model.ReportType == Report_PricingRange.Models.ReportType.Used)
+    {
+        statusHeader = "Used";
+    }
 
 
 }
@@ -595,9 +600,10 @@
                                bDay = BreakDownLevel1BucketDaysInInventory,
                                yr = BreakdownLevel1ModelYear
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                    , usedOrNew = Model.ReportType
                            }, new { target = "_blank" })
 
                             }
@@ -613,23 +619,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus2, "ViewVehicles", new
-                                {
-                                    pstat = "InStock2",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "InStock2",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -645,23 +654,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus3, "ViewVehicles", new
-                                {
-                                    pstat = "InStock3",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "InStock3",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -676,23 +688,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatus5, "ViewVehicles", new
-                                {
-                                    pstat = "InStock5",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "InStock5",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -707,23 +722,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1InStockStatusTotal, "ViewVehicles", new
-                                {
-                                    pstat = "InStock",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "InStock",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                      ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -739,23 +757,26 @@
                             {
 
                                 @Html.ActionLink("" + sBreakDown1InStockInvoiceTotal, "ViewVehicles", new
-                                {
-                                    pstat = "InStock",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "InStock",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                      ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -771,23 +792,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus1, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder1",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "OnOrder1",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -802,23 +826,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus2, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder2",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "OnOrder2",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -834,23 +861,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus3, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder3",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "OnOrder3",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -865,23 +895,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatus5, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder5",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "OnOrder5",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -896,23 +929,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1OnOrderStatusTotal, "ViewVehicles", new
-                                {
-                                    pstat = "OnOrder",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "OnOrder",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -927,23 +963,26 @@
                             {
 
                                 @Html.ActionLink("" + BreakDown1Total, "ViewVehicles", new
-                                {
-                                    pstat = "",
-                                    locd = BreakDownLevel1Location,
-                                    stckn = BreakDownLevel1Stock,
-                                    Make = BreakDownLevel1Make,
-                                    mdlv = BreakDownLevel1Model,
-                                    mxyn = BreakDownLevel1Matrix,
-                                    crx = BreakDownLevel1CRExpired,
-                                    styln = BreakDownLevel1Style,
-                                    trmnm = BreakDownLevel1Trim,
-                                    bDay = BreakDownLevel1BucketDaysInInventory,
-                                    yr = BreakdownLevel1ModelYear,
-                                    mc = BreakDownLevel1ModelCode
+                           {
+                               pstat = "",
+                               locd = BreakDownLevel1Location,
+                               stckn = BreakDownLevel1Stock,
+                               Make = BreakDownLevel1Make,
+                               mdlv = BreakDownLevel1Model,
+                               mxyn = BreakDownLevel1Matrix,
+                               crx = BreakDownLevel1CRExpired,
+                               styln = BreakDownLevel1Style,
+                               trmnm = BreakDownLevel1Trim,
+                               bDay = BreakDownLevel1BucketDaysInInventory,
+                               yr = BreakdownLevel1ModelYear,
+                               mc = BreakDownLevel1ModelCode
                                ,
-                                    x2 = bExclStatus2
+                               x2 = bExclStatus2
                                ,
-                                    vs = BreakDownLevel1VehicleStatus
+                               vs = BreakDownLevel1VehicleStatus
+                                                                        ,
+                               usedOrNew = Model.ReportType
+
                            }, new { target = "_blank" })
                             }
                         }
@@ -1215,25 +1254,28 @@
                 {
 
                     @Html.ActionLink("" + BreakDown2InStockStatus1, "ViewVehicles", new
-                    {
-                        pstat = "InStock1",
-                        locd = BreakDownLevel2Location,
-                        stckn = BreakDownLevel2Stock,
-                        Make = BreakDownLevel2Make,
-                        mdlv = BreakDownLevel2Model,
-                        mxyn = BreakDownLevel2Matrix,
-                        crx = BreakDownLevel2CRExpired,
-                        styln = BreakDownLevel2Style,
-                        trmnm = BreakDownLevel2Trim,
-                        bDay = BreakDownLevel2BucketDaysInInventory
+               {
+                   pstat = "InStock1",
+                   locd = BreakDownLevel2Location,
+                   stckn = BreakDownLevel2Stock,
+                   Make = BreakDownLevel2Make,
+                   mdlv = BreakDownLevel2Model,
+                   mxyn = BreakDownLevel2Matrix,
+                   crx = BreakDownLevel2CRExpired,
+                   styln = BreakDownLevel2Style,
+                   trmnm = BreakDownLevel2Trim,
+                   bDay = BreakDownLevel2BucketDaysInInventory
                       ,
-                        yr = BreakdownLevel2ModelYear,
-                        mc = BreakDownLevel2ModelCode
+                   yr = BreakdownLevel2ModelYear,
+                   mc = BreakDownLevel2ModelCode
            ,
-                        x2 = bExclStatus2
+                   x2 = bExclStatus2
            ,
-                        vs = BreakDownLevel2VehicleStatus
-       }, new { target = "_blank" })
+                   vs = BreakDownLevel2VehicleStatus
+                                                            ,
+                   usedOrNew = Model.ReportType
+
+               }, new { target = "_blank" })
                 }
             }
 
@@ -1265,6 +1307,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1297,6 +1342,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1328,6 +1376,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1359,6 +1410,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1374,23 +1428,26 @@
                 {
 
                     @Html.ActionLink("" + sBreakDown2InStockInvoiceTotal, "ViewVehicles", new
-                    {
-                        pstat = "InStock",
-                        locd = BreakDownLevel2Location,
-                        stckn = BreakDownLevel2Stock,
-                        Make = BreakDownLevel2Make,
-                        mdlv = BreakDownLevel2Model,
-                        mxyn = BreakDownLevel2Matrix,
-                        crx = BreakDownLevel2CRExpired,
-                        styln = BreakDownLevel2Style,
-                        trmnm = BreakDownLevel2Trim,
-                        bDay = BreakDownLevel2BucketDaysInInventory,
-                        yr = BreakdownLevel2ModelYear,
-                        mc = BreakDownLevel2ModelCode
+               {
+                   pstat = "InStock",
+                   locd = BreakDownLevel2Location,
+                   stckn = BreakDownLevel2Stock,
+                   Make = BreakDownLevel2Make,
+                   mdlv = BreakDownLevel2Model,
+                   mxyn = BreakDownLevel2Matrix,
+                   crx = BreakDownLevel2CRExpired,
+                   styln = BreakDownLevel2Style,
+                   trmnm = BreakDownLevel2Trim,
+                   bDay = BreakDownLevel2BucketDaysInInventory,
+                   yr = BreakdownLevel2ModelYear,
+                   mc = BreakDownLevel2ModelCode
                          ,
-                        x2 = bExclStatus2
+                   x2 = bExclStatus2
                    ,
-                        vs = BreakDownLevel2VehicleStatus
+                   vs = BreakDownLevel2VehicleStatus
+                                                            ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" })
                 }
             }
@@ -1424,6 +1481,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1455,6 +1515,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1487,6 +1550,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1518,6 +1584,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1549,6 +1618,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1580,6 +1652,9 @@
                    x2 = bExclStatus2
            ,
                    vs = BreakDownLevel2VehicleStatus
+                                                       ,
+                   usedOrNew = Model.ReportType
+
                }, new { target = "_blank" }) }
             }
 
@@ -1862,7 +1937,10 @@
                                            x2 = bExclStatus2
                                ,
                                            vs = BreakDownLevel3VehicleStatus
-                }, new { target = "_blank" }) }
+                                                                               ,
+                                           usedOrNew = Model.ReportType
+
+                                       }, new { target = "_blank" }) }
                                     }
 
                                 </td>
@@ -1875,24 +1953,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3InStockStatus2, "ViewVehicles", new
-                        {
-                            pstat = "InStock2",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "InStock2",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -1906,24 +1987,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3InStockStatus3, "ViewVehicles", new
-                        {
-                            pstat = "InStock3",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "InStock3",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -1936,24 +2020,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3InStockStatus5, "ViewVehicles", new
-                        {
-                            pstat = "InStock5",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "InStock5",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -1966,24 +2053,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3InStockStatusTotal, "ViewVehicles", new
-                        {
-                            pstat = "InStock",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "InStock",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -1998,24 +2088,27 @@
                     {
 
                         @Html.ActionLink("" + sBreakDown3InStockInvoiceTotal, "ViewVehicles", new
-                        {
-                            pstat = "InStock",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "InStock",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
                              ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
                        ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" })
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" })
                                         }
                 }
 
@@ -2030,24 +2123,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3OnOrderStatus1, "ViewVehicles", new
-                        {
-                            pstat = "OnOrder1",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "OnOrder1",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2060,24 +2156,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3OnOrderStatus2, "ViewVehicles", new
-                        {
-                            pstat = "OnOrder2",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "OnOrder2",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2091,24 +2190,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3OnOrderStatus3, "ViewVehicles", new
-                        {
-                            pstat = "OnOrder3",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "OnOrder3",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2121,24 +2223,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3OnOrderStatus5, "ViewVehicles", new
-                        {
-                            pstat = "OnOrder5",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "OnOrder5",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2152,24 +2257,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3OnOrderStatusTotal, "ViewVehicles", new
-                        {
-                            pstat = "OnOrder",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "OnOrder",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2182,24 +2290,27 @@
                     {
 
                         @Html.ActionLink("" + BreakDown3Total, "ViewVehicles", new
-                        {
-                            pstat = "",
-                            locd = BreakDownLevel3Location,
-                            stckn = BreakDownLevel3Stock,
-                            Make = BreakDownLevel3Make,
-                            mdlv = BreakDownLevel3Model,
-                            mxyn = BreakDownLevel3Matrix,
-                            crx = BreakDownLevel3CRExpired,
-                            styln = BreakDownLevel3Style,
-                            trmnm = BreakDownLevel3Trim,
-                            bDay = BreakDownLevel3BucketDaysInInventory,
-                            yr = BreakdownLevel3ModelYear,
-                            mc = BreakDownLevel3ModelCode
+                   {
+                       pstat = "",
+                       locd = BreakDownLevel3Location,
+                       stckn = BreakDownLevel3Stock,
+                       Make = BreakDownLevel3Make,
+                       mdlv = BreakDownLevel3Model,
+                       mxyn = BreakDownLevel3Matrix,
+                       crx = BreakDownLevel3CRExpired,
+                       styln = BreakDownLevel3Style,
+                       trmnm = BreakDownLevel3Trim,
+                       bDay = BreakDownLevel3BucketDaysInInventory,
+                       yr = BreakdownLevel3ModelYear,
+                       mc = BreakDownLevel3ModelCode
     ,
-                            x2 = bExclStatus2
+                       x2 = bExclStatus2
            ,
-                            vs = BreakDownLevel3VehicleStatus
-                        }, new { target = "_blank" }) }
+                       vs = BreakDownLevel3VehicleStatus
+                                                                ,
+                       usedOrNew = Model.ReportType
+
+                   }, new { target = "_blank" }) }
                 }
 
                                 </td>
@@ -2477,6 +2588,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2507,6 +2621,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2538,6 +2655,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2568,6 +2688,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2598,6 +2721,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2612,23 +2738,26 @@
                                             {
 
                                                 @Html.ActionLink("" + sBreakDown4InStockInvoiceTotal, "ViewVehicles", new
-                                                {
-                                                    pstat = "InStock",
-                                                    locd = BreakDownLevel4Location,
-                                                    stckn = BreakDownLevel4Stock,
-                                                    Make = BreakDownLevel4Make,
-                                                    mdlv = BreakDownLevel4Model,
-                                                    mxyn = BreakDownLevel4Matrix,
-                                                    crx = BreakDownLevel4CRExpired,
-                                                    styln = BreakDownLevel4Style,
-                                                    trmnm = BreakDownLevel4Trim,
-                                                    bDay = BreakDownLevel4BucketDaysInInventory,
-                                                    yr = BreakDownLevel4ModelYear,
-                                                    mc = BreakDownLevel4ModelCode
+                                           {
+                                               pstat = "InStock",
+                                               locd = BreakDownLevel4Location,
+                                               stckn = BreakDownLevel4Stock,
+                                               Make = BreakDownLevel4Make,
+                                               mdlv = BreakDownLevel4Model,
+                                               mxyn = BreakDownLevel4Matrix,
+                                               crx = BreakDownLevel4CRExpired,
+                                               styln = BreakDownLevel4Style,
+                                               trmnm = BreakDownLevel4Trim,
+                                               bDay = BreakDownLevel4BucketDaysInInventory,
+                                               yr = BreakDownLevel4ModelYear,
+                                               mc = BreakDownLevel4ModelCode
                                                      ,
-                                                    x2 = bExclStatus2
+                                               x2 = bExclStatus2
                                                ,
-                                                    vs = BreakDownLevel4VehicleStatus
+                                               vs = BreakDownLevel4VehicleStatus
+                                                                                        ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" })
                                             }
                                         }
@@ -2661,6 +2790,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2691,6 +2823,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2722,6 +2857,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2752,6 +2890,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2782,6 +2923,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2812,6 +2956,9 @@
                                                x2 = bExclStatus2
                                ,
                                                vs = BreakDownLevel4VehicleStatus
+                                                                                   ,
+                                               usedOrNew = Model.ReportType
+
                                            }, new { target = "_blank" }) }
                                         }
 
@@ -2878,8 +3025,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -2907,8 +3057,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -2937,8 +3090,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -2966,8 +3122,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -2995,8 +3154,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3024,8 +3186,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3053,8 +3218,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3082,8 +3250,11 @@
                            yr = "",
                            mc = ""
                        ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3098,8 +3269,8 @@
                         {
 
                             @Html.ActionLink("" + OnOrder3Count, "ViewVehicles", new
-                            {
-                                pstat = "OnOrder3",
+                       {
+                           pstat = "OnOrder3",
                            locd = "",
                            stckn = "",
                            Make = "",
@@ -3110,10 +3281,13 @@
                            trmnm = "",
                            bDay = "",
                            yr = "",
-                                mc = ""
+                           mc = ""
                             ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3127,8 +3301,8 @@
                         {
 
                             @Html.ActionLink("" + OnOrder5Count, "ViewVehicles", new
-                            {
-                                pstat = "OnOrder5",
+                       {
+                           pstat = "OnOrder5",
                            locd = "",
                            stckn = "",
                            Make = "",
@@ -3139,10 +3313,13 @@
                            trmnm = "",
                            bDay = "",
                            yr = "",
-                                mc = ""
+                           mc = ""
                             ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3156,8 +3333,8 @@
                         {
 
                             @Html.ActionLink("" + OnOrderCountTotal, "ViewVehicles", new
-                            {
-                                pstat = "OnOrder",
+                       {
+                           pstat = "OnOrder",
                            locd = "",
                            stckn = "",
                            Make = "",
@@ -3168,10 +3345,13 @@
                            trmnm = "",
                            bDay = "",
                            yr = "",
-                                mc = ""
+                           mc = ""
                             ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 
@@ -3185,8 +3365,8 @@
                         {
 
                             @Html.ActionLink("" + BOTHCountTotal, "ViewVehicles", new
-                            {
-                                pstat = "",
+                       {
+                           pstat = "",
                            locd = "",
                            stckn = "",
                            Make = "",
@@ -3197,10 +3377,13 @@
                            trmnm = "",
                            bDay = "",
                            yr = "",
-                                mc = ""
+                           mc = ""
                             ,
-                                x2 = bExclStatus2
-                            }, new { target = "_blank" })
+                           x2 = bExclStatus2
+                                                                    ,
+                           usedOrNew = Model.ReportType
+
+                       }, new { target = "_blank" })
                         }
                     }
 

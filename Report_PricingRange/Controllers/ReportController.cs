@@ -24,7 +24,7 @@ namespace Report_PricingRange.Controllers
             string FitzMallURLVehicle = "https://responsive.fitzmall.com/Inventory/SearchResults?UseCriteria=true&Page=1&Regions=ALL&Conditions=ALL&Makes=&KeyWordSearch=";
 
 
-            return Redirect(FitzMallURLVehicle + keywordSearch) ;
+            return Redirect(FitzMallURLVehicle + keywordSearch);
 
         }
 
@@ -32,8 +32,8 @@ namespace Report_PricingRange.Controllers
         {
 
             // add the parameter fields to this for direct link
-            string FitzMallURLVehicle = "http://jjfserver/asp/pricematrixedit1.asp?fx=edit&id=" + Location + MakeCode + ModelNumber + 
-                    Year + "&mc=" + MakeCode + "&loc="+ Location +"&cntid=1";
+            string FitzMallURLVehicle = "http://jjfserver/asp/pricematrixedit1.asp?fx=edit&id=" + Location + MakeCode + ModelNumber +
+                    Year + "&mc=" + MakeCode + "&loc=" + Location + "&cntid=1";
 
             return Redirect(FitzMallURLVehicle);
 
@@ -43,10 +43,10 @@ namespace Report_PricingRange.Controllers
         {
             var ViewVehicleHistory = new List<PricedVehicle>();
 
-                ViewVehicleHistory = SqlQueries.GetVehicleHistory(ViewVehicleHistory, vin);
+            ViewVehicleHistory = SqlQueries.GetVehicleHistory(ViewVehicleHistory, vin);
 
-                ViewBag.vin = vin;
-    
+            ViewBag.vin = vin;
+
             return View(ViewVehicleHistory);
 
         }
@@ -76,14 +76,14 @@ namespace Report_PricingRange.Controllers
 
         public ActionResult ViewVehicles(string pstat = "",
                     string locd = "", string stckn = "", string Make = "", string mdlv = "", string mxyn = "", string crx = "",
-                    string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "", string dt = "", 
-                    bool x2 = false, int vs = 0)
+                    string styln = "", string trmnm = "", string bDay = "", string yr = "", string mc = "", string dt = "",
+                    bool x2 = false, int vs = 0, ReportType usedOrNew = ReportType.New)
         {
             var ViewVehiclesModel = new List<PricedVehicle>();
-            
-                ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn,  Make , mdlv, mxyn, crx,
-                    styln, trmnm, bDay, yr, mc, x2, vs);
- 
+
+            ViewVehiclesModel = SqlQueries.GetVehicleList(ViewVehiclesModel, pstat, locd, stckn, Make, mdlv, mxyn, crx,
+                styln, trmnm, bDay, yr, mc, x2, vs, usedOrNew);
+
 
             ViewBag.dt = dt;
             ViewBag.pstat = pstat;
@@ -94,7 +94,7 @@ namespace Report_PricingRange.Controllers
             ViewBag.mxyn = mxyn;
             ViewBag.crexp = crx;
             ViewBag.styln = styln;
-            ViewBag.trmnm= trmnm;
+            ViewBag.trmnm = trmnm;
             ViewBag.bDay = bDay;
             ViewBag.yr = yr;
             ViewBag.mc = mc;
@@ -102,11 +102,16 @@ namespace Report_PricingRange.Controllers
             ViewBag.vs = vs;
 
             return View(ViewVehiclesModel);
-                        
+
         }
         public ActionResult TemplateReport()
         {
             var leadReportModel = new ReportTemplateModel();
+            leadReportModel.ReportType = ReportType.New;
+
+            if (System.Configuration.ConfigurationManager.AppSettings.Get(4) == "Used") {
+                leadReportModel.ReportType = ReportType.Used;
+            };
 
             //            leadReportModel.ReportStartDate = DateTime.Now.AddMonths(-1);
             leadReportModel.ReportStartDate = DateTime.Now;
@@ -154,7 +159,12 @@ namespace Report_PricingRange.Controllers
 
             var startDate = new DateTime();
             var endDate = new DateTime();
+            leadReportModel.ReportType = ReportType.New;
 
+            if (System.Configuration.ConfigurationManager.AppSettings.Get(4) == "Used")
+            {
+                leadReportModel.ReportType = ReportType.Used;
+            };
             if (Request.Form["datepickerStart"] != null)
             {
                 startDate = Convert.ToDateTime(Request.Form["datepickerStart"]);
@@ -183,7 +193,8 @@ namespace Report_PricingRange.Controllers
             if (IncludeStatus2)
             {
                 leadReportModel = SqlQueries.GetPriceReport(leadReportModel);
-            } else
+            }
+            else
             {
                 leadReportModel = SqlQueries.GetPriceReport(leadReportModel);
             }
